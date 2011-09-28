@@ -1,6 +1,7 @@
 package net.zetetic;
 
 import android.app.Activity;
+import info.guardianproject.database.sqlcipher.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ public class HelloAndroidActivity extends Activity {
         super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
+        SQLiteDatabase.loadLibs(this);
         loadData();
     }
 
