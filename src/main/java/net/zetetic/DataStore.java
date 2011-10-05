@@ -1,6 +1,7 @@
 package net.zetetic;
 
 import android.content.Context;
+import android.database.Cursor;
 import info.guardianproject.database.sqlcipher.SQLiteDatabase;
 import info.guardianproject.database.sqlcipher.SQLiteOpenHelper;
 
@@ -31,6 +32,22 @@ public class DataStore {
 
     public void createEntry(String first, String second){
         database.execSQL("insert into t1(a,b) values (?, ?)", new Object[]{first, second});
+    }
+
+    public String getData() {
+        Cursor cursor = database.rawQuery("select * from t1", new String[]{});
+        StringBuilder data = new StringBuilder();
+
+        if (cursor.moveToFirst()) {
+            do {
+                // Get the field values
+                data.append(cursor.getString(0));
+                data.append("|");
+                data.append(cursor.getString(1));
+                data.append("\n");
+            } while (cursor.moveToNext());
+        }
+        return data.toString();
     }
 
     private static class SchemaMigration extends SQLiteOpenHelper {
