@@ -4,19 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
 <Button
     android:id="@+id/button1"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:text="Load!"
+    android:text="@string/test_suite_button"
     android:onClick="onButtonClick"/>
 <TextView
-    android:id="@+id/textview1"
+    android:id="@+id/test_suite_results"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" />
 </LinearLayout>
