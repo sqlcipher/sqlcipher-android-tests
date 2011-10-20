@@ -1,10 +1,8 @@
 package net.zetetic.tests;
 
-import android.content.Context;
+import android.util.Log;
 import info.guardianproject.database.sqlcipher.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
-
-import java.io.File;
 
 public abstract class SQLCipherTest {
 
@@ -14,11 +12,7 @@ public abstract class SQLCipherTest {
     private SQLiteDatabase database;
 
     protected void setUp() {
-        Context context = ZeteticApplication.getInstance().getApplicationContext();
-        File databaseFile = context.getDatabasePath("test.db");
-        databaseFile.mkdirs();
-        databaseFile.delete();
-        database = SQLiteDatabase.openOrCreateDatabase(databaseFile, "test", null);
+        database = ZeteticApplication.getInstance().createDatabase();
     }
 
     public TestResult run() {
@@ -27,7 +21,9 @@ public abstract class SQLCipherTest {
         try {
             setUp();
             result.setResult(execute(database));
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            Log.v(ZeteticApplication.TAG, e.toString());
+        }
         return result;
     }
 }

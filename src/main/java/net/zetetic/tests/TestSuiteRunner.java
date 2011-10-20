@@ -21,6 +21,7 @@ public class TestSuiteRunner {
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
         tests.add(new NullQueryResultTest());
+        tests.add(new CrossProcessCursorQueryTest());
         return tests;
     }
 }

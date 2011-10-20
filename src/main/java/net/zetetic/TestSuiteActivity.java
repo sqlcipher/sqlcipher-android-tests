@@ -23,6 +23,7 @@ public class TestSuiteActivity extends Activity {
 
     public void onButtonClick(View view) {
 
+        ZeteticApplication.getInstance().setCurrentActivity(this);
         TestSuiteRunner runner = new TestSuiteRunner();
         List<TestResult> results = runner.runSuite();
 
