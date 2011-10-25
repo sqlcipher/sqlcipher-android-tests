@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import info.guardianproject.database.sqlcipher.SQLiteDatabase;
+import info.guardianproject.database.sqlcipher.SQLiteQueryBuilder;
 
 public class ZeteticContentProvider extends ContentProvider {
 
@@ -27,7 +28,10 @@ public class ZeteticContentProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        return database.rawQuery("select * from t1", null);
+        //return database.rawQuery("select * from t1", null);
+        SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+        builder.setTables("t1");
+        return builder.query(database, new String[]{"a", "b"}, null, null, null, null, null);
     }
 
     @Override
