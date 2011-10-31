@@ -8,20 +8,25 @@ import java.util.List;
 
 public class TestSuiteRunner {
 
-    public List<TestResult> runSuite(){
+    private ResultNotifier notifier;
+
+    public TestSuiteRunner(ResultNotifier notifier) {
+        this.notifier = notifier;
+    }
+
+    public void runSuite(){
 
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
-        List<TestResult> results = new ArrayList<TestResult>();
         for(SQLCipherTest test : getTestsToRun()){
-            results.add(test.run());
+            new TestTask(notifier).execute(test);
         }
-        return results;
     }
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
         tests.add(new NullQueryResultTest());
         tests.add(new CrossProcessCursorQueryTest());
+        tests.add(new LoopingQueryTest());
         return tests;
     }
 }

@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import net.zetetic.tests.ResultNotifier;
 import net.zetetic.tests.TestResult;
 import net.zetetic.tests.TestSuiteRunner;
 
-import java.util.List;
-
-public class TestSuiteActivity extends Activity {
+public class TestSuiteActivity extends Activity implements ResultNotifier {
 
     private static String TAG = "net.zetetic.sqlcipher.test";
+    TextView resultsView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,15 +23,14 @@ public class TestSuiteActivity extends Activity {
 
     public void onButtonClick(View view) {
 
+        resultsView = (TextView) findViewById(R.id.test_suite_results);
         ZeteticApplication.getInstance().setCurrentActivity(this);
-        TestSuiteRunner runner = new TestSuiteRunner();
-        List<TestResult> results = runner.runSuite();
+        TestSuiteRunner runner = new TestSuiteRunner(this);
+        runner.runSuite();
+    }
 
-        TextView resultsView = (TextView) findViewById(R.id.test_suite_results);
-        StringBuilder buffer = new StringBuilder();
-        for(TestResult result : results){
-            buffer.append(result.toString() + "\n");
-        }
-        resultsView.setText(buffer.toString());
+    @Override
+    public void send(TestResult result) {
+        resultsView.append(result.toString());
     }
 }
