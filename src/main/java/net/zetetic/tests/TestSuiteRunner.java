@@ -1,5 +1,6 @@
 package net.zetetic.tests;
 
+import android.util.Log;
 import info.guardianproject.database.sqlcipher.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
@@ -18,7 +19,8 @@ public class TestSuiteRunner {
 
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
         for(SQLCipherTest test : getTestsToRun()){
-            new TestTask(notifier).execute(test);
+            Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
+            notifier.send(test.run());
         }
     }
 

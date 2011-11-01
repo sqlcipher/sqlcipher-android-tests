@@ -16,14 +16,20 @@ public abstract class SQLCipherTest {
     }
 
     public TestResult run() {
-        
+
         TestResult result = new TestResult(getName(), false);
         try {
             setUp();
             result.setResult(execute(database));
+            tearDown();
         } catch (Exception e) {
             Log.v(ZeteticApplication.TAG, e.toString());
         }
         return result;
+    }
+
+    private void tearDown(){
+        database.close();
+        SQLiteDatabase.releaseMemory();
     }
 }

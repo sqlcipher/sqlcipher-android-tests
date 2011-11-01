@@ -17,8 +17,6 @@ public class ZeteticContentProvider extends ContentProvider {
     public ZeteticContentProvider() {
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
         database = ZeteticApplication.getInstance().createDatabase();
-        database.execSQL("create table t1(a, b);");
-        database.execSQL("insert into t1(a, b) values('one for the money', 'two for the show');");
     }
 
     @Override
@@ -28,7 +26,7 @@ public class ZeteticContentProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        //return database.rawQuery("select * from t1", null);
+        createDatabaseWithData(database);
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables("t1");
         return builder.query(database, new String[]{"a", "b"}, null, null, null, null, null);
@@ -52,5 +50,10 @@ public class ZeteticContentProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues contentValues, String s, String[] strings) {
         return 0;
+    }
+
+    private void createDatabaseWithData(SQLiteDatabase database) {
+        database.execSQL("create table if not exists t1(a, b);");
+        database.execSQL("insert into t1(a, b) values('one for the money', 'two for the show');");
     }
 }
