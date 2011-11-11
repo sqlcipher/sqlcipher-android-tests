@@ -29,6 +29,7 @@ public class TestSuiteRunner {
         tests.add(new NullQueryResultTest());
         tests.add(new CrossProcessCursorQueryTest());
         tests.add(new LoopingQueryTest());
+        tests.add(new LoopingCountQueryTest());
         return tests;
     }
 }

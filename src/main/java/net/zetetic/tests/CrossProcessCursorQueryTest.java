@@ -27,6 +27,6 @@ public class CrossProcessCursorQueryTest extends SQLCipherTest {
 
     @Override
     public String getName() {
-        return "Cross Process Cursor Test";
+        return "Custom Cross Process Cursor Test";
     }
 }

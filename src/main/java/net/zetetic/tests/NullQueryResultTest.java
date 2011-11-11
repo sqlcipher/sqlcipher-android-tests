@@ -10,7 +10,8 @@ public class NullQueryResultTest extends SQLCipherTest {
         
         database.execSQL("create table t1(a,b);");
         database.execSQL("insert into t1(a,b) values (?, ?)", new Object[]{"foo", null});
-        Cursor cursor = database.rawQuery("select b from t1", null);
+        database.execSQL("insert into t1(a,b) values (?, ?)", new Object[]{"bar", null});
+        Cursor cursor = database.rawQuery("select a from t1", null);
         StringBuilder buffer = new StringBuilder();
         while(cursor.moveToNext()){
             buffer.append(cursor.getString(0));
