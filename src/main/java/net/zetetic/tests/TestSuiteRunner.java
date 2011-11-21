@@ -1,5 +1,6 @@
 package net.zetetic.tests;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import info.guardianproject.database.sqlcipher.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
@@ -7,20 +8,33 @@ import net.zetetic.ZeteticApplication;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestSuiteRunner {
+public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void> {
 
     private ResultNotifier notifier;
 
-    public TestSuiteRunner(ResultNotifier notifier) {
-        this.notifier = notifier;
+    @Override
+    protected Void doInBackground(ResultNotifier... resultNotifiers) {
+        this.notifier = resultNotifiers[0];
+        runSuite();
+        return null;
     }
 
-    public void runSuite(){
+    @Override
+    protected void onProgressUpdate(TestResult... values) {
+        notifier.send(values[0]);
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        notifier.complete();
+    }
+
+    private void runSuite(){
 
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
         for(SQLCipherTest test : getTestsToRun()){
             Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
-            notifier.send(test.run());
+            publishProgress(test.run());
         }
     }
 

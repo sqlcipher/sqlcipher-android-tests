@@ -11,5 +11,6 @@
         </activity>
         <provider android:name=".ZeteticContentProvider" android:authorities="net.zetetic.sqlcipher.zeteticprovider" />
     </application>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 </manifest>
 

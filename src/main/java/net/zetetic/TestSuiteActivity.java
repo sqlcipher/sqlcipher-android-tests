@@ -23,14 +23,19 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
 
     public void onButtonClick(View view) {
 
+        findViewById(R.id.executeSuite).setEnabled(false);
         resultsView = (TextView) findViewById(R.id.test_suite_results);
         ZeteticApplication.getInstance().setCurrentActivity(this);
-        TestSuiteRunner runner = new TestSuiteRunner(this);
-        runner.runSuite();
+        new TestSuiteRunner().execute(this);
     }
 
     @Override
     public void send(TestResult result) {
         resultsView.append(result.toString());
+    }
+
+    @Override
+    public void complete() {
+        findViewById(R.id.executeSuite).setEnabled(true);
     }
 }
