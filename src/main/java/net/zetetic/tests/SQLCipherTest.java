@@ -11,25 +11,30 @@ public abstract class SQLCipherTest {
 
     private SQLiteDatabase database;
 
-    protected void setUp() {
+    protected void internalSetUp() {
         database = ZeteticApplication.getInstance().createDatabase();
+        setUp();
     }
 
     public TestResult run() {
 
         TestResult result = new TestResult(getName(), false);
         try {
-            setUp();
+            internalSetUp();
             result.setResult(execute(database));
-            tearDown();
+            internalTearDown();
         } catch (Exception e) {
             Log.v(ZeteticApplication.TAG, e.toString());
         }
         return result;
     }
 
-    private void tearDown(){
+    private void internalTearDown(){
         database.close();
         SQLiteDatabase.releaseMemory();
+        tearDown();
     }
+
+    protected void setUp(){};
+    protected void tearDown(){};
 }
