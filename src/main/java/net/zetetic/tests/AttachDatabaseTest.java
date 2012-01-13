@@ -12,6 +12,8 @@ public class AttachDatabaseTest extends SQLCipherTest {
         encryptedDatabase.execSQL("create table t1(a,b)");
         encryptedDatabase.execSQL("insert into t1(a,b) values(?, ?)", new Object[]{"one", "two"});
 
+        
+
         String newKey = "foo";
         File newDatabasePath = ZeteticApplication.getInstance().getDatabasePath("normal.db");
         String attachCommand = "ATTACH DATABASE ? as encrypted KEY ?";
@@ -22,7 +24,7 @@ public class AttachDatabaseTest extends SQLCipherTest {
         encryptedDatabase.execSQL(createCommand);
         encryptedDatabase.execSQL(insertCommand);
         encryptedDatabase.execSQL(detachCommand);
-        
+
         return true;
     }
 
@@ -30,6 +32,11 @@ public class AttachDatabaseTest extends SQLCipherTest {
     protected void tearDown() {
         File newDatabasePath = ZeteticApplication.getInstance().getDatabasePath("normal.db");
         newDatabasePath.delete();
+    }
+
+    public android.database.sqlite.SQLiteDatabase createNormalDatabase(){
+        File newDatabasePath = ZeteticApplication.getInstance().getDatabasePath("normal.db");
+        return android.database.sqlite.SQLiteDatabase.openOrCreateDatabase(newDatabasePath.getAbsolutePath(), null);
     }
 
     @Override

@@ -15,8 +15,7 @@ public class ZeteticContentProvider extends ContentProvider {
     private SQLiteDatabase database;
 
     public ZeteticContentProvider() {
-        SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
-        database = ZeteticApplication.getInstance().createDatabase();
+
     }
 
     @Override
@@ -26,6 +25,10 @@ public class ZeteticContentProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+
+        SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
+        database = ZeteticApplication.getInstance().createDatabase();
+
         createDatabaseWithData(database);
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables("t1");

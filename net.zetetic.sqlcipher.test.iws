@@ -13,7 +13,6 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-    <option name="REVERSE_PATCH" value="false" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -66,8 +65,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -79,18 +78,7 @@
       <file leaf-file-name="AttachDatabaseTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="33" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLiteDatabase.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/libs/sqlcipher.jar!/info/guardianproject/database/sqlcipher/SQLiteDatabase.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="241" column="16" selection-start="13853" selection-end="13853" vertical-scroll-proportion="-7.52">
+            <state line="35" column="0" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -99,16 +87,16 @@
       <file leaf-file-name="NullQueryResultTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/NullQueryResultTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="24" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0">
+            <state line="14" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLCipherTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SQLCipherTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="0.1952596">
+            <state line="14" column="58" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,19 +111,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
+            <state line="22" column="27" selection-start="577" selection-end="577" vertical-scroll-proportion="0.44206774">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncTask.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/bin/android-sdk/platforms/android-7/android.jar!/android/os/AsyncTask.class">
+      <file leaf-file-name="LoopingQueryTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/LoopingQueryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="11" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,7 +141,7 @@
       <file leaf-file-name="ZeteticApplication.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="820" selection-end="1032" vertical-scroll-proportion="0.0">
+            <state line="32" column="33" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -175,8 +163,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/StubContentProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticContentProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/CrossProcessCursorQueryTest.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/ContactsQueryTest.java" />
@@ -187,8 +173,10 @@
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/TestSuiteActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticContentProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java" />
       </list>
     </option>
   </component>
@@ -210,6 +198,12 @@
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1676" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,7 +231,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -377,13 +370,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net.zetetic.sqlcipher.test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net.zetetic.sqlcipher.test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
@@ -397,11 +405,12 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="DEBUGGABLE_PROCESS" value="net.zetetic" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -411,7 +420,7 @@
       <recent name="net.zetetic.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.simulator-2.3.3">
+  <component name="RunManager" selected="Android Application.emulator-4.0.3">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -419,7 +428,7 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="PREFERRED_AVD" value="" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -513,7 +522,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="PREFERRED_AVD" value="" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -528,30 +537,13 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="false" name="simulator-2.1" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="emulator-2.1" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="net.zetetic.sqlcipher.test" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simuator-2.1" />
-      <option name="COMMAND_LINE" value="-scale 200dpi" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="simulator-2.2" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="net.zetetic.sqlcipher.test" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simulator-2.2" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-2.1" />
       <option name="COMMAND_LINE" value="-scale 200dpi" />
       <option name="WIPE_USER_DATA" value="false" />
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
@@ -564,32 +556,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="simulator-2.3.1" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="emualtor-2.2" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="net.zetetic.sqlcipher.test" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simulator-2.3.1" />
-      <option name="COMMAND_LINE" value="-scale 200dpi" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="true" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <RunnerSettings RunnerId="AndroidDebugRunner" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="simulator-2.3.3" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="net.zetetic.sqlcipher.test" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simulator-2.3.3" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-2.2" />
       <option name="COMMAND_LINE" value="-scale 200dpi" />
       <option name="WIPE_USER_DATA" value="false" />
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
@@ -602,13 +575,32 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="simulator-3.0" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="emulator-2.3.3" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="net.zetetic.sqlcipher.test" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simulator-3.0" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-2.3.3" />
+      <option name="COMMAND_LINE" value="-scale 200dpi" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="emulator-3.0" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="net.zetetic.sqlcipher.test" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-3.0" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
@@ -619,13 +611,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="simulator-3.1" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="emulator-3.1" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="net.zetetic.sqlcipher.test" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simulator-3.1" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-3.1" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
@@ -636,13 +628,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="simulator-3.2" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="emulator-3.2" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="net.zetetic.sqlcipher.test" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="simulator-3.2" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-3.2" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
@@ -653,14 +645,53 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="7">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.simulator-2.1" />
-      <item index="1" class="java.lang.String" itemvalue="Android Application.simulator-2.2" />
-      <item index="2" class="java.lang.String" itemvalue="Android Application.simulator-2.3.1" />
-      <item index="3" class="java.lang.String" itemvalue="Android Application.simulator-2.3.3" />
-      <item index="4" class="java.lang.String" itemvalue="Android Application.simulator-3.0" />
-      <item index="5" class="java.lang.String" itemvalue="Android Application.simulator-3.1" />
-      <item index="6" class="java.lang.String" itemvalue="Android Application.simulator-3.2" />
+    <configuration default="false" name="emulator-4.0.0" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="net.zetetic.sqlcipher.test" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-4.0" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="emulator-4.0.3" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="net.zetetic.sqlcipher.test" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="emulator-4.0.3" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="8">
+      <item index="0" class="java.lang.String" itemvalue="Android Application.emulator-2.1" />
+      <item index="1" class="java.lang.String" itemvalue="Android Application.emualtor-2.2" />
+      <item index="2" class="java.lang.String" itemvalue="Android Application.emulator-2.3.3" />
+      <item index="3" class="java.lang.String" itemvalue="Android Application.emulator-3.0" />
+      <item index="4" class="java.lang.String" itemvalue="Android Application.emulator-3.1" />
+      <item index="5" class="java.lang.String" itemvalue="Android Application.emulator-3.2" />
+      <item index="6" class="java.lang.String" itemvalue="Android Application.emulator-4.0.0" />
+      <item index="7" class="java.lang.String" itemvalue="Android Application.emulator-4.0.3" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -694,30 +725,55 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="22" width="1676" height="1028" extended-state="0" />
-    <editor active="true" />
+    <frame x="4" y="22" width="1676" height="1028" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35187167" sideWeight="0.47940996" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32513368" sideWeight="0.46650276" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6281628" sideWeight="0.47727272" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32453245" sideWeight="0.46650276" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060233" sideWeight="0.2395722" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.76042783" sideWeight="0.08973571" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.76042783" sideWeight="0.9053473" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.259828" sideWeight="0.6710671" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32893288" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66593164" sideWeight="0.5184275" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -743,6 +799,12 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
@@ -766,31 +828,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="41" selection-end="41" vertical-scroll-proportion="0.051918738" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/LoopingQueryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="53" selection-start="246" selection-end="246" vertical-scroll-proportion="0.18171558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/LoopingCountQueryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="187" selection-end="187" vertical-scroll-proportion="0.03159341" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticContentProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="32" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.03159341" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="33" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" />
@@ -801,67 +838,74 @@
         <state line="4" column="20" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/TestSuiteActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticContentProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="18" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/NullQueryResultTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="24" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="820" selection-end="1032" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/sqlcipher.jar!/info/guardianproject/database/sqlcipher/SQLiteDatabase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="16" selection-start="13853" selection-end="13853" vertical-scroll-proportion="-7.52">
-          <folding />
-        </state>
+        <state line="18" column="5" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/bin/android-sdk/platforms/android-7/android.jar!/android/os/AsyncTask.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2.jar!/android/os/Handler.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="23" column="36" selection-start="860" selection-end="860" vertical-scroll-proportion="0.3488372" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/CrossProcessCursorQueryTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2.jar!/android/database/Cursor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="7" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="17" selection-start="158" selection-end="158" vertical-scroll-proportion="0.17690417" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/sqlcipher.jar!/info/guardianproject/database/sqlcipher/SQLiteQuery.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1576" selection-end="1576" vertical-scroll-proportion="0.7893401" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2.jar!/android/os/AsyncTask.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="62" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.6131387" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="33" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="35" column="0" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/NullQueryResultTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="0.1952596">
+        <state line="14" column="58" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/CrossProcessCursorQueryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="7" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/LoopingQueryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/TestSuiteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="18" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="33" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="27" selection-start="577" selection-end="577" vertical-scroll-proportion="0.44206774">
           <folding />
         </state>
       </provider>
@@ -883,7 +927,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Android (net.zetetic.sqlcipher.test)|Android</last-edited>
+          <last-edited>Detection</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -906,7 +950,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>Android 2.3.1 Platform</last-edited>
+          <last-edited>Android 2.1 Platform</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -918,11 +962,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Android|net.zetetic.sqlcipher.test</last-edited>
+          <last-edited>net.zetetic.sqlcipher.test</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
