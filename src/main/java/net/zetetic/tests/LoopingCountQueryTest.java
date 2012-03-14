@@ -1,7 +1,7 @@
 package net.zetetic.tests;
 
 import android.database.Cursor;
-import info.guardianproject.database.sqlcipher.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabase;
 
 public class LoopingCountQueryTest extends SQLCipherTest {
     

@@ -2,7 +2,7 @@ package net.zetetic.tests;
 
 import android.app.Activity;
 import android.net.Uri;
-import info.guardianproject.database.sqlcipher.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 import net.zetetic.ZeteticContentProvider;
 

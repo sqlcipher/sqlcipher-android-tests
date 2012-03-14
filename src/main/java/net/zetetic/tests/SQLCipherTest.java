@@ -1,7 +1,7 @@
 package net.zetetic.tests;
 
 import android.util.Log;
-import info.guardianproject.database.sqlcipher.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
 public abstract class SQLCipherTest {

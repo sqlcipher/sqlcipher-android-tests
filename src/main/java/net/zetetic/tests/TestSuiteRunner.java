@@ -2,7 +2,7 @@ package net.zetetic.tests;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import info.guardianproject.database.sqlcipher.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
 import java.util.ArrayList;
@@ -45,6 +45,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new LoopingQueryTest());
         tests.add(new LoopingCountQueryTest());
         tests.add(new AttachDatabaseTest());
+        tests.add(new CanThrowSQLiteExceptionTest());
         return tests;
     }
 }

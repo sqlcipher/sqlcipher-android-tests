@@ -1,6 +1,6 @@
 package net.zetetic.tests;
 
-import info.guardianproject.database.sqlcipher.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
