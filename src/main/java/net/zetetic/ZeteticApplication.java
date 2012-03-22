@@ -30,10 +30,13 @@ public class ZeteticApplication extends Application {
         return activity;
     }
 
-    public SQLiteDatabase createDatabase(){
+    public void prepareDatabaseEnvironment(){
         File databaseFile = getDatabasePath(DATABASE_NAME);
         databaseFile.mkdirs();
         databaseFile.delete();
+    }
+
+    public SQLiteDatabase createDatabase(File databaseFile){
         return SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
     }
 }

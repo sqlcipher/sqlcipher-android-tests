@@ -4,6 +4,8 @@ import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
+import java.io.File;
+
 public abstract class SQLCipherTest {
 
     public abstract boolean execute(SQLiteDatabase database);
@@ -12,7 +14,9 @@ public abstract class SQLCipherTest {
     private SQLiteDatabase database;
 
     protected void internalSetUp() {
-        database = ZeteticApplication.getInstance().createDatabase();
+        ZeteticApplication.getInstance().prepareDatabaseEnvironment();
+        File databasePath = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
+        database = createDatabase(databasePath);
         setUp();
     }
 
@@ -33,6 +37,10 @@ public abstract class SQLCipherTest {
         database.close();
         SQLiteDatabase.releaseMemory();
         tearDown();
+    }
+    
+    protected SQLiteDatabase createDatabase(File databasePath){
+        return ZeteticApplication.getInstance().createDatabase(databasePath);
     }
 
     protected void setUp(){};

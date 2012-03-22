@@ -7,6 +7,8 @@ import android.net.Uri;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteQueryBuilder;
 
+import java.io.File;
+
 public class ZeteticContentProvider extends ContentProvider {
 
     public static final Uri CONTENT_URI =
@@ -27,7 +29,8 @@ public class ZeteticContentProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
-        database = ZeteticApplication.getInstance().createDatabase();
+        File databasePath = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
+        database = ZeteticApplication.getInstance().createDatabase(databasePath);
 
         createDatabaseWithData(database);
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
