@@ -49,6 +49,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new RawExecSQLTest());
         tests.add(new RawExecSQLExceptionTest());
         tests.add(new AES128CipherTest());
+        tests.add(new MigrationFromDatabaseFormat1To2());
         return tests;
     }
 }
