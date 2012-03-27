@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import net.sqlcipher.database.SQLiteDatabase;
 
-import java.io.File;
+import java.io.*;
 
 public class ZeteticApplication extends Application {
 
@@ -13,6 +13,7 @@ public class ZeteticApplication extends Application {
     private static ZeteticApplication instance;
     private Activity activity;
     public static final String TAG = "Zetetic";
+    public static final String ONE_X_DATABASE = "1x.db";
 
     public ZeteticApplication(){
         instance = this;
@@ -38,5 +39,27 @@ public class ZeteticApplication extends Application {
 
     public SQLiteDatabase createDatabase(File databaseFile){
         return SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
+    }
+
+    public void extract1xDatabaseToDatabaseDirectory() throws IOException {
+
+        int length;
+        InputStream sourceDatabase = ZeteticApplication.getInstance().getAssets().open(ONE_X_DATABASE);
+        File destinationPath = ZeteticApplication.getInstance().getDatabasePath(ONE_X_DATABASE);
+        OutputStream destination = new FileOutputStream(destinationPath);
+
+        byte[] buffer = new byte[4096];
+        while((length = sourceDatabase.read(buffer)) > 0){
+            destination.write(buffer, 0, length);
+        }
+        sourceDatabase.close();
+        destination.flush();
+        destination.close();
+    }
+
+    public void delete1xDatabase() {
+        
+        File databaseFile = getInstance().getDatabasePath(ONE_X_DATABASE);
+        databaseFile.delete();
     }
 }

@@ -5,14 +5,12 @@ import net.zetetic.ZeteticApplication;
 
 import java.io.File;
 
-public class AttachDatabaseTest extends SQLCipherTest {
+public class AttachNewDatabaseTest extends SQLCipherTest {
     @Override
     public boolean execute(SQLiteDatabase encryptedDatabase) {
 
         encryptedDatabase.execSQL("create table t1(a,b)");
         encryptedDatabase.execSQL("insert into t1(a,b) values(?, ?)", new Object[]{"one", "two"});
-
-        
 
         String newKey = "foo";
         File newDatabasePath = ZeteticApplication.getInstance().getDatabasePath("normal.db");
@@ -41,6 +39,6 @@ public class AttachDatabaseTest extends SQLCipherTest {
 
     @Override
     public String getName() {
-        return "Attach Database Test";
+        return "Attach New Database Test";
     }
 }

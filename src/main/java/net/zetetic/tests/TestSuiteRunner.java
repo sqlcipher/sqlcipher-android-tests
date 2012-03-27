@@ -44,7 +44,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new CrossProcessCursorQueryTest());
         tests.add(new LoopingQueryTest());
         tests.add(new LoopingCountQueryTest());
-        tests.add(new AttachDatabaseTest());
+        tests.add(new AttachNewDatabaseTest());
+        tests.add(new AttachExistingDatabaseTest());
         tests.add(new CanThrowSQLiteExceptionTest());
         tests.add(new RawExecSQLTest());
         tests.add(new RawExecSQLExceptionTest());
