@@ -52,6 +52,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new AES128CipherTest());
         tests.add(new MigrationFromDatabaseFormat1To2());
         tests.add(new StatusMemoryUsedTest());
+        tests.add(new PragmaCipherVersionTest());
         return tests;
     }
 }
