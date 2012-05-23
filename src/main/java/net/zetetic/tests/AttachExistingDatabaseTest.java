@@ -13,7 +13,7 @@ public class AttachExistingDatabaseTest extends SQLCipherTest {
     public boolean execute(SQLiteDatabase database) {
 
         try {
-            ZeteticApplication.getInstance().extract1xDatabaseToDatabaseDirectory();
+            ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(ZeteticApplication.ONE_X_DATABASE);
             File other = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_DATABASE);
             String otherPath = other.getAbsolutePath();
             String attach = String.format("attach database ? as other key ?");

@@ -13,7 +13,7 @@ public class MigrationFromDatabaseFormat1To2 extends SQLCipherTest {
 
         try {
             String password = ZeteticApplication.DATABASE_PASSWORD;
-            ZeteticApplication.getInstance().extract1xDatabaseToDatabaseDirectory();
+            ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(ZeteticApplication.ONE_X_DATABASE);
             File sourceDatabase = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_DATABASE);
             SQLiteDatabase.upgradeDatabaseFormatFromVersion1To2(sourceDatabase, password);
 

@@ -14,6 +14,7 @@ public class ZeteticApplication extends Application {
     private Activity activity;
     public static final String TAG = "Zetetic";
     public static final String ONE_X_DATABASE = "1x.db";
+    public static final String UNENCRYPTED_DATABASE = "unencrypted.db";
 
     public ZeteticApplication(){
         instance = this;
@@ -41,11 +42,11 @@ public class ZeteticApplication extends Application {
         return SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
     }
 
-    public void extract1xDatabaseToDatabaseDirectory() throws IOException {
+    public void extractAssetToDatabaseDirectory(String fileName) throws IOException {
 
         int length;
-        InputStream sourceDatabase = ZeteticApplication.getInstance().getAssets().open(ONE_X_DATABASE);
-        File destinationPath = ZeteticApplication.getInstance().getDatabasePath(ONE_X_DATABASE);
+        InputStream sourceDatabase = ZeteticApplication.getInstance().getAssets().open(fileName);
+        File destinationPath = ZeteticApplication.getInstance().getDatabasePath(fileName);
         OutputStream destination = new FileOutputStream(destinationPath);
 
         byte[] buffer = new byte[4096];
