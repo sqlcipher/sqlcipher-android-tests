@@ -54,6 +54,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new StatusMemoryUsedTest());
         tests.add(new PragmaCipherVersionTest());
         tests.add(new ImportUnencryptedDatabaseTest());
+        tests.add(new FullTextSearchTest());
         return tests;
     }
 }
