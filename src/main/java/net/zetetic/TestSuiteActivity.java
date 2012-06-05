@@ -2,6 +2,7 @@ package net.zetetic;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
 
         findViewById(R.id.executeSuite).setEnabled(false);
         resultsView = (TextView) findViewById(R.id.test_suite_results);
+        resultsView.setMovementMethod(ScrollingMovementMethod.getInstance());
         ZeteticApplication.getInstance().setCurrentActivity(this);
         new TestSuiteRunner().execute(this);
     }

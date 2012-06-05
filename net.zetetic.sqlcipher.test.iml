@@ -8,7 +8,7 @@
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/assets" />
-        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/src/main/native" />
+        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/libs" />
         <option name="REGENERATE_R_JAVA" value="true" />
         <option name="REGENERATE_JAVA_BY_AIDL" value="true" />
         <option name="USE_CUSTOM_APK_RESOURCE_FOLDER" value="false" />

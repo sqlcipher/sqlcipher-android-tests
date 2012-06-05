@@ -10,6 +10,7 @@ public abstract class SQLCipherTest {
 
     public abstract boolean execute(SQLiteDatabase database);
     public abstract String getName();
+    public String TAG = getClass().getSimpleName();
 
     private SQLiteDatabase database;
 
