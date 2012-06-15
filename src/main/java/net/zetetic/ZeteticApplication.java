@@ -63,4 +63,13 @@ public class ZeteticApplication extends Application {
         File databaseFile = getInstance().getDatabasePath(ONE_X_DATABASE);
         databaseFile.delete();
     }
+
+    public void deleteDatabaseFileAndSiblings(String databaseName){
+
+        File databaseFile = ZeteticApplication.getInstance().getDatabasePath(databaseName);
+        File databasesDirectory = new File(databaseFile.getParent());
+        for(File file : databasesDirectory.listFiles()){
+            file.delete();
+        }
+    }
 }

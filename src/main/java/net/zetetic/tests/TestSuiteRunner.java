@@ -56,6 +56,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new ImportUnencryptedDatabaseTest());
         tests.add(new FullTextSearchTest());
         tests.add(new ReadableDatabaseTest());
+        tests.add(new AutoVacuumOverReadTest());
+        tests.add(new ReadableWritableAccessTest());
         return tests;
     }
 }
