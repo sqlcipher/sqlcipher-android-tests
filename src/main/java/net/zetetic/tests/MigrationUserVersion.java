@@ -38,21 +38,4 @@ public class MigrationUserVersion extends SQLCipherTest {
     public String getName() {
         return "Database 1.x - 2 Migration with user_version";
     }
-
-    class SQLCipherOpenHelper extends SQLiteOpenHelper {
-
-        public SQLCipherOpenHelper(Context context, String name) {
-            super(context, name, null, 2);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
-        }
-    }
 }

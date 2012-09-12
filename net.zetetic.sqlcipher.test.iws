@@ -114,11 +114,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="7" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.42637363">
+            <state line="42" column="7" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MigrationUserVersion.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="5" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.7905405">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,8 +176,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationFromDatabaseFormat1To2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java" />
       </list>
     </option>
   </component>
@@ -935,15 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="408" selection-end="476" vertical-scroll-proportion="0.027027028">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/ReadableWritableAccessTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="1168" selection-end="1168" vertical-scroll-proportion="0.16891892">
@@ -965,8 +967,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="7" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.42637363">
+        <state line="42" column="7" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="5" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.7905405">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
