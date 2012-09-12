@@ -59,6 +59,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new AutoVacuumOverReadTest());
         tests.add(new ReadableWritableAccessTest());
         tests.add(new VerifyOnUpgradeIsCalledTest());
+        tests.add(new MigrationUserVersion());
         return tests;
     }
 }

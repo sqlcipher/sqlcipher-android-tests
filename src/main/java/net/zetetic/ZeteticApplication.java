@@ -14,6 +14,7 @@ public class ZeteticApplication extends Application {
     private Activity activity;
     public static final String TAG = "Zetetic";
     public static final String ONE_X_DATABASE = "1x.db";
+    public static final String ONE_X_USER_VERSION_DATABASE = "1x-user-version.db";
     public static final String UNENCRYPTED_DATABASE = "unencrypted.db";
 
     public ZeteticApplication(){
