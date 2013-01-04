@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.*;
 import net.zetetic.tests.ResultNotifier;
 import net.zetetic.tests.TestResult;
 import net.zetetic.tests.TestSuiteRunner;
@@ -18,6 +17,7 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
     private static String TAG = "net.zetetic.sqlcipher.test";
     ListView resultsView;
     List<TestResult> results;
+    View statsView;
 
     public TestSuiteActivity(){
         results = new ArrayList<TestResult>();
@@ -32,6 +32,8 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
 
     public void onButtonClick(View view) {
 
+        results.clear();
+        hideStats();
         findViewById(R.id.executeSuite).setEnabled(false);
         resultsView = (ListView) findViewById(R.id.test_suite_results);
         ZeteticApplication.getInstance().setCurrentActivity(this);
@@ -42,16 +44,35 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
     public void send(TestResult result) {
 
         results.add(result);
-        ArrayAdapter<TestResult> adapter = (ArrayAdapter<TestResult>) resultsView.getAdapter();
+        HeaderViewListAdapter adapter = (HeaderViewListAdapter) resultsView.getAdapter();
         if(adapter == null){
+            statsView = View.inflate(this, R.layout.test_stats, null);
+            resultsView.addHeaderView(statsView);
+            hideStats();
             resultsView.setAdapter(new TestResultAdapter(ZeteticApplication.getInstance(), results));
         } else {
-            adapter.notifyDataSetChanged();
+            ((ArrayAdapter<TestResult>)adapter.getWrappedAdapter()).notifyDataSetChanged();
         }
     }
 
     @Override
     public void complete() {
+
+        TextView stats = (TextView) statsView.findViewById(R.id.stats);
+        int successCount = 0;
+        for(TestResult result : results){
+            if(result.isSuccess()){
+                successCount += 1;
+            }
+        }
+        stats.setText(String.format("Passed: %d  Failed: %d", successCount, results.size() - successCount));
+        stats.setVisibility(View.VISIBLE);
         findViewById(R.id.executeSuite).setEnabled(true);
+    }
+
+    private void hideStats(){
+        if(statsView != null){
+            statsView.findViewById(R.id.stats).setVisibility(View.GONE);
+        }
     }
 }
