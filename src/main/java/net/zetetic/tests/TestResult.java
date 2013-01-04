@@ -24,7 +24,6 @@ public class TestResult {
 
     @Override
     public String toString() {
-        String status = isSuccess() ? "OK" : "FAILED";
-        return String.format("%s : %s\n", getName(), status);
+        return isSuccess() ? "OK" : "FAILED";
     }
 }

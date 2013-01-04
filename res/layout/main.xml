@@ -13,12 +13,9 @@
                 android:text="@string/test_suite_button"
                 android:onClick="onButtonClick"/>
     </LinearLayout>
-    <TextView
+    <ListView
             android:id="@+id/test_suite_results"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="top|left"
-            android:scrollbars="vertical"
-            android:singleLine="false"
             android:layout_below="@+id/container"/>
 </RelativeLayout>
