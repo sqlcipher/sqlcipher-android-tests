@@ -40,6 +40,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+        tests.add(new InvalidPasswordTest());
         tests.add(new NullQueryResultTest());
         tests.add(new CrossProcessCursorQueryTest());
         tests.add(new LoopingQueryTest());
