@@ -1,14 +1,24 @@
 package net.zetetic.tests;
 
-import android.content.Context;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
-import net.sqlcipher.database.SQLiteOpenHelper;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
 
 public class MigrationUserVersion extends SQLCipherTest {
+
+    @Override
+    protected SQLiteDatabase createDatabase(File databasePath) {
+        SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+            public void preKey(SQLiteDatabase database) {}
+            public void postKey(SQLiteDatabase database) {
+                database.execSQL("PRAGMA cipher_default_kdf_iter = 4000;");
+            }
+        };
+        return SQLiteDatabase.openOrCreateDatabase(databasePath,
+                ZeteticApplication.DATABASE_PASSWORD, null, hook);
+    }
 
     @Override
     public boolean execute(SQLiteDatabase database) {
@@ -32,6 +42,11 @@ public class MigrationUserVersion extends SQLCipherTest {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    protected void tearDown(SQLiteDatabase database) {
+        database.execSQL("PRAGMA cipher_default_kdf_iter = 64000;");
     }
 
     @Override

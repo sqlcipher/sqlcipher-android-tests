@@ -27,7 +27,7 @@ public class AttachNewDatabaseTest extends SQLCipherTest {
     }
 
     @Override
-    protected void tearDown() {
+    protected void tearDown(SQLiteDatabase database) {
         File newDatabasePath = ZeteticApplication.getInstance().getDatabasePath("normal.db");
         newDatabasePath.delete();
     }

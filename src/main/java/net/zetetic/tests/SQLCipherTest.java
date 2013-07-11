@@ -35,9 +35,9 @@ public abstract class SQLCipherTest {
     }
 
     private void internalTearDown(){
-        database.close();
         SQLiteDatabase.releaseMemory();
-        tearDown();
+        tearDown(database);
+        database.close();
     }
     
     protected SQLiteDatabase createDatabase(File databasePath){
@@ -45,5 +45,5 @@ public abstract class SQLCipherTest {
     }
 
     protected void setUp(){};
-    protected void tearDown(){};
+    protected void tearDown(SQLiteDatabase database){};
 }
