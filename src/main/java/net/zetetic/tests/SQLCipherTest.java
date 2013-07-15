@@ -11,6 +11,7 @@ public abstract class SQLCipherTest {
     public abstract boolean execute(SQLiteDatabase database);
     public abstract String getName();
     public String TAG = getClass().getSimpleName();
+    private TestResult result;
 
     private SQLiteDatabase database;
 
@@ -23,7 +24,7 @@ public abstract class SQLCipherTest {
 
     public TestResult run() {
 
-        TestResult result = new TestResult(getName(), false);
+        result = new TestResult(getName(), false);
         try {
             internalSetUp();
             result.setResult(execute(database));
@@ -32,6 +33,10 @@ public abstract class SQLCipherTest {
             Log.v(ZeteticApplication.TAG, e.toString());
         }
         return result;
+    }
+
+    protected void setMessage(String message){
+        result.setMessage(message);
     }
 
     private void internalTearDown(){
