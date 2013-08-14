@@ -5,21 +5,9 @@ import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.zetetic.ZeteticApplication;
 
-import java.io.*;
+import java.io.File;
 
-public class MigrationFromDatabaseFormat1To2 extends SQLCipherTest {
-
-    @Override
-    protected SQLiteDatabase createDatabase(File databasePath) {
-        SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
-            public void preKey(SQLiteDatabase database) {}
-            public void postKey(SQLiteDatabase database) {
-                database.execSQL("PRAGMA cipher_default_kdf_iter = 4000;");
-            }
-        };
-        return SQLiteDatabase.openOrCreateDatabase(databasePath,
-                ZeteticApplication.DATABASE_PASSWORD, null, hook);
-    }
+public class MigrateDatabaseFrom1xFormatToCurrentFormat extends SQLCipherTest {
 
     @Override
     public boolean execute(SQLiteDatabase database) {
@@ -28,9 +16,13 @@ public class MigrationFromDatabaseFormat1To2 extends SQLCipherTest {
             String password = ZeteticApplication.DATABASE_PASSWORD;
             ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(ZeteticApplication.ONE_X_DATABASE);
             File sourceDatabase = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_DATABASE);
-            SQLiteDatabase.upgradeDatabaseFormatFromVersion1To2(sourceDatabase, password);
-
-            SQLiteDatabase source = SQLiteDatabase.openOrCreateDatabase(sourceDatabase, password, null);
+            SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+                public void preKey(SQLiteDatabase database) {}
+                public void postKey(SQLiteDatabase database) {
+                    database.rawExecSQL("PRAGMA cipher_migrate;");
+                }
+            };
+            SQLiteDatabase source = SQLiteDatabase.openOrCreateDatabase(sourceDatabase, password, null, hook);
             Cursor result = source.rawQuery("select * from t1", new String[]{});
             if(result != null){
                 result.moveToFirst();
@@ -49,12 +41,7 @@ public class MigrationFromDatabaseFormat1To2 extends SQLCipherTest {
     }
 
     @Override
-    protected void tearDown(SQLiteDatabase database) {
-        database.execSQL("PRAGMA cipher_default_kdf_iter = 64000;");
-    }
-
-    @Override
     public String getName() {
-        return "Database 1.x to 2 Migration Test";
+        return "Migrate Database 1.x to Current Test";
     }
 }

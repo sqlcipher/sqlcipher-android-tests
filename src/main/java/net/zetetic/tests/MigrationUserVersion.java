@@ -28,10 +28,12 @@ public class MigrationUserVersion extends SQLCipherTest {
             ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(ZeteticApplication.ONE_X_USER_VERSION_DATABASE);
             File sourceDatabase = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_USER_VERSION_DATABASE);
             SQLiteDatabase originalDatabase = SQLiteDatabase.openOrCreateDatabase(sourceDatabase, password, null, new SQLiteDatabaseHook() {
-                public void preKey(SQLiteDatabase sqLiteDatabase) {
-                    sqLiteDatabase.rawExecSQL("PRAGMA cipher_default_use_hmac=off;");
+                public void preKey(SQLiteDatabase database) {
+                    database.rawExecSQL("PRAGMA cipher_default_use_hmac=off;");
                 }
-                public void postKey(SQLiteDatabase sqLiteDatabase) {}
+                public void postKey(SQLiteDatabase database) {
+                    database.rawExecSQL("PRAGMA cipher_migrate;");
+                }
             });
             int userVersion = originalDatabase.getVersion();
             originalDatabase.close();
@@ -51,6 +53,6 @@ public class MigrationUserVersion extends SQLCipherTest {
 
     @Override
     public String getName() {
-        return "Database 1.x - 2 Migration with user_version";
+        return "Migrate Database 1.x to Current with user_version";
     }
 }

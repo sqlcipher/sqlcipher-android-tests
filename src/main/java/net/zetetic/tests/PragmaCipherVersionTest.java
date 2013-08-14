@@ -5,7 +5,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 public class PragmaCipherVersionTest extends SQLCipherTest {
 
-    private final String CURRENT_CIPHER_VERSION = "2.2.1";
+    private final String CURRENT_CIPHER_VERSION = "3.0.0";
 
     @Override
     public boolean execute(SQLiteDatabase database) {
