@@ -66,6 +66,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new MigrationUserVersion());
         tests.add(new ExportToUnencryptedDatabase());
         tests.add(new QueryNonEncryptedDatabaseTest());
+        tests.add(new RawRekeyTest());
         return tests;
     }
 }
