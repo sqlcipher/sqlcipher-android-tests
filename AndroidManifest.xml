@@ -10,6 +10,9 @@
             </intent-filter>
         </activity>
         <provider android:name=".ZeteticContentProvider" android:authorities="net.zetetic.sqlcipher.zeteticprovider" />
+
+        <provider android:name=".ZeteticContentProvider2" android:authorities="net.zetetic.sqlcipher.zeteticprovider2"
+            android:process=":provider" />
     </application>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 </manifest>
