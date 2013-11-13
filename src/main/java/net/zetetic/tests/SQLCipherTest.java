@@ -11,6 +11,7 @@ public abstract class SQLCipherTest {
     public abstract boolean execute(SQLiteDatabase database);
     public abstract String getName();
     public String TAG = getClass().getSimpleName();
+    private TestResult result;
 
     private SQLiteDatabase database;
 
@@ -23,7 +24,7 @@ public abstract class SQLCipherTest {
 
     public TestResult run() {
 
-        TestResult result = new TestResult(getName(), false);
+        result = new TestResult(getName(), false);
         try {
             internalSetUp();
             result.setResult(execute(database));
@@ -34,10 +35,14 @@ public abstract class SQLCipherTest {
         return result;
     }
 
+    protected void setMessage(String message){
+        result.setMessage(message);
+    }
+
     private void internalTearDown(){
-        database.close();
         SQLiteDatabase.releaseMemory();
-        tearDown();
+        tearDown(database);
+        database.close();
     }
     
     protected SQLiteDatabase createDatabase(File databasePath){
@@ -45,5 +50,5 @@ public abstract class SQLCipherTest {
     }
 
     protected void setUp(){};
-    protected void tearDown(){};
+    protected void tearDown(SQLiteDatabase database){};
 }

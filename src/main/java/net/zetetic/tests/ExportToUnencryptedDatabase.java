@@ -47,8 +47,7 @@ public class ExportToUnencryptedDatabase extends SQLCipherTest {
     }
 
     @Override
-    protected void tearDown() {
-        super.tearDown();
+    protected void tearDown(SQLiteDatabase database) {
         unencryptedFile.delete();
     }
 

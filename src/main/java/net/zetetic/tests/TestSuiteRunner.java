@@ -40,10 +40,12 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+        tests.add(new CipherMigrateTest());
         tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
         tests.add(new InvalidPasswordTest());
         tests.add(new NullQueryResultTest());
         tests.add(new CrossProcessCursorQueryTest());
+        tests.add(new InterprocessBlobQueryTest());
         tests.add(new LoopingQueryTest());
         tests.add(new LoopingCountQueryTest());
         tests.add(new AttachNewDatabaseTest());
@@ -53,7 +55,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new RawExecSQLExceptionTest());
         tests.add(new CompiledSQLUpdateTest());
         tests.add(new AES128CipherTest());
-        tests.add(new MigrationFromDatabaseFormat1To2());
+        tests.add(new MigrateDatabaseFrom1xFormatToCurrentFormat());
         tests.add(new StatusMemoryUsedTest());
         tests.add(new PragmaCipherVersionTest());
         tests.add(new ImportUnencryptedDatabaseTest());
@@ -66,6 +68,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new MigrationUserVersion());
         tests.add(new ExportToUnencryptedDatabase());
         tests.add(new QueryNonEncryptedDatabaseTest());
+        tests.add(new EnableForeignKeySupportTest());
+        tests.add(new AverageOpenTimeTest());
         tests.add(new RawRekeyTest());
         return tests;
     }

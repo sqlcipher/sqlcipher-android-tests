@@ -196,6 +196,9 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="nparker" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/net.zetetic.sqlcipher.test.iml" filepath="$PROJECT_DIR$/net.zetetic.sqlcipher.test.iml" />

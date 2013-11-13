@@ -24,6 +24,7 @@ public class TestResultAdapter extends ArrayAdapter<TestResult> {
             view = View.inflate(ZeteticApplication.getInstance(), R.layout.test_result_row, null);
             holder = new ViewHolder();
             holder.testName = (TextView) view.findViewById(R.id.test_name);
+            holder.testMessage = (TextView) view.findViewById(R.id.test_message);
             holder.testStatus = (TextView) view.findViewById(R.id.test_status);
             view.setTag(holder);
         } else {
@@ -32,13 +33,20 @@ public class TestResultAdapter extends ArrayAdapter<TestResult> {
         TestResult result = getItem(position);
         holder.testName.setText(result.getName());
         holder.testStatus.setText(result.toString());
+        holder.testMessage.setVisibility(isNullOrEmpty(result.getMessage()) ? View.GONE : View.VISIBLE);
+        holder.testMessage.setText(result.getMessage());
         int displayColor = result.isSuccess() ? Color.GREEN : Color.RED;
         holder.testStatus.setTextColor(displayColor);
         return view;
     }
 
+    private boolean isNullOrEmpty(String value){
+        return value == null || value.length() == 0;
+    }
+
     static class ViewHolder {
         TextView testName;
+        TextView testMessage;
         TextView testStatus;
     }
 }

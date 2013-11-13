@@ -4,6 +4,7 @@ public class TestResult {
 
     private String name;
     private boolean success;
+    private String message;
 
     public TestResult(String name, boolean success){
         this.name = name;
@@ -25,5 +26,14 @@ public class TestResult {
     @Override
     public String toString() {
         return isSuccess() ? "OK" : "FAILED";
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage(){
+        return this.message;
     }
 }

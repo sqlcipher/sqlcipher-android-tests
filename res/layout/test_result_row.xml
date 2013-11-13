@@ -20,4 +20,13 @@
               android:singleLine="true"
               android:ellipsize="end"
               android:layout_toLeftOf="@+id/test_status"/>
+    <TextView android:id="@+id/test_message"
+              android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+              android:gravity="left"
+              android:textSize="14sp"
+              android:singleLine="true"
+              android:ellipsize="end"
+              android:layout_below="@+id/test_name"
+              android:layout_toLeftOf="@+id/test_status"/>
 </RelativeLayout>
