@@ -27,9 +27,9 @@
     <list default="true" id="cccb5bfe-eb2a-4282-b2df-29e914014eae" name="Default" comment="" />
     <ignored path="net.zetetic.sqlcipher.test.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1380220069230" ignored="false" />
+    <file path="/fragment.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1384354832119" ignored="false" />
     <file path="/QueryNonEncryptedDatabaseTest.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1360768313829" ignored="false" />
-    <file path="/TestSuiteRunner.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1373906113550" ignored="false" />
+    <file path="/TestSuiteRunner.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1381951854927" ignored="false" />
     <file path="$PROJECT_DIR$/../strip-android/src/net/zetetic/strip/helpers/SQLCipherDatabaseConnection.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1364912317293" ignored="false" />
     <file path="/SQLCipherDatabaseConnection.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1364912315797" ignored="false" />
     <file path="/InvalidPasswordTest.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1364916765656" ignored="false" />
@@ -45,6 +45,8 @@
     <file path="/TestResult.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1373907274771" ignored="false" />
     <file path="/TestResultAdapter.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1373907767672" ignored="false" />
     <file path="/PragmaCipherVersionTest.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1380210516107" ignored="false" />
+    <file path="/CipherMigrateTest.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1381953368937" ignored="false" />
+    <file path="/MigrationUserVersion.java" changelist="cccb5bfe-eb2a-4282-b2df-29e914014eae" time="1384354752277" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +61,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -96,7 +98,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -109,73 +111,43 @@
       <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="51" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
+            <state line="43" column="66" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PragmaCipherVersionTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/PragmaCipherVersionTest.java">
+      <file leaf-file-name="CipherMigrateTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/CipherMigrateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="34" selection-start="477" selection-end="477" vertical-scroll-proportion="0.672">
+            <state line="24" column="60" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InterprocessBlobQueryTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/InterprocessBlobQueryTest.java">
+      <file leaf-file-name="MigrateDatabaseFrom1xFormatToCurrentFormat.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrateDatabaseFrom1xFormatToCurrentFormat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
+            <state line="17" column="55" selection-start="618" selection-end="618" vertical-scroll-proportion="0.23101604">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttachNewDatabaseTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachNewDatabaseTest.java">
+      <file leaf-file-name="QueryHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/QueryHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLCipherTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
+      <file leaf-file-name="ImportUnencryptedDatabaseTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/ImportUnencryptedDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="5" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestResult.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_result_row.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/test_result_row.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="17" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttachExistingDatabaseTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachExistingDatabaseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="9" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0">
+            <state line="15" column="8" selection-start="444" selection-end="534" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -191,22 +163,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/InvalidPasswordTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/SetLocaleTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/GetTypeFromCrossProcessCursorWrapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationFromDatabaseFormat1To2.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachExistingDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/ExportToUnencryptedDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java" />
         <option value="$PROJECT_DIR$/res/layout/test_result_row.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/TestResultAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/AverageOpenTimeTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrateDatabaseFrom1xFormatToCurrentFormat.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachNewDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/PragmaCipherVersionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/CipherMigrateTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java" />
       </list>
     </option>
   </component>
@@ -260,7 +232,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1028" />
+    <option name="height" value="1058" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -288,7 +260,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -395,25 +367,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net.zetetic.sqlcipher.test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sqlcipher-android-tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="DEBUGGABLE_DEVICE" value="emulator-5554 (emulator-4.0.3)" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="net.zetetic.sqlcipher.test" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="DEBUGGABLE_DEVICE" value="emulator-5554 (emulator-4.0.3)" />
     <property name="DEBUGGABLE_PROCESS" value="net.zetetic" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -429,8 +415,8 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -441,6 +427,24 @@
     </key>
   </component>
   <component name="RunManager" selected="Android Application.emulator-4.3">
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -461,24 +465,6 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -870,14 +856,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1028" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1920" height="1058" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.56806004" sideWeight="0.3296875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61474556" sideWeight="0.3296875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57009345" sideWeight="0.66979164" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26770833" sideWeight="0.49532712" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -887,7 +873,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.65314835" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26770833" sideWeight="0.43194" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26145834" sideWeight="0.3852544" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3276414" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -966,98 +952,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/VerifyOnUpgradeIsCalledTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="0.097613886" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/GetTypeFromCrossProcessCursorWrapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="25" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/ExportToUnencryptedDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="33" selection-start="2162" selection-end="2162" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="984" selection-end="984" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/test_result_row.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/TestResultAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="8" selection-start="478" selection-end="478" vertical-scroll-proportion="0.21176471">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachExistingDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="9" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachNewDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/InterprocessBlobQueryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/ZeteticContentProvider2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="13" selection-start="289" selection-end="289" vertical-scroll-proportion="0.07700535">
@@ -1065,16 +959,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="51" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/PragmaCipherVersionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="34" selection-start="477" selection-end="477" vertical-scroll-proportion="0.672">
+        <state line="14" column="32" selection-start="442" selection-end="442" vertical-scroll-proportion="0.2502674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/InterprocessBlobQueryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="225" selection-end="225" vertical-scroll-proportion="0.07700535">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachNewDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.48128343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="5" selection-start="713" selection-end="713" vertical-scroll-proportion="0.2684492">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="713" selection-end="713" vertical-scroll-proportion="0.75080216">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/test_result_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="17" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.6145374">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AttachExistingDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="9" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.6727273">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AES128CipherTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="231" selection-end="231" vertical-scroll-proportion="0.07700535">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/ImportUnencryptedDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="8" selection-start="444" selection-end="534" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/QueryHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/CipherMigrateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="60" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="66" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrationUserVersion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="15" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.5197861">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrateDatabaseFrom1xFormatToCurrentFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="55" selection-start="618" selection-end="618" vertical-scroll-proportion="0.23101604">
           <folding />
         </state>
       </provider>
