@@ -28,6 +28,12 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
         super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
+        Bundle args = getIntent().getExtras();
+        if(args != null){
+            if(args.containsKey("run")){
+                onButtonClick(null);
+            }
+        }
     }
 
     public void onButtonClick(View view) {
