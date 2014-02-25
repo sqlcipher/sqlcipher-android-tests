@@ -93,11 +93,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestSuiteRunner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="32" selection-start="2066" selection-end="2066" vertical-scroll-proportion="2.0848708" vertical-offset="407" max-vertical-offset="1368">
+            <state line="73" column="50" selection-start="2727" selection-end="2727" vertical-scroll-proportion="0.0" vertical-offset="407" max-vertical-offset="1386">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiThreadReadWriteTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MultiThreadReadWriteTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="167" column="33" selection-start="6665" selection-end="6665" vertical-scroll-proportion="3.1279917" vertical-offset="0" max-vertical-offset="3402">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,7 +152,7 @@
       <file leaf-file-name="SQLCipherTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="29" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1080">
+            <state line="10" column="28" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
@@ -159,7 +170,7 @@
       <file leaf-file-name="CursorAccessTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/CursorAccessTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="27" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="1044">
+            <state line="24" column="27" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1152">
               <folding />
             </state>
           </provider>
@@ -203,6 +214,8 @@
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/CursorAccessTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/SampleTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MultiThreadedReadWriteTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/MultiThreadReadWriteTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java" />
       </list>
     </option>
@@ -307,6 +320,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -383,8 +398,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Favorites" />
     </panes>
   </component>
@@ -419,6 +432,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -428,27 +442,7 @@
       <recent name="net.zetetic.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.emulator-4.4">
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Android Application.emualtor-2.2">
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -471,12 +465,45 @@
       </MavenSettings>
       <method />
     </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -504,19 +531,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -951,7 +965,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1916" height="1058" extended-state="6" />
+    <frame x="0" y="22" width="1916" height="1058" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -960,19 +974,19 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6976744" sideWeight="0.3296875" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.025278058" sideWeight="0.5892484" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.9130435" sideWeight="0.3296875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3478261" sideWeight="0.5892484" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26770833" sideWeight="0.49532712" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23761375" sideWeight="0.41022965" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23660263" sideWeight="0.41022965" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62992924" sideWeight="0.91933763" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32800853" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.65314835" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19415449" sideWeight="0.5233645" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2672234" sideWeight="0.5233645" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47219414" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -986,7 +1000,7 @@
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USERS">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
     </option>
   </component>
@@ -1241,13 +1255,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/test_result_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="17" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.6145374" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.6145374" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/AES128CipherTest.java">
@@ -1258,13 +1270,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/PragmaCipherVersionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="5" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrateDatabaseFrom1xFormatToCurrentFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="55" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
@@ -1325,13 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="29" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/QueryHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="18" selection-start="120" selection-end="120" vertical-scroll-proportion="0.14150943" vertical-offset="0" max-vertical-offset="636">
@@ -1346,10 +1344,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/SQLCipherTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="28" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MigrateDatabaseFrom1xFormatToCurrentFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="55" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/TestSuiteRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="32" selection-start="2066" selection-end="2066" vertical-scroll-proportion="2.0848708" vertical-offset="407" max-vertical-offset="1368">
+        <state line="73" column="50" selection-start="2727" selection-end="2727" vertical-scroll-proportion="0.0" vertical-offset="407" max-vertical-offset="1386">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/zetetic/tests/MultiThreadReadWriteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="33" selection-start="6665" selection-end="6665" vertical-scroll-proportion="3.1279917" vertical-offset="0" max-vertical-offset="3402">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

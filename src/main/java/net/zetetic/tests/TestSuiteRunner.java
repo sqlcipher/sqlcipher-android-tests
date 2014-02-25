@@ -71,6 +71,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new EnableForeignKeySupportTest());
         tests.add(new AverageOpenTimeTest());
         tests.add(new RawRekeyTest());
+        tests.add(new MultiThreadReadWriteTest());
         return tests;
     }
 }
