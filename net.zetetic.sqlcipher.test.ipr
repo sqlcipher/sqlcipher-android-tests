@@ -205,7 +205,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="Android API 19 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
   <component name="VcsDirectoryMappings">
@@ -223,13 +223,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/google/android/android/2.1.2/android-2.1.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: commons-codec:commons-codec:1.0">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/commons-codec.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
     <library name="Maven: commons-logging:commons-logging:1.1.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar!/" />
@@ -240,13 +233,6 @@
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar!/" />
       </SOURCES>
-    </library>
-    <library name="Maven: guava:guava:1.0">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/guava-r09.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
     </library>
     <library name="Maven: org.apache.httpcomponents:httpclient:4.0.1">
       <CLASSES>
@@ -291,13 +277,6 @@
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/khronos/opengl-api/gl1.1-android-2.1_r1/opengl-api-gl1.1-android-2.1_r1-sources.jar!/" />
       </SOURCES>
-    </library>
-    <library name="Maven: sqlcipher:sqlcipher:1.0">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/sqlcipher.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
     </library>
     <library name="Maven: xerces:xmlParserAPIs:2.6.2">
       <CLASSES>
