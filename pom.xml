@@ -23,20 +23,20 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/sqlcipher.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/guava-r09.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/commons-codec.jar</systemPath>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>guava</groupId>-->
+            <!--<artifactId>guava</artifactId>-->
+            <!--<version>1.0</version>-->
+            <!--<scope>system</scope>-->
+            <!--<systemPath>${project.basedir}/libs/guava-r09.jar</systemPath>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>commons-codec</groupId>-->
+            <!--<artifactId>commons-codec</artifactId>-->
+            <!--<version>1.0</version>-->
+            <!--<scope>system</scope>-->
+            <!--<systemPath>${project.basedir}/libs/commons-codec.jar</systemPath>-->
+        <!--</dependency>-->
 
     </dependencies>
 
