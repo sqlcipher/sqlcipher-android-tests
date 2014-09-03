@@ -7,6 +7,7 @@ import net.sqlcipher.database.SQLiteOpenHelper;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
+import java.util.Random;
 
 public class CursorAccessTest extends SQLCipherTest {
 
@@ -28,11 +29,18 @@ public class CursorAccessTest extends SQLCipherTest {
         results.moveToFirst();
         int type_a = results.getType(0);
         int type_b = results.getType(1);
+        int type_c = results.getType(2);
+        int type_d = results.getType(3);
+        int type_e = results.getType(4);
 
         results.close();
         db.close();
 
-        return (type_a == Cursor.FIELD_TYPE_STRING) && (type_b == Cursor.FIELD_TYPE_INTEGER);
+        return type_a == Cursor.FIELD_TYPE_STRING &&
+                type_b == Cursor.FIELD_TYPE_INTEGER &&
+                type_c == Cursor.FIELD_TYPE_NULL &&
+                type_d == Cursor.FIELD_TYPE_FLOAT &&
+                type_e == Cursor.FIELD_TYPE_BLOB;
     }
 
     @Override
@@ -48,8 +56,10 @@ public class CursorAccessTest extends SQLCipherTest {
 
         @Override
         public void onCreate(SQLiteDatabase database) {
-            database.execSQL("create table t1(a text,b integer)");
-            database.execSQL("insert into t1(a,b) values(?, ?)", new Object[]{"test1", 100});
+            database.execSQL("create table t1(a text, b integer, c text, d real, e blob)");
+            byte[] data = new byte[10];
+            new Random().nextBytes(data);
+            database.execSQL("insert into t1(a, b, c, d, e) values(?, ?, ?, ?, ?)", new Object[]{"test1", 100, null, 3.25, data});
         }
 
         @Override
