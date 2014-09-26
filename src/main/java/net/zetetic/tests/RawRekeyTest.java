@@ -1,6 +1,7 @@
 package net.zetetic.tests;
 
 import net.sqlcipher.database.SQLiteDatabase;
+import net.zetetic.QueryHelper;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
@@ -13,10 +14,15 @@ public class RawRekeyTest extends SQLCipherTest {
 
     @Override
     public boolean execute(SQLiteDatabase database) {
+        database.execSQL("create table t1(a,b);");
+        database.execSQL("insert into t1(a,b) values(?,?)", new Object[]{"one for the money", "two for the show"});
         database.rawExecSQL(rekeyCommand);
         database.close();
         database = SQLiteDatabase.openOrCreateDatabase(databaseFile, password, null);
-        return database != null;
+        int count = QueryHelper.singleIntegerValueFromQuery(database, "select count(*) from t1;");
+        boolean status = count == 1;
+        database.close();
+        return status;
     }
 
     @Override
