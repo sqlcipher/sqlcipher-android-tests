@@ -34,7 +34,9 @@ public class MigrationUserVersion extends SQLCipherTest {
                     database.rawExecSQL("PRAGMA cipher_migrate;");
                 }
             });
-            return originalDatabase.getVersion() > 0;
+            boolean status = originalDatabase.getVersion() > 0;
+            originalDatabase.close();
+            return status;
 
         } catch (Exception e) {
             return false;

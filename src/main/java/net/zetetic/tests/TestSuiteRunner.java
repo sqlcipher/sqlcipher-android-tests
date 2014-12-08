@@ -33,13 +33,18 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
         for(SQLCipherTest test : getTestsToRun()){
-            Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
-            publishProgress(test.run());
+            try{
+                Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
+                publishProgress(test.run());
+            }catch (Throwable e){
+                publishProgress(new TestResult(test.getName(), false));
+            }
         }
     }
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+        tests.add(new AttachDatabaseTest());
         tests.add(new CipherMigrateTest());
         tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
         tests.add(new InvalidPasswordTest());
@@ -70,11 +75,14 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new QueryNonEncryptedDatabaseTest());
         tests.add(new EnableForeignKeySupportTest());
         tests.add(new AverageOpenTimeTest());
-        tests.add(new RawRekeyTest());
         tests.add(new NestedTransactionsTest());
         tests.add(new UnicodeTest());
         tests.add(new MultiThreadReadWriteTest());
         tests.add(new ComputeKDFTest());
+        tests.add(new SoundexTest());
+        tests.add(new RawQueryTest());
+        tests.add(new OpenReadOnlyDatabaseTest());
+//        tests.add(new RawRekeyTest());
         return tests;
     }
 }

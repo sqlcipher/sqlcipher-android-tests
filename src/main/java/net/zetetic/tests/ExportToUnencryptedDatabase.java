@@ -42,6 +42,7 @@ public class ExportToUnencryptedDatabase extends SQLCipherTest {
             b = cursor.getString(1);
         }
         cursor.close();
+        database.close();
         return a.equals("one for the money") &&
                b.equals("two for the show");
     }

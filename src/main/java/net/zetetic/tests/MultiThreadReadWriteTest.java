@@ -97,7 +97,8 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
             Log.i(TAG, String.format("reader thread %d terminating", id));
         }
 
-        void logRecordsBetween(SQLiteDatabase reader, int start, int end) {
+        synchronized void logRecordsBetween(SQLiteDatabase reader, int start, int end) {
+            if(!reader.isOpen()) return;
             Cursor results = reader.rawQuery("select rowid, * from t1 where rowid between ? and ?",
                     new String[]{String.valueOf(start), String.valueOf(end)});
             if (results != null) {
@@ -110,14 +111,18 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
             }
         }
 
-        int getCurrentTableCount(SQLiteDatabase database) {
+        synchronized int getCurrentTableCount(SQLiteDatabase database) {
             int count = 0;
-            Cursor cursor = database.rawQuery("select count(*) from t1;", new String[]{});
-            if (cursor != null) {
-                cursor.moveToFirst();
-                count = cursor.getInt(0);
-                cursor.close();
-            }
+            try {
+                if (!database.isOpen()) return -1;
+                Cursor cursor = database.rawQuery("select count(*) from t1;", new String[]{});
+                if (cursor != null) {
+                    if (cursor.moveToFirst()) {
+                        count = cursor.getInt(0);
+                    }
+                    cursor.close();
+                }
+            } catch (IllegalStateException ex){}
             return count;
         }
     }

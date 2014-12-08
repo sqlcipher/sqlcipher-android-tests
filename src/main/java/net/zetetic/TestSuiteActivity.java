@@ -47,6 +47,7 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void send(TestResult result) {
 
         results.add(result);
