@@ -82,7 +82,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new SoundexTest());
         tests.add(new RawQueryTest());
         tests.add(new OpenReadOnlyDatabaseTest());
-//        tests.add(new RawRekeyTest());
+        tests.add(new RawRekeyTest());
         return tests;
     }
 }
