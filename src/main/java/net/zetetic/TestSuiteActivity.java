@@ -51,6 +51,7 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
     public void send(TestResult result) {
 
         results.add(result);
+        Log.i(TAG, String.format("%s - success:%s", result.getName(), result.isSuccess()));
         HeaderViewListAdapter adapter = (HeaderViewListAdapter) resultsView.getAdapter();
         if(adapter == null){
             statsView = View.inflate(this, R.layout.test_stats, null);
@@ -72,7 +73,9 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
                 successCount += 1;
             }
         }
-        stats.setText(String.format("Passed: %d  Failed: %d", successCount, results.size() - successCount));
+        String message = String.format("Passed: %d  Failed: %d", successCount, results.size() - successCount);
+        Log.i(TAG, message);
+        stats.setText(message);
         stats.setVisibility(View.VISIBLE);
         findViewById(R.id.executeSuite).setEnabled(true);
     }
