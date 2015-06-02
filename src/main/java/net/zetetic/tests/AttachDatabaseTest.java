@@ -1,11 +1,10 @@
 package net.zetetic.tests;
 
-
 import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.QueryHelper;
+
 import net.zetetic.ZeteticApplication;
 
-import javax.management.Query;
 import java.io.File;
 
 public class AttachDatabaseTest extends SQLCipherTest {
