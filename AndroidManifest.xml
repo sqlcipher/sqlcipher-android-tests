@@ -3,7 +3,7 @@
           package="net.zetetic" android:versionCode="1" android:versionName="1.0-SNAPSHOT">
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="21"/>
     <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="ZeteticApplication">
-        <activity android:name=".TestSuiteActivity">
+        <activity android:name=".TestSuiteActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
