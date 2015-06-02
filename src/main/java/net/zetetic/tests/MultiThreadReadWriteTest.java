@@ -1,8 +1,12 @@
 package net.zetetic.tests;
 
 import android.util.Log;
-import net.sqlcipher.Cursor;
+
+import android.database.Cursor;
+
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteException;
+
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
@@ -59,13 +63,21 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
         public void run() {
             android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
             Log.i(TAG, String.format("writer thread %d beginning", id));
+            // not expected to throw:
             SQLiteDatabase writer = getDatabase(accessType);
-            writer.execSQL("create table if not exists t1(a,b)");
-            for (int index = 0; index < size; index++) {
-                Log.i(TAG, String.format("writer thread %d - insert data for row:%d", id, index));
-                writer.execSQL("insert into t1(a,b) values(?, ?)",
+
+            try {
+                writer.execSQL("create table if not exists t1(a,b)");
+
+                for (int index = 0; index < size; index++) {
+                    Log.i(TAG, String.format("writer thread %d - insert data for row:%d", id, index));
+                    writer.execSQL("insert into t1(a,b) values(?, ?)",
                         new Object[]{"one for the money", "two for the show"});
-            }
+                }
+            } catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); }
+            // FIX: ADD CATCH #1:
+            //  catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing", ex); }
+
             closeDatabase(writer, accessType);
             Log.i(TAG, String.format("writer thread %d terminating", id));
         }
@@ -99,8 +111,14 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
 
         synchronized void logRecordsBetween(SQLiteDatabase reader, int start, int end) {
             if(!reader.isOpen()) return;
-            Cursor results = reader.rawQuery("select rowid, * from t1 where rowid between ? and ?",
+            Cursor results = null;
+            try {
+                results = reader.rawQuery("select rowid, * from t1 where rowid between ? and ?",
                     new String[]{String.valueOf(start), String.valueOf(end)});
+            } catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing", ex); }
+            // FIX: ADD CATCH #2:
+            //  catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); }
+
             if (results != null) {
                 Log.i(TAG, String.format("reader thread %d - writing results %d to %d", id, start, end));
                 while (results.moveToNext()) {
@@ -113,16 +131,27 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
 
         synchronized int getCurrentTableCount(SQLiteDatabase database) {
             int count = 0;
+
+            if (!database.isOpen()) return -1;
+            Cursor cursor = null;
+
+            // I. Attempt database.rawQuery()-bail (explicitly return 0) if it throws:
             try {
-                if (!database.isOpen()) return -1;
-                Cursor cursor = database.rawQuery("select count(*) from t1;", new String[]{});
-                if (cursor != null) {
+                cursor = database.rawQuery("select count(*) from t1;", new String[]{});
+            } catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing with count = " + count, ex); return 0; }
+            // FIX: ADD CATCH #3:
+            //  catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); return 0; }
+
+            // II. Attempt to get the count from the cursor:
+            if (cursor != null) {
+                try {
                     if (cursor.moveToFirst()) {
                         count = cursor.getInt(0);
                     }
                     cursor.close();
-                }
-            } catch (IllegalStateException ex){}
+                } catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing with count = " + count, ex); }
+            }
+
             return count;
         }
     }
