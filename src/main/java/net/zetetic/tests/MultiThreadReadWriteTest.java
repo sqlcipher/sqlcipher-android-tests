@@ -75,8 +75,7 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
                         new Object[]{"one for the money", "two for the show"});
                 }
             } catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); }
-            // FIX: ADD CATCH #1:
-            //  catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing", ex); }
+              catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing", ex); }
 
             closeDatabase(writer, accessType);
             Log.i(TAG, String.format("writer thread %d terminating", id));
@@ -116,8 +115,7 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
                 results = reader.rawQuery("select rowid, * from t1 where rowid between ? and ?",
                     new String[]{String.valueOf(start), String.valueOf(end)});
             } catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing", ex); }
-            // FIX: ADD CATCH #2:
-            //  catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); }
+              catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); }
 
             if (results != null) {
                 Log.i(TAG, String.format("reader thread %d - writing results %d to %d", id, start, end));
@@ -139,8 +137,7 @@ public class MultiThreadReadWriteTest extends SQLCipherTest {
             try {
                 cursor = database.rawQuery("select count(*) from t1;", new String[]{});
             } catch (IllegalStateException ex) { Log.e(TAG, "caught exception, bailing with count = " + count, ex); return 0; }
-            // FIX: ADD CATCH #3:
-            //  catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); return 0; }
+              catch (SQLiteException ex) { Log.e(TAG, "caught exception, bailing", ex); return 0; }
 
             // II. Attempt to get the count from the cursor:
             if (cursor != null) {
