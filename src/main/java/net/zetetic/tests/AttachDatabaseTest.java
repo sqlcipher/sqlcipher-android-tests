@@ -13,6 +13,9 @@ public class AttachDatabaseTest extends SQLCipherTest {
         boolean status;
         String password = "test123";
         File fooDatabase = ZeteticApplication.getInstance().getDatabasePath("foo.db");
+        if(fooDatabase.exists()){
+            fooDatabase.delete();
+        }
         database.execSQL("ATTACH database ? AS encrypted KEY ?", new Object[]{fooDatabase.getAbsolutePath(), password});
         database.execSQL("create table encrypted.t1(a,b);");
         database.execSQL("insert into encrypted.t1(a,b) values(?,?);", new Object[]{"one for the money", "two for the show"});

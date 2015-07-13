@@ -1,6 +1,7 @@
 package net.zetetic.tests;
 
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
@@ -15,6 +16,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     @Override
     protected Void doInBackground(ResultNotifier... resultNotifiers) {
         this.notifier = resultNotifiers[0];
+        Log.i(ZeteticApplication.TAG, String.format("Running test suite on %s platform", Build.CPU_ABI));
         runSuite();
         return null;
     }
@@ -37,6 +39,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
                 Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
                 publishProgress(test.run());
             }catch (Throwable e){
+                Log.i(ZeteticApplication.TAG, e.toString());
                 publishProgress(new TestResult(test.getName(), false));
             }
         }
@@ -44,7 +47,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
-
+        tests.add(new UnicodeTest());
+        tests.add(new FIPSTest());
         tests.add(new AttachDatabaseTest());
         tests.add(new CipherMigrateTest());
         tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
@@ -77,8 +81,6 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new EnableForeignKeySupportTest());
         tests.add(new AverageOpenTimeTest());
         tests.add(new NestedTransactionsTest());
-        tests.add(new UnicodeTest());
-        tests.add(new MultiThreadReadWriteTest());
         tests.add(new ComputeKDFTest());
         tests.add(new SoundexTest());
         tests.add(new RawQueryTest());
@@ -86,7 +88,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new RawRekeyTest());
         tests.add(new ClosedDatabaseTest());
         tests.add(new CorruptDatabaseTest());
-
+        //tests.add(new MultiThreadReadWriteTest());
         return tests;
     }
 }

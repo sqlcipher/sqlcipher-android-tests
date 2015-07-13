@@ -16,9 +16,13 @@ public abstract class SQLCipherTest {
     private SQLiteDatabase database;
 
     protected void internalSetUp() {
+        Log.i(TAG, "Before prepareDatabaseEnvironment");
         ZeteticApplication.getInstance().prepareDatabaseEnvironment();
+        Log.i(TAG, "Before getDatabasePath");
         File databasePath = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
+        Log.i(TAG, "Before createDatabase");
         database = createDatabase(databasePath);
+        Log.i(TAG, "Before setUp");
         setUp();
     }
 
@@ -46,6 +50,7 @@ public abstract class SQLCipherTest {
     }
     
     protected SQLiteDatabase createDatabase(File databasePath){
+        Log.i(TAG, "Before ZeteticApplication.getInstance().createDatabase");
         return ZeteticApplication.getInstance().createDatabase(databasePath);
     }
 

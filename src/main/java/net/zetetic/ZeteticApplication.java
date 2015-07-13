@@ -2,6 +2,7 @@ package net.zetetic;
 
 import android.app.Activity;
 import android.app.Application;
+import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 
 import java.io.*;
@@ -34,12 +35,23 @@ public class ZeteticApplication extends Application {
     }
 
     public void prepareDatabaseEnvironment(){
+        Log.i(TAG, "Entered prepareDatabaseEnvironment");
+        Log.i(TAG, "Before getDatabasePath");
         File databaseFile = getDatabasePath(DATABASE_NAME);
-        databaseFile.mkdirs();
-        databaseFile.delete();
+        Log.i(TAG, "Before mkdirs on parent of database path");
+        databaseFile.getParentFile().mkdirs();
+
+        if(databaseFile.exists()){
+            Log.i(TAG, "Before delete of database file");
+            databaseFile.delete();
+        }
+//        databaseFile.mkdirs();
+//        databaseFile.delete();
     }
 
     public SQLiteDatabase createDatabase(File databaseFile){
+        Log.i(TAG, "Entered ZeteticApplication::createDatabase");
+        Log.i(TAG, "Before SQLiteDatabase.openOrCreateDatabase");
         return SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
     }
 
