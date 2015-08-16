@@ -37,12 +37,13 @@ public class CorruptDatabaseTest extends SQLCipherTest {
 
             SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase, "", null);
 
-            // NOTE: database not expected to be null, but check:
+            // NOTE: database not expected to be null, but double-check:
             if (database == null) {
                 Log.e(TAG, "ERROR: got null database object");
                 return false;
             }
 
+            // *Should* have been recovered:
             Cursor cursor = database.rawQuery("select * from sqlite_master;", null);
 
             if (cursor == null) {
@@ -64,7 +65,11 @@ public class CorruptDatabaseTest extends SQLCipherTest {
                 Log.v(TAG, "Caught SQLiteDatabaseCorruptException as expected OK");
             }
 
-            database.close();
+            // *Expected* to be closed now
+            if (database.isOpen()) {
+                Log.e(TAG, "NOT EXPECTED: database is still open");
+                return false;
+            }
 
             return true;
         } catch (Exception ex) {
