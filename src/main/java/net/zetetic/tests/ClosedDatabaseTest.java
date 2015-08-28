@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import java.util.Locale;
 
+import net.sqlcipher.DatabaseErrorHandler;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteException;
 import net.zetetic.ZeteticApplication;
@@ -29,12 +30,12 @@ public class ClosedDatabaseTest extends SQLCipherTest {
     @Override
     public boolean execute(SQLiteDatabase null_database_ignored) {
 
-        File testDatabasePath = ZeteticApplication.getInstance().getDatabasePath("closed-db-test.db");
+        File closedDatabasePath = ZeteticApplication.getInstance().getDatabasePath("closed-db-test.db");
 
         boolean status = false;
 
         try {
-            SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(testDatabasePath, "", null);
+            SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(closedDatabasePath, "", null);
 
             database.close();
 
@@ -45,7 +46,58 @@ public class ClosedDatabaseTest extends SQLCipherTest {
             return false;
         }
         finally {
-            testDatabasePath.delete();
+            closedDatabasePath.delete();
+        }
+
+        if (!status) return false;
+
+        status = false;
+
+        final File corruptDatabase = ZeteticApplication.getInstance().getDatabasePath("corrupt.db");
+
+        // run closed database tests again in custom DatabaseErrorHandler:
+        try {
+            ZeteticApplication.getInstance().extractAssetToDatabaseDirectory("corrupt.db");
+
+            // ugly trick from: http://stackoverflow.com/questions/5977735/setting-outer-variable-from-anonymous-inner-class
+            final boolean[] inner_status_slot = new boolean[1];
+
+            // on a database object that was NEVER actually opened (due to a corrupt database file):
+            SQLiteDatabase database = SQLiteDatabase.openDatabase(corruptDatabase.getPath(), "", null, SQLiteDatabase.CREATE_IF_NECESSARY, null, new DatabaseErrorHandler() {
+                @Override
+                public void onCorruption(SQLiteDatabase db) {
+                    try {
+                        inner_status_slot[0] = execute_closed_database_tests(db);
+                    } catch (Exception ex) {
+                        // Uncaught exception (not expected):
+                        Log.e(TAG, "UNEXPECTED EXCEPTION", ex);
+                    }
+
+                    try {
+                        corruptDatabase.delete();
+                    } catch (Exception ex) {
+                        // Uncaught exception (not expected):
+                        Log.e(TAG, "UNEXPECTED EXCEPTION", ex);
+                    }
+                }
+            });
+
+            status = inner_status_slot[0];
+
+            // NOTE: database not expected to be null, but double-check:
+            if (database == null) {
+                Log.e(TAG, "ERROR: got null database object");
+                return false;
+            }
+
+            database.close();
+        } catch (Exception ex) {
+            // Uncaught exception (not expected):
+            Log.e(TAG, "UNEXPECTED EXCEPTION", ex);
+            return false;
+        }
+        finally {
+            corruptDatabase.delete();
         }
 
         return status;
@@ -257,9 +309,8 @@ public class ClosedDatabaseTest extends SQLCipherTest {
                 Log.v(ZeteticApplication.TAG, "SQLiteDatabase.markTableSyncable(String, String) did throw exception on closed database OK", e);
             }
 
-            // TBD SQLiteDatabase.markTableSyncable(String, String, String) does NOT throw exception on closed database:
             try {
-                // NOTE: does not (yet) throw an exception on a closed database:
+                // [should] throw an exception on a closed database:
                 database.markTableSyncable("aa", "bb", "cc");
 
                 // ...
