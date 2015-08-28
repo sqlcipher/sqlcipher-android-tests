@@ -297,6 +297,10 @@ public class ClosedDatabaseTest extends SQLCipherTest {
             database.setLockingEnabled(false);
             database.setLockingEnabled(true);
 
+            database.inTransaction();
+            database.isDbLockedByCurrentThread();
+            database.isDbLockedByOtherThreads();
+
             database.close();
 
             database.isReadOnly();
