@@ -49,6 +49,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
         tests.add(new UnicodeTest());
         tests.add(new FIPSTest());
+        tests.add(new ClosedDatabaseTest());
         tests.add(new AttachDatabaseTest());
         tests.add(new CipherMigrateTest());
         tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
@@ -86,8 +87,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new RawQueryTest());
         tests.add(new OpenReadOnlyDatabaseTest());
         tests.add(new RawRekeyTest());
-        tests.add(new ClosedDatabaseTest());
         tests.add(new CorruptDatabaseTest());
+        tests.add(new CustomCorruptionHandlerTest());
         //tests.add(new MultiThreadReadWriteTest());
         return tests;
     }
