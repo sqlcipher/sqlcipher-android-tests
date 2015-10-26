@@ -2,3 +2,5 @@
 **/*.class
 **/*.apk
 target
+*.log
+

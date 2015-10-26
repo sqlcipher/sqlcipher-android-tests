@@ -1,3 +1,0 @@
-To run, clone this repo and make sure you have the Android SDK installed.
-- Currently support Android OS 2.1 - 4.4, simply run on either an emulator or device.
-- More information can be found at [[http://sqlcipher.net/sqlcipher-for-android/][SQLCipher for Android]].

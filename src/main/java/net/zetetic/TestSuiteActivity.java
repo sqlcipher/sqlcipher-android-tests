@@ -9,6 +9,9 @@ import net.zetetic.tests.ResultNotifier;
 import net.zetetic.tests.TestResult;
 import net.zetetic.tests.TestSuiteRunner;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
     ListView resultsView;
     List<TestResult> results;
     View statsView;
+    File testResults;
 
     public TestSuiteActivity(){
         results = new ArrayList<TestResult>();
@@ -28,6 +32,8 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
         super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
+        testResults = new File(getApplication().getFilesDir(), "test-results.log");
+        deleteTestResultsLog();
         Bundle args = getIntent().getExtras();
         if(args != null){
             if(args.containsKey("run")){
@@ -38,6 +44,7 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
 
     public void onButtonClick(View view) {
 
+        deleteTestResultsLog();
         results.clear();
         hideStats();
         findViewById(R.id.executeSuite).setEnabled(false);
@@ -68,16 +75,39 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
 
         TextView stats = (TextView) statsView.findViewById(R.id.stats);
         int successCount = 0;
+        List<String> failedTests = new ArrayList<String>();
         for(TestResult result : results){
             if(result.isSuccess()){
                 successCount += 1;
+            } else {
+                failedTests.add(result.getName());
             }
         }
         String message = String.format("Passed: %d  Failed: %d", successCount, results.size() - successCount);
+        deleteTestResultsLog();
+        try {
+            FileOutputStream resultStream = new FileOutputStream(testResults);
+            resultStream.write(String.format("%s\n", message).getBytes());
+            if(failedTests != null){
+                for(String test : failedTests){
+                    resultStream.write(test.getBytes());
+                }
+            }
+            resultStream.flush();
+            resultStream.close();
+        } catch (Exception e) {
+            Log.i(TAG, "Failed to write test suite results", e);
+        }
         Log.i(TAG, message);
         stats.setText(message);
         stats.setVisibility(View.VISIBLE);
         findViewById(R.id.executeSuite).setEnabled(true);
+    }
+
+    private void deleteTestResultsLog(){
+        if(testResults.exists()){
+            testResults.delete();
+        }
     }
 
     private void hideStats(){

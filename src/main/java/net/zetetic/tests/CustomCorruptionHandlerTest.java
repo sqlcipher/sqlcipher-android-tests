@@ -1,18 +1,13 @@
 package net.zetetic.tests;
 
 import android.util.Log;
-
-import java.io.File;
-import java.io.IOException;
-
-import java.util.Locale;
-
 import net.sqlcipher.DatabaseErrorHandler;
 import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteException;
 import net.sqlcipher.database.SQLiteDatabaseCorruptException;
-
+import net.sqlcipher.database.SQLiteException;
 import net.zetetic.ZeteticApplication;
+
+import java.io.File;
 
 public class CustomCorruptionHandlerTest extends SQLCipherTest {
 

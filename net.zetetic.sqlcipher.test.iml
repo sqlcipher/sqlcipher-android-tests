@@ -44,9 +44,7 @@
           <root url="jar://$MODULE_DIR$/libs/sqlcipher.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../android-database-sqlcipher/src" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
