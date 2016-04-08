@@ -40,7 +40,7 @@ public class AES128CipherTest extends SQLCipherTest {
 
             @Override
             public void postKey(SQLiteDatabase database) {
-                database.execSQL("PRAGMA cipher = 'aes-128-cbc'");
+                database.rawExecSQL("PRAGMA cipher = 'aes-128-cbc'");
             }
         });
     }
