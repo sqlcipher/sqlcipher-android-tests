@@ -1,6 +1,8 @@
 package net.zetetic.tests;
 
+import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
@@ -11,6 +13,7 @@ public class InvalidPasswordTest extends SQLCipherTest {
     public boolean execute(SQLiteDatabase database) {
 
         boolean status = false;
+        database.rawExecSQL("create table t1(a,b);");
         database.close();
         File databaseFile = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
         String password = ZeteticApplication.DATABASE_PASSWORD;
@@ -19,7 +22,6 @@ public class InvalidPasswordTest extends SQLCipherTest {
         } catch (Exception e){
             try {
                 database = SQLiteDatabase.openOrCreateDatabase(databaseFile, password, null);
-                database.rawExecSQL("create table t1(a,b);");
                 database.execSQL("insert into t1(a,b) values(?, ?)", new Object[]{"testing", "123"});
                 status = true;
             } catch (Exception ex){}

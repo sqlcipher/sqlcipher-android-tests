@@ -40,15 +40,18 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
                 publishProgress(test.run());
             }catch (Throwable e){
                 Log.i(ZeteticApplication.TAG, e.toString());
-                publishProgress(new TestResult(test.getName(), false));
+                publishProgress(new TestResult(test.getName(), false, e.toString()));
             }
         }
     }
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+        tests.add(new PragmaCipherVersionTest());
         tests.add(new UnicodeTest());
         tests.add(new FIPSTest());
+        tests.add(new QueryIntegerToStringTest());
+        tests.add(new QueryFloatToStringTest());
         tests.add(new ClosedDatabaseTest());
         tests.add(new AttachDatabaseTest());
         tests.add(new CipherMigrateTest());
@@ -68,7 +71,6 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new AES128CipherTest());
         tests.add(new MigrateDatabaseFrom1xFormatToCurrentFormat());
         tests.add(new StatusMemoryUsedTest());
-        tests.add(new PragmaCipherVersionTest());
         tests.add(new ImportUnencryptedDatabaseTest());
         tests.add(new FullTextSearchTest());
         tests.add(new ReadableDatabaseTest());
@@ -89,7 +91,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new RawRekeyTest());
         tests.add(new CorruptDatabaseTest());
         tests.add(new CustomCorruptionHandlerTest());
-//        tests.add(new MultiThreadReadWriteTest());
+        tests.add(new MultiThreadReadWriteTest());
         return tests;
     }
 }

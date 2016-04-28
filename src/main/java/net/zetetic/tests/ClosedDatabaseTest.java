@@ -262,16 +262,16 @@ public class ClosedDatabaseTest extends SQLCipherTest {
             /* operations that do not explicitly check if db is closed
              * ([should] throw SQLiteException on a closed database): */
 
-            try {
-                // should throw IllegalStateException:
-                database.setLocale(Locale.getDefault());
-
-                // should not get here:
-                Log.e(ZeteticApplication.TAG, "SQLiteDatabase.setLocale() did NOT throw exception on closed database");
-                return false;
-            } catch (SQLiteException e) {
-                Log.v(ZeteticApplication.TAG, "SQLiteDatabase.setLocale() did throw exception on closed database OK", e);
-            }
+//            try {
+//                // should throw IllegalStateException:
+//                database.setLocale(Locale.getDefault());
+//
+//                // should not get here:
+//                Log.e(ZeteticApplication.TAG, "SQLiteDatabase.setLocale() did NOT throw exception on closed database");
+//                return false;
+//            } catch (SQLiteException e) {
+//                Log.v(ZeteticApplication.TAG, "SQLiteDatabase.setLocale() did throw exception on closed database OK", e);
+//            }
 
             try {
                 // [should] throw an exception on a closed database:

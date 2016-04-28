@@ -52,9 +52,9 @@
                     <resourceDirectory>${project.basedir}/res</resourceDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
                     <sdk>
-                        <platform>7</platform>
+                        <platform>14</platform>
                     </sdk>
-                                        <deleteConflictingFiles>true</deleteConflictingFiles>
+                    <deleteConflictingFiles>true</deleteConflictingFiles>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
                 <extensions>true</extensions>

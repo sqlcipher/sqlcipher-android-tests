@@ -33,8 +33,12 @@ public class TestResultAdapter extends ArrayAdapter<TestResult> {
         TestResult result = getItem(position);
         holder.testName.setText(result.getName());
         holder.testStatus.setText(result.toString());
-        holder.testMessage.setVisibility(isNullOrEmpty(result.getMessage()) ? View.GONE : View.VISIBLE);
-        holder.testMessage.setText(result.getMessage());
+        boolean messageAvailable = !isNullOrEmpty(result.getMessage()) || !isNullOrEmpty(result.getError());
+        holder.testMessage.setVisibility(messageAvailable ? View.VISIBLE : View.GONE);
+        if(messageAvailable){
+            String message = isNullOrEmpty(result.getError()) ? result.getMessage() : result.getError();
+            holder.testMessage.setText(message);
+        }
         int displayColor = result.isSuccess() ? Color.GREEN : Color.RED;
         holder.testStatus.setTextColor(displayColor);
         return view;

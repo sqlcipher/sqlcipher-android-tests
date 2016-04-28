@@ -5,10 +5,16 @@ public class TestResult {
     private String name;
     private boolean success;
     private String message;
+    private String error;
 
     public TestResult(String name, boolean success){
+        this(name, success, "");
+    }
+
+    public TestResult(String name, boolean success, String error){
         this.name = name;
         this.success = success;
+        this.error = error;
     }
 
     public void setResult(boolean success){
@@ -22,6 +28,8 @@ public class TestResult {
     public boolean isSuccess() {
         return success;
     }
+
+    public String getError() {return error;}
 
     @Override
     public String toString() {

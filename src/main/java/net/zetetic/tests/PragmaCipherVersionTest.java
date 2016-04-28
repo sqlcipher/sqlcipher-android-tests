@@ -21,7 +21,8 @@ public class PragmaCipherVersionTest extends SQLCipherTest {
             String cipherVersion = cursor.getString(0);
             Log.i(TAG, "Before cursor.close");
             cursor.close();
-            return cipherVersion.contains(CURRENT_CIPHER_VERSION);
+            setMessage(String.format("Reported cipher_version:%s", cipherVersion));
+            return cipherVersion.contains(CURRENT_CIPHER_VERSION) && cipherVersion.length() == CURRENT_CIPHER_VERSION.length();
         }
         return false;
     }
