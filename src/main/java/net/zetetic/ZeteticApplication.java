@@ -53,7 +53,7 @@ public class ZeteticApplication extends Application {
     public SQLiteDatabase createDatabase(File databaseFile){
         Log.i(TAG, "Entered ZeteticApplication::createDatabase");
         Log.i(TAG, "Before SQLiteDatabase.openOrCreateDatabase");
-        return SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
+        return SQLiteDatabase.openOrCreateDatabase(databaseFile.getPath(), DATABASE_PASSWORD, null);
     }
 
     public void extractAssetToDatabaseDirectory(String fileName) throws IOException {

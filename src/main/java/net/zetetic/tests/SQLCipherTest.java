@@ -56,4 +56,8 @@ public abstract class SQLCipherTest {
 
     protected void setUp(){};
     protected void tearDown(SQLiteDatabase database){};
+
+    protected void log(String message){
+        Log.i(TAG, message);
+    }
 }

@@ -6,6 +6,9 @@ import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
 
 public class MigrateDatabaseFrom1xFormatToCurrentFormat extends SQLCipherTest {
 
@@ -22,7 +25,7 @@ public class MigrateDatabaseFrom1xFormatToCurrentFormat extends SQLCipherTest {
                     database.rawExecSQL("PRAGMA cipher_migrate;");
                 }
             };
-            SQLiteDatabase source = SQLiteDatabase.openOrCreateDatabase(sourceDatabase, password, null, hook);
+            SQLiteDatabase source = SQLiteDatabase.openOrCreateDatabase(sourceDatabase.getPath(), password, null, hook);
             Cursor result = source.rawQuery("select * from t1", new String[]{});
             if(result != null){
                 result.moveToFirst();

@@ -92,6 +92,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new CorruptDatabaseTest());
         tests.add(new CustomCorruptionHandlerTest());
         tests.add(new MultiThreadReadWriteTest());
+        tests.add(new VerifyUTF8EncodingForKeyTest());
         return tests;
     }
 }
