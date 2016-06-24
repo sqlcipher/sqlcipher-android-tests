@@ -1,8 +1,11 @@
 package net.zetetic.tests;
 
 import android.database.Cursor;
+
 import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
+
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,11 +15,28 @@ public class QueryNonEncryptedDatabaseTest extends SQLCipherTest {
     @Override
     public boolean execute(SQLiteDatabase database) {
 
-        boolean success = false;
+        database.close();
+        File unencryptedDatabase = ZeteticApplication.getInstance().getDatabasePath("unencrypted.db");
+
         try {
-            File unencryptedDatabase = ZeteticApplication.getInstance().getDatabasePath("unencrypted.db");
             ZeteticApplication.getInstance().extractAssetToDatabaseDirectory("unencrypted.db");
-            database.close();
+        } catch (IOException e) {
+            Log.e(ZeteticApplication.TAG, "NOT EXPECTED: caught IOException", e);
+            return false;
+        }
+
+        boolean success = false;
+
+        // XXX CRASHING:
+        try {
+            char[] nullPassword = null;
+            database = SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase.getPath(), nullPassword, null, null);
+        } catch (Exception e) {
+            Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
+            return false;
+        }
+
+        try {
             database = SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase, "", null);
             Cursor cursor = database.rawQuery("select * from t1", new String[]{});
             cursor.moveToFirst();
@@ -24,9 +44,14 @@ public class QueryNonEncryptedDatabaseTest extends SQLCipherTest {
             String b = cursor.getString(1);
             cursor.close();
             database.close();
+
             success = a.equals("one for the money") &&
                         b.equals("two for the show");
-        } catch (IOException e) {}
+        } catch (Exception e) {
+            Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception when reading database with blank password", e);
+            return false;
+        }
+
         return success;
     }
 
