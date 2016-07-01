@@ -22,7 +22,7 @@ public class PragmaCipherVersionTest extends SQLCipherTest {
             Log.i(TAG, "Before cursor.close");
             cursor.close();
             setMessage(String.format("Reported cipher_version:%s", cipherVersion));
-            return cipherVersion.contains(CURRENT_CIPHER_VERSION) && cipherVersion.length() == CURRENT_CIPHER_VERSION.length();
+            return cipherVersion.contains(CURRENT_CIPHER_VERSION);
         }
         return false;
     }
