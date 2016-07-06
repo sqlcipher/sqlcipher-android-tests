@@ -94,6 +94,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new MultiThreadReadWriteTest());
         tests.add(new VerifyUTF8EncodingForKeyTest());
         tests.add(new TextAsIntegerTest());
+        tests.add(new TextAsDoubleTest());
         return tests;
     }
 }
