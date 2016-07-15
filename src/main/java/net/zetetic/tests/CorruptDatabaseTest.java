@@ -71,6 +71,17 @@ public class CorruptDatabaseTest extends SQLCipherTest {
                 return false;
             }
 
+            // Try with a null DatabaseErrorHandler:
+            ZeteticApplication.getInstance().extractAssetToDatabaseDirectory("corrupt.db");
+            try {
+                database = SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase, "", null, null, null);
+
+                Log.e(TAG, "BEHAVIOR CHANGED: please update this test and attempt a rawQuery");
+                return false;
+            } catch (NullPointerException ex) {
+                Log.v(TAG, "IGNORED: NullPointerException due to null DatabaseErrorHandler", ex);
+            }
+
             return true;
         } catch (Exception ex) {
             // Uncaught exception (not expected):
