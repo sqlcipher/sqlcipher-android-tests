@@ -27,7 +27,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened writable encrypted database with invalid password");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening writable encrypted database with invalid password OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening writable encrypted database with invalid password OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening writable encrypted database with invalid password", e);
             return false;
@@ -38,7 +38,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened readable encrypted database with invalid password");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening readable encrypted database with invalid password OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening readable encrypted database with invalid password OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening readable encrypted database with invalid password", e);
             return false;
@@ -49,7 +49,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened writable encrypted database with blank password String");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening writable encrypted database with blank password String OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening writable encrypted database with blank password String OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening writable encrypted database with blank password String", e);
             return false;
@@ -60,7 +60,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened readable encrypted database with blank password String");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening readable encrypted database with blank password String OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening readable encrypted database with blank password String OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening readable encrypted database with blank password String", e);
             return false;
@@ -71,7 +71,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened writable encrypted database with blank password char array");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening writable encrypted database with blank password char array OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening writable encrypted database with blank password char array OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening writable encrypted database with blank password char array", e);
             return false;
@@ -82,7 +82,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened readable encrypted database with blank password char array");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening readable encrypted database with blank password char array OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening readable encrypted database with blank password char array OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening readable encrypted database with blank password char array", e);
             return false;
@@ -95,7 +95,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened writable encrypted database with null password char array");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening writable encrypted database with null password char array OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening writable encrypted database with null password char array OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening writable encrypted database with null password char array", e);
             return false;
@@ -106,7 +106,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened readable encrypted database with null password char array");
             return false;
         } catch (SQLiteException e) {
-            Log.v(ZeteticApplication.TAG, "EXPECTED: SQLiteException when opening readable encrypted database with null password char array OK", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening readable encrypted database with null password char array OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: other exception when opening readable encrypted database with null password char array", e);
             return false;
@@ -120,10 +120,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened writable encrypted database with null password String");
             return false;
         } catch (SQLiteException e) {
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED: SQLiteException when opening writable encrypted database with null password String - please update this test", e);
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening writable database with null password String", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening writable encrypted database with null password String OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception when opening writable database with null password String", e);
             return false;
@@ -135,10 +132,7 @@ public class ReadableWritableInvalidPasswordTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: successfully opened readable encrypted database with null password String");
             return false;
         } catch (SQLiteException e) {
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED: SQLiteException when opening readable encrypted database with null password String - please update this test", e);
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening readable encrypted with null password String", e);
+            Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: SQLiteException when opening readable encrypted database with null password String OK", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception when opening readable encrypted with null password String", e);
             return false;

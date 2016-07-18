@@ -47,11 +47,6 @@ public class QueryNonEncryptedDatabaseTest extends SQLCipherTest {
 
         try {
             database = SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase, nullPasswordString, null);
-
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED please update this test and check results of a raw SELECT query");
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening database with null String password", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
             return false;
@@ -59,11 +54,6 @@ public class QueryNonEncryptedDatabaseTest extends SQLCipherTest {
 
         try {
             database = SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase.getPath(), nullPasswordString, null, null, null);
-
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED please update this test and check results of a raw SELECT query");
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening database with null String password", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
             return false;
@@ -71,11 +61,6 @@ public class QueryNonEncryptedDatabaseTest extends SQLCipherTest {
 
         try {
             database = SQLiteDatabase.openDatabase(unencryptedDatabase.getPath(), nullPasswordString, null, SQLiteDatabase.OPEN_READWRITE);
-
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED please update this test and check results of a raw SELECT query");
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening database with null String password", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
             return false;
@@ -83,11 +68,6 @@ public class QueryNonEncryptedDatabaseTest extends SQLCipherTest {
 
         try {
             database = SQLiteDatabase.openDatabase(unencryptedDatabase.getPath(), nullPasswordString, null, SQLiteDatabase.OPEN_READWRITE, null, null);
-
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED please update this test and check results of a raw SELECT query");
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening database with null String password", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
             return false;

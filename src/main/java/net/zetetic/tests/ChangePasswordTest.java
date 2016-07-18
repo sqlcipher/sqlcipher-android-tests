@@ -37,11 +37,6 @@ public class ChangePasswordTest extends SQLCipherTest {
         try {
             char[] nullPassword = null;
             database.changePassword(nullPassword);
-
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED please update this test");
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when calling SQLiteDatabase.changePassword with null password String", e);
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
             return false;

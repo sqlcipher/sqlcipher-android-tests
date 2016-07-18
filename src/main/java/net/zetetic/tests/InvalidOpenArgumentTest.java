@@ -50,13 +50,9 @@ public class InvalidOpenArgumentTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG,
                 "NOT EXPECTED: SQLiteDatabase.openOrCreateDatabase() with null file did not fail");
             return false;
-        } catch (NullPointerException e){
-            Log.v(ZeteticApplication.TAG,
-                "IGNORED: SQLiteDatabase.openOrCreateDatabase() with null file did throw a NullPointerException", e);
         } catch (IllegalArgumentException e){
-            Log.e(ZeteticApplication.TAG,
-                "BEHAVIOR CHANGED: SQLiteDatabase.openOrCreateDatabase() with null file did throw an IllegalArgumentException - please update this test", e);
-            return false;
+            Log.v(ZeteticApplication.TAG,
+                "EXPECTED RESULT: SQLiteDatabase.openOrCreateDatabase() with null file did throw an IllegalArgumentException OK", e);
         } catch (Exception e){
             Log.e(ZeteticApplication.TAG,
                 "NOT EXPECTED: SQLiteDatabase.openOrCreateDatabase() with no password did throw an unexpected exception type", e);
@@ -69,13 +65,9 @@ public class InvalidOpenArgumentTest extends SQLCipherTest {
             Log.e(ZeteticApplication.TAG,
                 "NOT EXPECTED: SQLiteDatabase.openOrCreateDatabase() with null file did not fail");
             return false;
-        } catch (NullPointerException e){
-            Log.v(ZeteticApplication.TAG,
-                "IGNORED: SQLiteDatabase.openOrCreateDatabase() with null file did throw a NullPointerException", e);
         } catch (IllegalArgumentException e){
-            Log.e(ZeteticApplication.TAG,
-                "BEHAVIOR CHANGED: SQLiteDatabase.openOrCreateDatabase() with null file did throw an IllegalArgumentException - please update this test", e);
-            return false;
+            Log.v(ZeteticApplication.TAG,
+                "EXPECTED RESULT: SQLiteDatabase.openOrCreateDatabase() with null file did throw an IllegalArgumentException OK", e);
         } catch (Exception e){
             Log.e(ZeteticApplication.TAG,
                 "NOT EXPECTED: SQLiteDatabase.openOrCreateDatabase() with null file did throw an unexpected exception type", e);

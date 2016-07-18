@@ -86,11 +86,8 @@ public class CreateNonEncryptedDatabaseTest extends SQLCipherTest {
 
         try {
             String nullPasswordString = null;
-            SQLiteDatabase.create(null, nullPasswordString);
-            Log.e(ZeteticApplication.TAG, "BEHAVIOR CHANGED please update this test");
-            return false;
-        } catch (NullPointerException e) {
-            Log.v(ZeteticApplication.TAG, "IGNORED: null pointer exception when opening database with null String password", e);
+            SQLiteDatabase.create(null, nullPasswordString)
+                .close();
         } catch (Exception e) {
             Log.e(ZeteticApplication.TAG, "NOT EXPECTED: exception", e);
             return false;
