@@ -71,6 +71,10 @@ public class CorruptDatabaseTest extends SQLCipherTest {
                 return false;
             }
 
+            // Try with a null DatabaseErrorHandler:
+            ZeteticApplication.getInstance().extractAssetToDatabaseDirectory("corrupt.db");
+            SQLiteDatabase.openOrCreateDatabase(unencryptedDatabase, "", null, null, null);
+
             return true;
         } catch (Exception ex) {
             // Uncaught exception (not expected):
