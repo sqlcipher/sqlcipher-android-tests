@@ -2,6 +2,7 @@ package net.zetetic.tests;
 
 import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
@@ -51,11 +52,23 @@ public abstract class SQLCipherTest {
     
     protected SQLiteDatabase createDatabase(File databasePath){
         Log.i(TAG, "Before ZeteticApplication.getInstance().createDatabase");
-        return ZeteticApplication.getInstance().createDatabase(databasePath);
+        return ZeteticApplication.getInstance().createDatabase(databasePath, new SQLiteDatabaseHook() {
+            @Override
+            public void preKey(SQLiteDatabase database) {
+                createDatabasePreKey(database);
+            }
+
+            @Override
+            public void postKey(SQLiteDatabase database) {
+                createDatabasePostKey(database);
+            }
+        });
     }
 
     protected void setUp(){};
     protected void tearDown(SQLiteDatabase database){};
+    protected void createDatabasePreKey(SQLiteDatabase database){};
+    protected void createDatabasePostKey(SQLiteDatabase database){};
 
     protected void log(String message){
         Log.i(TAG, message);

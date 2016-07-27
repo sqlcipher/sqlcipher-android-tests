@@ -30,7 +30,7 @@ public class ZeteticContentProvider extends ContentProvider {
 
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
         File databasePath = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
-        database = ZeteticApplication.getInstance().createDatabase(databasePath);
+        database = ZeteticApplication.getInstance().createDatabase(databasePath, null);
 
         createDatabaseWithData(database);
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
