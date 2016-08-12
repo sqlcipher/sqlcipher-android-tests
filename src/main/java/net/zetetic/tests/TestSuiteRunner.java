@@ -101,6 +101,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new ChangePasswordTest());
         tests.add(new ReadableWritableInvalidPasswordTest());
         tests.add(new InvalidOpenArgumentTest());
+        tests.add(new CopyStringToBufferTest());
 
         return tests;
     }
