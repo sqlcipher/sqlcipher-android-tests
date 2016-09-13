@@ -15,12 +15,13 @@ public abstract class SQLCipherTest {
     private TestResult result;
 
     private SQLiteDatabase database;
+    private File databasePath;
 
     protected void internalSetUp() {
         Log.i(TAG, "Before prepareDatabaseEnvironment");
         ZeteticApplication.getInstance().prepareDatabaseEnvironment();
         Log.i(TAG, "Before getDatabasePath");
-        File databasePath = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
+        databasePath = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
         Log.i(TAG, "Before createDatabase");
         database = createDatabase(databasePath);
         Log.i(TAG, "Before setUp");
@@ -45,9 +46,12 @@ public abstract class SQLCipherTest {
     }
 
     private void internalTearDown(){
-        SQLiteDatabase.releaseMemory();
         tearDown(database);
+        SQLiteDatabase.releaseMemory();
         database.close();
+        if(databasePath != null && databasePath.exists()){
+            databasePath.delete();
+        }
     }
     
     protected SQLiteDatabase createDatabase(File databasePath){

@@ -47,7 +47,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
-
+        tests.add(new TimeQueryExecutionTest());
         tests.add(new PragmaCipherVersionTest());
         tests.add(new UnicodeTest());
         tests.add(new FIPSTest());
@@ -101,7 +101,14 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new ChangePasswordTest());
         tests.add(new ReadableWritableInvalidPasswordTest());
         tests.add(new InvalidOpenArgumentTest());
-
+        tests.add(new CopyStringToBufferTestFloatSmallBuffer());
+        tests.add(new CopyStringToBufferTestFloatLargeBuffer());
+        tests.add(new CopyStringToBufferTestIntegerSmallBuffer());
+        tests.add(new CopyStringToBufferTestIntegerLargeBuffer());
+        tests.add(new CopyStringToBufferTestStringSmallBuffer());
+        tests.add(new CopyStringToBufferTestStringLargeBuffer());
+        tests.add(new CopyStringToBufferNullTest());
+        tests.add(new MUTF8ToUTF8WithNullMigrationTest());
         return tests;
     }
 }

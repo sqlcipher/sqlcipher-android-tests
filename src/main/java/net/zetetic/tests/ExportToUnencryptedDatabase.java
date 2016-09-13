@@ -17,23 +17,17 @@ public class ExportToUnencryptedDatabase extends SQLCipherTest {
         database.close();
         ZeteticApplication.getInstance().deleteDatabase(ZeteticApplication.DATABASE_NAME);
         File databaseFile = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.DATABASE_NAME);
-        SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
-            public void preKey(SQLiteDatabase sqLiteDatabase) {
-                sqLiteDatabase.rawExecSQL("PRAGMA cipher_default_use_hmac = off;");
-            }
-            public void postKey(SQLiteDatabase sqLiteDatabase) {}
-        };
-        database = SQLiteDatabase.openOrCreateDatabase(databaseFile, ZeteticApplication.DATABASE_PASSWORD, null, hook);
-
+        database = SQLiteDatabase.openOrCreateDatabase(databaseFile, ZeteticApplication.DATABASE_PASSWORD, null);
         database.rawExecSQL("create table t1(a,b);");
         database.execSQL("insert into t1(a,b) values(?, ?);", new Object[]{"one for the money", "two for the show"});
         unencryptedFile = ZeteticApplication.getInstance().getDatabasePath("plaintext.db");
+        ZeteticApplication.getInstance().deleteDatabase("plaintext.db");
         database.rawExecSQL(String.format("ATTACH DATABASE '%s' as plaintext KEY '';",
                 unencryptedFile.getAbsolutePath()));
         database.rawExecSQL("SELECT sqlcipher_export('plaintext');");
         database.rawExecSQL("DETACH DATABASE plaintext;");
 
-        SQLiteDatabase unencryptedDatabase = SQLiteDatabase.openOrCreateDatabase(unencryptedFile, "", null, hook);
+        SQLiteDatabase unencryptedDatabase = SQLiteDatabase.openOrCreateDatabase(unencryptedFile, "", null, null);
         Cursor cursor = unencryptedDatabase.rawQuery("select * from t1;", new String[]{});
         String a = "";
         String b = "";
@@ -42,7 +36,6 @@ public class ExportToUnencryptedDatabase extends SQLCipherTest {
             b = cursor.getString(1);
         }
         cursor.close();
-        database.close();
         return a.equals("one for the money") &&
                b.equals("two for the show");
     }

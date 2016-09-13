@@ -3,12 +3,15 @@ package net.zetetic.tests;
 import android.database.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
+import net.zetetic.QueryHelper;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
 import java.io.IOException;
 
 public class AttachExistingDatabaseTest extends SQLCipherTest {
+
+    private int originalKdfLength;
 
     @Override
     protected SQLiteDatabase createDatabase(File databasePath) {
@@ -31,6 +34,7 @@ public class AttachExistingDatabaseTest extends SQLCipherTest {
             String otherPath = other.getAbsolutePath();
             String attach = String.format("attach database ? as other key ?");
             database.rawExecSQL("pragma cipher_default_use_hmac = off");
+            originalKdfLength = QueryHelper.singleIntegerValueFromQuery(database, "PRAGMA kdf_iter;");
             database.rawExecSQL("pragma cipher_default_kdf_iter = 4000;");
             database.execSQL(attach, new Object[]{otherPath, ZeteticApplication.DATABASE_PASSWORD});
             Cursor result = database.rawQuery("select * from other.t1", new String[]{});
@@ -43,7 +47,6 @@ public class AttachExistingDatabaseTest extends SQLCipherTest {
                 result.close();
             }
             database.execSQL("detach database other");
-            database.rawExecSQL("pragma cipher_default_kdf_iter = 64000;");
             return a.length() > 0 && b.length() > 0;
         } catch (IOException e) {
             return false;
@@ -53,7 +56,8 @@ public class AttachExistingDatabaseTest extends SQLCipherTest {
     @Override
     protected void tearDown(SQLiteDatabase database) {
         ZeteticApplication.getInstance().delete1xDatabase();
-        database.execSQL("PRAGMA cipher_default_kdf_iter = 64000;");
+        database.rawExecSQL(String.format("PRAGMA cipher_default_kdf_iter = %s", originalKdfLength));
+        database.rawExecSQL("pragma cipher_default_use_hmac = on");
     }
 
     @Override

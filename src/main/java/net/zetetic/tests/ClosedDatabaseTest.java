@@ -100,6 +100,7 @@ public class ClosedDatabaseTest extends SQLCipherTest {
         return status;
     }
 
+    @SuppressWarnings("deprecation")
     boolean execute_closed_database_tests(SQLiteDatabase database) {
         try {
             /* operations that check if db is closed (and throw IllegalStateException): */
