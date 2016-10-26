@@ -109,6 +109,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new CopyStringToBufferTestStringLargeBuffer());
         tests.add(new CopyStringToBufferNullTest());
         tests.add(new MUTF8ToUTF8WithNullMigrationTest());
+        tests.add(new VerifyCipherProviderTest());
+        tests.add(new VerifyCipherProviderVersionTest());
+        tests.add(new AES256GCMCipherTest());
         return tests;
     }
 }
