@@ -7,7 +7,7 @@ EMULATOR_CHECK_STATUS="adb shell getprop init.svc.bootanim"
 EMULATOR_IS_BOOTED="stopped"
 emulators=`android list avd | awk '/Name:/{print $2}' | sort -u`
 for emulator in ${emulators}; do
-    emulator @${emulator} -no-skin -no-audio &> /dev/null &
+    emulator -avd "${emulator}" -no-skin &> /dev/null &
     OUT=$($EMULATOR_CHECK_STATUS 2> /dev/null)
     printf "Booting ${emulator}..."
     while [[ ${OUT:0:7}  != $EMULATOR_IS_BOOTED ]]; do
@@ -32,12 +32,12 @@ for emulator in ${emulators}; do
     adb shell rm ${INSTALL_ROOT}/files/test-results.log &> /dev/null
 
     #poll for test results
-    adb pull ${INSTALL_ROOT}/files/test-results.log test-results-$emulator.log &> /dev/null
+    adb shell "run-as net.zetetic cat /data/data/net.zetetic/files/test-results.log" > test-results-$emulator.log &> /dev/null
     OUT=$?
     printf "."
     while [[ ${OUT} != 0 ]]; do
         sleep 5
-        adb pull ${INSTALL_ROOT}/files/test-results.log test-results-$emulator.log &> /dev/null
+        adb shell "run-as net.zetetic cat /data/data/net.zetetic/files/test-results.log" > test-results-$emulator.log &> /dev/null
         OUT=$?
         printf "."
     done

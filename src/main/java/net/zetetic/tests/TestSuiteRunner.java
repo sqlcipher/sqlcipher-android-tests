@@ -47,6 +47,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+        tests.add(new CompileBeginTest());
         tests.add(new TimeQueryExecutionTest());
         tests.add(new PragmaCipherVersionTest());
         tests.add(new UnicodeTest());
