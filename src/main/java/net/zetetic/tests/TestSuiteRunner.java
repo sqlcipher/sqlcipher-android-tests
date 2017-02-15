@@ -113,6 +113,11 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new VerifyCipherProviderTest());
         tests.add(new VerifyCipherProviderVersionTest());
         tests.add(new AES256GCMCipherTest());
+        tests.add(new RawQuerySyntaxErrorMessageTest());
+        tests.add(new RawQueryNonsenseStatementErrorMessageTest());
+        tests.add(new RawQueryNoSuchFunctionErrorMessageTest());
+        tests.add(new CompileStatementSyntaxErrorMessageTest());
+        tests.add(new ExecuteInsertConstraintErrorMessageTest());
         return tests;
     }
 }

@@ -1,5 +1,7 @@
 package net.zetetic.tests;
 
+import android.database.Cursor;
+
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteException;
 
@@ -7,18 +9,20 @@ import net.zetetic.ZeteticApplication;
 
 import android.util.Log;
 
-public class RawExecSQLExceptionTest extends SQLCipherTest {
+import java.util.regex.Pattern;
+
+public class RawQueryNonsenseStatementErrorMessageTest extends SQLCipherTest {
 
     @Override
     public boolean execute(SQLiteDatabase database) {
-
         try {
-            database.rawExecSQL("select foo from bar");
+            Cursor ignored = database.rawQuery("101", null);
         } catch (SQLiteException e) {
             Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: DID throw SQLiteException", e);
             String message = e.getMessage();
             setMessage(message);
-            if (!message.matches("no such table: bar")) {
+            // TBD missing error code etc.
+            if (!message.matches("near \"101\": syntax error: .*\\, while compiling: 101")) {
                 Log.e(ZeteticApplication.TAG, "NOT EXPECTED: INCORRECT exception message: " + message);
                 return false;
             }
@@ -33,6 +37,6 @@ public class RawExecSQLExceptionTest extends SQLCipherTest {
 
     @Override
     public String getName() {
-        return "rawExecSQL Exception Test";
+        return "rawQuery nonsense statement error message Test";
     }
 }
