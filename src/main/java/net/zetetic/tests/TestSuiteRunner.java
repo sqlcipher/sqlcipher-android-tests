@@ -118,6 +118,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new RawQueryNoSuchFunctionErrorMessageTest());
         tests.add(new CompileStatementSyntaxErrorMessageTest());
         tests.add(new ExecuteInsertConstraintErrorMessageTest());
+        tests.add(new InsertWithOnConflictTest());
+        tests.add(new FTS5Test());
         return tests;
     }
 }
