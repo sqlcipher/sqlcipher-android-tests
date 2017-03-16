@@ -126,6 +126,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new BindLongRawQueryTest());
         tests.add(new BindFloatRawQueryTest());
         tests.add(new BindByteArrayRawQueryTest());
+        tests.add(new NullRawQueryTest());
         return tests;
     }
 }
