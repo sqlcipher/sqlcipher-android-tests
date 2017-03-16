@@ -120,6 +120,12 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new ExecuteInsertConstraintErrorMessageTest());
         tests.add(new InsertWithOnConflictTest());
         tests.add(new FTS5Test());
+        tests.add(new BindBooleanRawQueryTest());
+        tests.add(new BindStringRawQueryTest());
+        tests.add(new BindDoubleRawQueryTest());
+        tests.add(new BindLongRawQueryTest());
+        tests.add(new BindFloatRawQueryTest());
+        tests.add(new BindByteArrayRawQueryTest());
         return tests;
     }
 }
