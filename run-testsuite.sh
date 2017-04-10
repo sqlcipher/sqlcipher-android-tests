@@ -5,18 +5,8 @@ BIN=target/net.zetetic.sqlcipher.test.apk
 INSTALL_ROOT=/data/data/net.zetetic
 EMULATOR_CHECK_STATUS="adb shell getprop init.svc.bootanim"
 EMULATOR_IS_BOOTED="stopped"
-emulators=`android list avd | awk '/Name:/{print $2}' | sort -u`
-for emulator in ${emulators}; do
-    emulator -avd "${emulator}" -no-skin &> /dev/null &
-    OUT=$($EMULATOR_CHECK_STATUS 2> /dev/null)
-    printf "Booting ${emulator}..."
-    while [[ ${OUT:0:7}  != $EMULATOR_IS_BOOTED ]]; do
-        OUT=$($EMULATOR_CHECK_STATUS 2> /dev/null)
-        printf "."
-        sleep 5
-    done
-    printf "\n"
-    
+
+function test_sqlcipher {
     # unlock
     adb shell input keyevent ${UNLOCK_KEY}
 
@@ -41,11 +31,38 @@ for emulator in ${emulators}; do
         OUT=$?
         printf "."
     done
+
     printf "\nTest suite run complete for ${emulator}:\n"
     cat test-results-$emulator.log
     printf "\n"
     sleep 5
-    
-    # stop emulator
-    adb emu kill
-done
+}
+
+function test_on_emulator {
+    emulators=`android list avd | awk '/Name:/{print $2}' | sort -u`
+
+    for emulator in ${emulators}; do
+        emulator -avd "${emulator}" -no-skin &> /dev/null &
+        OUT=$($EMULATOR_CHECK_STATUS 2> /dev/null)
+        printf "Booting ${emulator}..."
+        while [[ ${OUT:0:7}  != $EMULATOR_IS_BOOTED ]]; do
+            OUT=$($EMULATOR_CHECK_STATUS 2> /dev/null)
+            printf "."
+            sleep 5
+        done
+
+        test_sqlcipher
+
+        stop emulator
+        adb emu kill
+    done
+}
+
+if [ ! -d $1 ]
+then
+    # test on a device
+    test_sqlcipher
+else
+    # test on an emulator
+    test_on_emulator
+fi
