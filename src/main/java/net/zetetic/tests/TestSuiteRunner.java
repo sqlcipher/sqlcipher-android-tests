@@ -1,8 +1,10 @@
 package net.zetetic.tests;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
+import android.view.WindowManager;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
@@ -11,7 +13,16 @@ import java.util.List;
 
 public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void> {
 
+    String TAG = getClass().getSimpleName();
     private ResultNotifier notifier;
+    private Activity activity;
+
+    public TestSuiteRunner(Activity activity){
+        this.activity = activity;
+        if(this.activity != null){
+            this.activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+    }
 
     @Override
     protected Void doInBackground(ResultNotifier... resultNotifiers) {
@@ -29,6 +40,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     @Override
     protected void onPostExecute(Void aVoid) {
         notifier.complete();
+        if(this.activity != null){
+            this.activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 
     private void runSuite(){
@@ -37,7 +51,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         for(SQLCipherTest test : getTestsToRun()){
             try{
                 Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
-                publishProgress(test.run());
+                TestResult result = test.run();
+                publishProgress(result);
+
             }catch (Throwable e){
                 Log.i(ZeteticApplication.TAG, e.toString());
                 publishProgress(new TestResult(test.getName(), false, e.toString()));
@@ -47,6 +63,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     private List<SQLCipherTest> getTestsToRun(){
         List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+        tests.add(new ReadWriteDatabaseToExternalStorageTest());
+        tests.add(new BeginTransactionTest());
+        tests.add(new QueryTenThousandDataTest());
         tests.add(new CompileBeginTest());
         tests.add(new TimeQueryExecutionTest());
         tests.add(new PragmaCipherVersionTest());
@@ -127,6 +146,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         tests.add(new BindFloatRawQueryTest());
         tests.add(new BindByteArrayRawQueryTest());
         tests.add(new NullRawQueryTest());
+        tests.add(new ReadWriteDatabaseToExternalStorageTest());
         return tests;
     }
 }

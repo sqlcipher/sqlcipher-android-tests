@@ -7,7 +7,6 @@ import net.sqlcipher.database.SQLiteException;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
-import java.util.Locale;
 
 public class ClosedDatabaseTest extends SQLCipherTest {
 

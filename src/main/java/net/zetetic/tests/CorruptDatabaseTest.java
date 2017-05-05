@@ -1,16 +1,12 @@
 package net.zetetic.tests;
 
-import android.util.Log;
-
 import android.database.Cursor;
-
+import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseCorruptException;
-
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
-import java.io.IOException;
 
 public class CorruptDatabaseTest extends SQLCipherTest {
 

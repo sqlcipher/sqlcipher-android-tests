@@ -4,20 +4,22 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.HeaderViewListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import net.zetetic.tests.ResultNotifier;
 import net.zetetic.tests.TestResult;
 import net.zetetic.tests.TestSuiteRunner;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestSuiteActivity extends Activity implements ResultNotifier {
 
-    private static String TAG = "net.zetetic.sqlcipher.test";
+    private String TAG = this.getClass().getSimpleName();
     ListView resultsView;
     List<TestResult> results;
     View statsView;
@@ -43,14 +45,13 @@ public class TestSuiteActivity extends Activity implements ResultNotifier {
     }
 
     public void onButtonClick(View view) {
-
         deleteTestResultsLog();
         results.clear();
         hideStats();
         findViewById(R.id.executeSuite).setEnabled(false);
         resultsView = (ListView) findViewById(R.id.test_suite_results);
         ZeteticApplication.getInstance().setCurrentActivity(this);
-        new TestSuiteRunner().execute(this);
+        new TestSuiteRunner(this).execute(this);
     }
 
     @Override

@@ -33,7 +33,10 @@ public abstract class SQLCipherTest {
         result = new TestResult(getName(), false);
         try {
             internalSetUp();
+            long startTime = System.nanoTime();
             result.setResult(execute(database));
+            long endTime = System.nanoTime();
+            Log.i(TAG, String.format("Test complete: %s ran in %.2f seconds", getName(), (endTime - startTime)/1000000000.0d));
             internalTearDown();
         } catch (Exception e) {
             Log.v(ZeteticApplication.TAG, e.toString());
