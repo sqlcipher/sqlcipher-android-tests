@@ -28,6 +28,7 @@ public class ReadableWritableAccessTest extends SQLCipherTest {
 
         Cursor results = readableDatabase.rawQuery("select count(*) from t1", new String[]{});
         results.moveToFirst();
+        int t = results.getType(0);
         int rowCount = results.getInt(0);
 
         results.close();
@@ -35,7 +36,7 @@ public class ReadableWritableAccessTest extends SQLCipherTest {
         readableDatabase.close();
         writableDatabase.close();
 
-        return rowCount == 1;
+        return (t == 1) && (rowCount == 1);
     }
 
     @Override
