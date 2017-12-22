@@ -20,5 +20,11 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile (name: 'android-database-sqlcipher-3.5.7', ext: 'aar')
+
+  // For testing zip-based distributions:
+  //compile files('libs/sqlcipher.jar')
+
+
+  // For testing AAR packages:
+  compile (name: 'android-database-sqlcipher-3.5.8', ext: 'aar')
 }

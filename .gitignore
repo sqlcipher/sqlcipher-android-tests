@@ -3,5 +3,6 @@
 **/*.apk
 target
 *.log
-
 build
+.gradle
+.idea

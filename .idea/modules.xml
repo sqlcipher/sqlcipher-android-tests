@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/net.zetetic.sqlcipher.test.iml" filepath="$PROJECT_DIR$/net.zetetic.sqlcipher.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqlcipher-android-tests.iml" filepath="$PROJECT_DIR$/sqlcipher-android-tests.iml" />
     </modules>
   </component>
 </project>

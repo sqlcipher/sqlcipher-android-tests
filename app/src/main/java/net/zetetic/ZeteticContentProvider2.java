@@ -6,8 +6,10 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+import android.util.Log;
 
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.sqlcipher.database.SQLiteQueryBuilder;
 
 public class ZeteticContentProvider2 extends ContentProvider {
@@ -18,9 +20,7 @@ public class ZeteticContentProvider2 extends ContentProvider {
 
     private SQLiteDatabase database;
 
-    public ZeteticContentProvider2() {
-
-    }
+    public ZeteticContentProvider2() {}
 
     @Override
     public boolean onCreate() {
@@ -29,7 +29,6 @@ public class ZeteticContentProvider2 extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-
         SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
         File databasePath = ZeteticApplication.getInstance().getDatabasePath(DATABASE_NAME);
         database = ZeteticApplication.getInstance().createDatabase(databasePath);
@@ -64,7 +63,7 @@ public class ZeteticContentProvider2 extends ContentProvider {
         database.execSQL("create table if not exists t1(a varchar, b blob);");
         ContentValues values = new ContentValues();
         values.put("a", "one for the money");
-        values.put("b", "two for the show".getBytes());
+        values.put("b", "two for the shownwp".getBytes());
         database.insert("t1", null, values);
     }
 }

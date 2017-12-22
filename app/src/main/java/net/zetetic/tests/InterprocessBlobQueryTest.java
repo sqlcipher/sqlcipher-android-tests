@@ -14,7 +14,7 @@ public class InterprocessBlobQueryTest extends SQLCipherTest {
 
         Activity activity = ZeteticApplication.getInstance().getCurrentActivity();
         Uri providerUri = ZeteticContentProvider2.CONTENT_URI;
-        android.database.Cursor cursor = activity.managedQuery(providerUri, null, null, null, null);
+        android.database.Cursor cursor = activity.getContentResolver().query(providerUri, null, null, null, null);
         StringBuilder buffer = new StringBuilder();
         while (cursor.moveToNext()) {
             buffer.append(cursor.getString(0));

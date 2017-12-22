@@ -9,6 +9,7 @@ public class VerifyCipherProviderTest extends SQLCipherTest {
     public boolean execute(SQLiteDatabase database) {
         String provider = QueryHelper.singleValueFromQuery(database,
                 "PRAGMA cipher_provider;");
+        setMessage(String.format("Reported:%s", provider));
         return provider.contains("openssl");
     }
 

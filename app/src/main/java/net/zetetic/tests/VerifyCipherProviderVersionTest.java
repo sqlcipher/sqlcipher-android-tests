@@ -9,8 +9,9 @@ public class VerifyCipherProviderVersionTest extends SQLCipherTest {
     public boolean execute(SQLiteDatabase database) {
         String provider = QueryHelper.singleValueFromQuery(database,
                 "PRAGMA cipher_provider_version;");
-        return provider.contains("OpenSSL 1.1.0f") ||
-            provider.contains("OpenSSL 1.0.2g-fips");
+        setMessage(String.format("Reported:%s", provider));
+        return provider.contains("OpenSSL 1.1.0g") ||
+            provider.contains("OpenSSL 1.0.2m-fips");
     }
 
     @Override

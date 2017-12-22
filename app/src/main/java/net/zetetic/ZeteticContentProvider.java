@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.sqlcipher.database.SQLiteQueryBuilder;
 
 import java.io.File;
