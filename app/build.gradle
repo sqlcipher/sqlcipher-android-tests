@@ -26,5 +26,5 @@ dependencies {
 
 
   // For testing AAR packages:
-  compile (name: 'android-database-sqlcipher-3.5.8', ext: 'aar')
+  compile (name: 'android-database-sqlcipher-3.5.9-beta', ext: 'aar')
 }
