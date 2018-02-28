@@ -10,7 +10,7 @@ public class QueryLimitTest extends SQLCipherTest {
   @Override
   public boolean execute(SQLiteDatabase database) {
 
-    String create = "CREATE TABLE t1(id ID INTEGER(20) PRIMARY KEY, name VARCHAR(50));";
+    String create = "CREATE TABLE t1(id INTEGER(20) PRIMARY KEY, name VARCHAR(50));";
     String query1 = "SELECT id, name FROM t1 ORDER BY ID ASC LIMIT 0, 20;";
     String query2 = "SELECT id, name FROM t1 ORDER BY ID ASC LIMIT 20, 20;";
     database.rawExecSQL(create);
