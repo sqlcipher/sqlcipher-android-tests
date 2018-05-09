@@ -10,47 +10,45 @@ public class QueryLimitTest extends SQLCipherTest {
   @Override
   public boolean execute(SQLiteDatabase database) {
 
-    String create = "CREATE TABLE t1(id INTEGER(20) PRIMARY KEY, name VARCHAR(50));";
-    String query1 = "SELECT id, name FROM t1 ORDER BY ID ASC LIMIT 0, 20;";
-    String query2 = "SELECT id, name FROM t1 ORDER BY ID ASC LIMIT 20, 20;";
+    int query1FirstId = -1;
+    int query1RowCount = 0;
+    int limit = 20;
+    int offset = 5;
+    int recordsToInsertInSourceTable = 30;
+    String create = "CREATE TABLE source(id INTEGER(20) PRIMARY KEY, name VARCHAR(50));";
+    String other = "CREATE TABLE destination(id INTEGER(20) PRIMARY KEY, name VARCHAR(50));";
+    String insert = String.format("INSERT INTO destination(id, name) SELECT * FROM source ORDER BY ID ASC LIMIT %d OFFSET %d;",
+                                  limit, offset);
+    String query1 = "SELECT * FROM destination ORDER BY id ASC;";
+
     database.rawExecSQL(create);
     database.beginTransaction();
-    for(int index = 0; index < 30; index++){
+    for(int index = 0; index < recordsToInsertInSourceTable; index++){
       ContentValues values = new ContentValues();
       values.put("id", String.valueOf(index));
       values.put("name", String.format("name%d", index));
-      database.insert("t1", null, values);
+      database.insert("source", null, values);
     }
     database.setTransactionSuccessful();
     database.endTransaction();
 
-    int query1FirstId = -1;
-    int query2FirstId = -1;
-    int query1RowCount = 0;
-    int query2RowCount = 0;
+    database.execSQL(other);
+    database.execSQL(insert);
 
-    Cursor cursor1 = database.rawQuery(query1, null);
-    if(cursor1 != null){
-      while (cursor1.moveToNext()){
-        if(query1RowCount == 0){
-          query1FirstId = cursor1.getInt(cursor1.getColumnIndex("id"));
+    Cursor cursor = database.rawQuery(query1, null);
+    if(cursor != null){
+      while (cursor.moveToNext()){
+        if(query1FirstId == -1) {
+          query1FirstId = cursor.getInt(cursor.getColumnIndex("id"));
         }
         query1RowCount++;
+        log(String.format("id:%d name:%s",
+            cursor.getInt(cursor.getColumnIndex("id")),
+            cursor.getString(cursor.getColumnIndex("name"))));
       }
-      cursor1.close();
+      cursor.close();
     }
-    Cursor cursor2 = database.rawQuery(query2, null);
-    if(cursor2 != null){
-      while(cursor2.moveToNext()){
-        if(query2RowCount == 0){
-          query2FirstId = cursor2.getInt(cursor2.getColumnIndex("id"));
-        }
-        query2RowCount++;
-      }
-      cursor2.close();
-    }
-    return query1FirstId == 0 && query1RowCount == 20 &&
-        query2FirstId == 20 && query2RowCount == 10;
+    return query1FirstId == offset && query1RowCount == limit;
   }
 
   @Override
