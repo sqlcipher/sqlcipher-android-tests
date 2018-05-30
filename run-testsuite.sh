@@ -15,7 +15,7 @@ function test_sqlcipher {
     adb install -r ${BIN} &> /dev/null
 
     printf "Running test suite..."
-    adb shell am start -n "net.zetetic/net.zetetic.TestSuiteActivity" \
+    adb shell am start -n "net.zetetic/net.zetetic.activities.TestSuiteBehaviorsActivity" \
         -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e run 1 &> /dev/null
 
     # remove previous test results

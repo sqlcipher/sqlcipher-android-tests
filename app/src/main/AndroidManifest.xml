@@ -7,13 +7,15 @@
                  android:debuggable="true"
                  android:label="@string/app_name"
                  android:name="ZeteticApplication">
-        <activity android:name=".TestSuiteActivity"
+        <activity android:name=".activities.TestRunnerSelectionActivity"
                   android:keepScreenOn="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activities.TestSuiteBehaviorsActivity" />
+        <activity android:name=".activities.TestScrollingCursorActivity" />
         <provider android:name=".ZeteticContentProvider" android:authorities="net.zetetic.sqlcipher.zeteticprovider" />
 
         <provider android:name=".ZeteticContentProvider2" android:authorities="net.zetetic.sqlcipher.zeteticprovider2"

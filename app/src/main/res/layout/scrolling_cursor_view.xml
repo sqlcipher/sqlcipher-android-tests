@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RadioGroup
+        android:id="@+id/options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/optimize_cursor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Optimized Cursor Loading" />
+        <RadioButton
+            android:id="@+id/explicit_cursor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explicit Cursor Loading" />
+    </RadioGroup>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_below="@id/options"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
