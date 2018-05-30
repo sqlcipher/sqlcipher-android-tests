@@ -20,7 +20,7 @@ public class LargeDatabaseCursorAccessTest extends SQLCipherTest {
   public boolean execute(SQLiteDatabase database) {
     try {
       int rowCount = 1000;
-      long windowAllocationSize = 1024 * 1024;
+      long windowAllocationSize = 1024 * 1024 / 20;
       buildDatabase(database, rowCount, 30, new RowColumnValueBuilder() {
         @Override
         public Object buildRowColumnValue(String[] columns, int row, int column) {
