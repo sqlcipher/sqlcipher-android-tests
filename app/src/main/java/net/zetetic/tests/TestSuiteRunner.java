@@ -65,6 +65,22 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
+    tests.add(new SQLiteOpenHelperEnableWriteAheadLogTest());
+    tests.add(new SQLiteOpenHelperGetNameTest());
+    tests.add(new SQLiteOpenHelperOnDowngradeTest());
+    tests.add(new SQLiteOpenHelperConfigureTest());
+    tests.add(new CheckIsDatabaseIntegrityOkTest());
+    tests.add(new GetAttachedDatabasesTest());
+    tests.add(new EnableForeignKeyConstraintsTest());
+    tests.add(new ForeignKeyConstraintsEnabledWithTransactionTest());
+    tests.add(new EnableWriteAheadLoggingTest());
+    tests.add(new DisableWriteAheadLoggingTest());
+    tests.add(new CheckIsWriteAheadLoggingEnabledTest());
+    tests.add(new WriteAheadLoggingWithTransactionTest());
+    tests.add(new WriteAheadLoggingWithInMemoryDatabaseTest());
+    tests.add(new WriteAheadLoggingWithAttachedDatabaseTest());
+    tests.add(new TransactionNonExclusiveTest());
+    tests.add(new TransactionWithListenerTest());
     tests.add(new LargeDatabaseCursorAccessTest());
 //    tests.add(new TimeLargeByteArrayQueryTest());
     tests.add(new QueryLimitTest());
