@@ -64,8 +64,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
   }
 
   private List<SQLCipherTest> getTestsToRun() {
-    List<SQLCipherTest> tests = new ArrayList<SQLCipherTest>();
-    tests.add(new SQLiteOpenHelperEnableWriteAheadLogTest());
+    List<SQLCipherTest> tests = new ArrayList<>();
+    tests.add(new SQLiteOpenHelperEnableWriteAheadLogBeforeGetDatabaseTest());
+    tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
     tests.add(new SQLiteOpenHelperGetNameTest());
     tests.add(new SQLiteOpenHelperOnDowngradeTest());
     tests.add(new SQLiteOpenHelperConfigureTest());
