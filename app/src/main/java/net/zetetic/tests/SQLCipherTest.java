@@ -125,6 +125,12 @@ public abstract class SQLCipherTest {
         Log.i(TAG, String.format("Database built with %d columns, %d rows", columns, rows));
     }
 
+    protected byte[] generateRandomByteArray(int size) {
+        byte[] data = new byte[size];
+        random.nextBytes(data);
+        return data;
+    }
+
     protected void setUp(){};
     protected void tearDown(SQLiteDatabase database){};
     protected void createDatabasePreKey(SQLiteDatabase database){};

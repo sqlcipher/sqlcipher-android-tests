@@ -130,12 +130,6 @@ public class TimeLargeByteArrayQueryTest extends SQLCipherTest {
       return stats;
     }
 
-    private byte[] generateRandomByteArray(int size) {
-      byte[] data = new byte[size];
-      random.nextBytes(data);
-      return data;
-    }
-
     private String bytesToString(long bytes) {
       int unit = 1024;
       if (bytes < unit) return bytes + " B";

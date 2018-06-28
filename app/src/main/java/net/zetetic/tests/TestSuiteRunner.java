@@ -6,8 +6,9 @@ import android.os.Build;
 import android.util.Log;
 import android.view.WindowManager;
 
+import net.sqlcipher.CursorWindow;
+import net.sqlcipher.CursorWindowAllocation;
 import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.zetetic.ZeteticApplication;
 
 import java.util.ArrayList;
@@ -50,8 +51,10 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
   private void runSuite() {
 
     SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
+    CursorWindowAllocation defaultAllocation = CursorWindow.getCursorWindowAllocation();
     for (SQLCipherTest test : getTestsToRun()) {
       try {
+        CursorWindow.setCursorWindowAllocation(defaultAllocation);
         Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
         TestResult result = test.run();
         publishProgress(result);
@@ -60,11 +63,18 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
         Log.i(ZeteticApplication.TAG, e.toString());
         publishProgress(new TestResult(test.getName(), false, e.toString()));
       }
+      finally {
+        CursorWindow.setCursorWindowAllocation(defaultAllocation);
+      }
     }
   }
 
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
+    tests.add(new QueryDataSizeTest());
+    tests.add(new FixedCursorWindowAllocationTest());
+    tests.add(new GrowingCursorWindowAllocationTest());
+    tests.add(new ReadWriteWriteAheadLoggingTest());
     tests.add(new SQLiteOpenHelperEnableWriteAheadLogBeforeGetDatabaseTest());
     tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
     tests.add(new SQLiteOpenHelperGetNameTest());
@@ -83,7 +93,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new TransactionNonExclusiveTest());
     tests.add(new TransactionWithListenerTest());
     tests.add(new LargeDatabaseCursorAccessTest());
+
 //    tests.add(new TimeLargeByteArrayQueryTest());
+
     tests.add(new QueryLimitTest());
     tests.add(new RTreeTest());
     tests.add(new ReadWriteDatabaseToExternalStorageTest());
@@ -171,6 +183,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new BindByteArrayRawQueryTest());
     tests.add(new NullRawQueryTest());
     tests.add(new ReadWriteDatabaseToExternalStorageTest());
+
     return tests;
   }
 }
