@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 26
-  buildToolsVersion "26.0.1"
+  buildToolsVersion '28.0.2'
   defaultConfig {
     applicationId "net.zetetic.sqlcipher.test"
     minSdkVersion 14
-    targetSdkVersion 24
+    targetSdkVersion 26
     versionCode 1
     versionName "1.0"
   }
@@ -19,12 +19,11 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
 
   // For testing zip-based distributions:
-  //compile files('libs/sqlcipher.jar')
-
+  // implementation files('libs/sqlcipher.jar')
 
   // For testing AAR packages:
-  compile (name: 'android-database-sqlcipher-3.5.9', ext: 'aar')
+  implementation (name: 'android-database-sqlcipher-3.5.9', ext: 'aar')
 }

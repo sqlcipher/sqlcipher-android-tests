@@ -6,3 +6,4 @@ target
 build
 .gradle
 .idea
+local.properties
