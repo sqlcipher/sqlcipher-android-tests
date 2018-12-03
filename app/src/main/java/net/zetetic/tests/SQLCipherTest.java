@@ -3,6 +3,7 @@ package net.zetetic.tests;
 import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
+import net.zetetic.QueryHelper;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
@@ -138,6 +139,21 @@ public abstract class SQLCipherTest {
 
     protected void log(String message){
         Log.i(TAG, message);
+    }
+
+    protected void logPragmaSetting(SQLiteDatabase database) {
+        String[] pragmas = new String[]{"cipher_version", "kdf_iter", "cipher_page_size", "cipher_use_hmac",
+            "cipher_hmac_algorithm", "cipher_kdf_algorithm"};
+        String[] defaultPragmas = new String[]{"cipher_default_kdf_iter", "cipher_default_page_size",
+            "cipher_default_use_hmac", "cipher_default_hmac_algorithm", "cipher_default_kdf_algorithm"};
+        for (String pragma : pragmas) {
+            String value = QueryHelper.singleValueFromQuery(database, String.format("PRAGMA %s;", pragma));
+            log(String.format("PRAGMA %s set to %s", pragma, value));
+        }
+        for (String defaultPragma : defaultPragmas) {
+            String value = QueryHelper.singleValueFromQuery(database, String.format("PRAGMA %s;", defaultPragma));
+            log(String.format("PRAGMA %s set to %s", defaultPragma, value));
+        }
     }
 
     protected List<String> ReservedWords = Arrays.asList(new String[]{

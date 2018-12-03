@@ -14,6 +14,7 @@ import net.sqlcipher.CursorWindow;
 import net.sqlcipher.CustomCursorWindowAllocation;
 import net.sqlcipher.database.SQLiteCursor;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.zetetic.R;
 import net.zetetic.ScrollingCursorAdapter;
 import net.zetetic.ZeteticApplication;
@@ -28,6 +29,16 @@ public class TestScrollingCursorActivity extends Activity {
   ListView listView;
   RadioGroup options;
   Cursor cursor;
+
+  SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+    public void preKey(SQLiteDatabase database) {}
+    public void postKey(SQLiteDatabase database) {
+      database.execSQL("PRAGMA kdf_iter = 64000;");
+      database.execSQL("PRAGMA cipher_page_size = 1024;");
+      database.execSQL("PRAGMA cipher_hmac_algorithm = HMAC_SHA1;");
+      database.execSQL("PRAGMA cipher_kdf_algorithm = PBKDF2_HMAC_SHA1;");
+    }
+  };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +97,7 @@ public class TestScrollingCursorActivity extends Activity {
       File databasePath = getDatabasePath(databaseFilename);
       ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(databaseFilename);
       database = SQLiteDatabase.openDatabase(databasePath.getAbsolutePath(),
-          ZeteticApplication.DATABASE_PASSWORD, null, SQLiteDatabase.OPEN_READWRITE);
+          ZeteticApplication.DATABASE_PASSWORD, null, SQLiteDatabase.OPEN_READWRITE, hook);
     } catch (Exception e){
       Log.e(getClass().getSimpleName(), e.toString());
     }

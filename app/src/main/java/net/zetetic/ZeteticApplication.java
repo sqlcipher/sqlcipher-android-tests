@@ -115,7 +115,7 @@ public class ZeteticApplication extends Application {
   SQLiteDatabaseHook keyHook = new SQLiteDatabaseHook() {
     @Override
     public void preKey(SQLiteDatabase database) {
-      //database.rawExecSQL("PRAGMA cipher_license = '';");
+      database.rawExecSQL("PRAGMA cipher_license = '';");
     }
     public void postKey(SQLiteDatabase database) {
     }

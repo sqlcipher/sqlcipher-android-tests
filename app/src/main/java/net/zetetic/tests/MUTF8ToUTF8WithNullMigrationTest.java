@@ -16,10 +16,15 @@ public class MUTF8ToUTF8WithNullMigrationTest extends SQLCipherTest {
     String filename = "mutf8.db";
     char[] password = new char[]{'t', 'e', 's', 't', '\u0000', '1', '2', '3'};
     SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
-        public void preKey(SQLiteDatabase sqLiteDatabase) {
+        public void preKey(SQLiteDatabase database) {
             keyCount++;
         }
-        public void postKey(SQLiteDatabase sqLiteDatabase) {}
+        public void postKey(SQLiteDatabase database) {
+            database.execSQL("PRAGMA kdf_iter = 64000;");
+            database.execSQL("PRAGMA cipher_page_size = 1024;");
+            database.execSQL("PRAGMA cipher_hmac_algorithm = HMAC_SHA1;");
+            database.execSQL("PRAGMA cipher_kdf_algorithm = PBKDF2_HMAC_SHA1;");
+        }
     };
 
     @Override

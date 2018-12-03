@@ -71,6 +71,11 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
+    tests.add(new FIPSTest());
+    tests.add(new PragmaCipherVersionTest());
+    tests.add(new VerifyCipherProviderTest());
+    tests.add(new VerifyCipherProviderVersionTest());
+    tests.add(new JavaClientLibraryVersionTest());
     tests.add(new ReadWriteUserVersionTest());
     tests.add(new QueryDataSizeTest());
     tests.add(new FixedCursorWindowAllocationTest());
@@ -104,12 +109,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new QueryTenThousandDataTest());
     tests.add(new CompileBeginTest());
     tests.add(new TimeQueryExecutionTest());
-    tests.add(new VerifyCipherProviderTest());
-    tests.add(new VerifyCipherProviderVersionTest());
-    tests.add(new PragmaCipherVersionTest());
-    tests.add(new JavaClientLibraryVersionTest());
+
     tests.add(new UnicodeTest());
-    tests.add(new FIPSTest());
+
     tests.add(new QueryIntegerToStringTest());
     tests.add(new QueryFloatToStringTest());
     tests.add(new ClosedDatabaseTest());
@@ -167,8 +169,8 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new CopyStringToBufferTestStringSmallBuffer());
     tests.add(new CopyStringToBufferTestStringLargeBuffer());
     tests.add(new CopyStringToBufferNullTest());
+    tests.add(new OpenSQLCipher3DatabaseTest());
     tests.add(new MUTF8ToUTF8WithNullMigrationTest());
-    tests.add(new AES256GCMCipherTest());
     tests.add(new RawQuerySyntaxErrorMessageTest());
     tests.add(new RawQueryNonsenseStatementErrorMessageTest());
     tests.add(new RawQueryNoSuchFunctionErrorMessageTest());

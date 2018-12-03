@@ -19,6 +19,9 @@ public class AttachExistingDatabaseTest extends SQLCipherTest {
             public void preKey(SQLiteDatabase database) {}
             public void postKey(SQLiteDatabase database) {
                 database.execSQL("PRAGMA cipher_default_kdf_iter = 4000;");
+                database.execSQL("PRAGMA cipher_default_page_size = 1024;");
+                database.execSQL("PRAGMA cipher_default_hmac_algorithm = HMAC_SHA1;");
+                database.execSQL("PRAGMA cipher_default_kdf_algorithm = PBKDF2_HMAC_SHA1;");
             }
         };
         return SQLiteDatabase.openOrCreateDatabase(databasePath,
@@ -58,6 +61,10 @@ public class AttachExistingDatabaseTest extends SQLCipherTest {
         ZeteticApplication.getInstance().delete1xDatabase();
         database.rawExecSQL(String.format("PRAGMA cipher_default_kdf_iter = %s", originalKdfLength));
         database.rawExecSQL("pragma cipher_default_use_hmac = on");
+        database.execSQL("PRAGMA cipher_default_kdf_iter = 256000;");
+        database.execSQL("PRAGMA cipher_default_page_size = 4096;");
+        database.execSQL("PRAGMA cipher_default_hmac_algorithm = HMAC_SHA512;");
+        database.execSQL("PRAGMA cipher_default_kdf_algorithm = PBKDF2_HMAC_SHA512;");
     }
 
     @Override

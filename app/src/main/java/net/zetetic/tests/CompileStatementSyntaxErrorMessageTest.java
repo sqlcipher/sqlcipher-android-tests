@@ -21,7 +21,7 @@ public class CompileStatementSyntaxErrorMessageTest extends SQLCipherTest {
             String message = e.getMessage();
             setMessage(message);
             // TBD missing error code etc.
-            if (!message.matches("near \"VALUES\": syntax error: .*\\, while compiling: INSERT INTO mytable \\(mydata\\) VALUES")) {
+            if (!message.matches("incomplete input: , while compiling: INSERT INTO mytable \\(mydata\\) VALUES")) {
                 Log.e(ZeteticApplication.TAG, "NOT EXPECTED: INCORRECT exception message: " + message);
                 return false;
             }

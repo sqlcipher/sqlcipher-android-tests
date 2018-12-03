@@ -22,8 +22,11 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
   // For testing zip-based distributions:
-  // implementation files('libs/sqlcipher.jar')
+  //implementation files('libs/sqlcipher.jar')
 
-  // For testing AAR packages:
-  implementation (name: 'android-database-sqlcipher-3.5.9', ext: 'aar')
+  // For testing local AAR packages:
+  //implementation (name: 'android-database-sqlcipher-4.0.0', ext: 'aar')
+
+  // For testing on remote AAR references:
+  implementation 'net.zetetic:android-database-sqlcipher:4.0.0@aar'
 }
