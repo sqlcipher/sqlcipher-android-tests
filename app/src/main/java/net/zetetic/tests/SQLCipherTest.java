@@ -43,7 +43,7 @@ public abstract class SQLCipherTest {
             long startTime = System.nanoTime();
             result.setResult(execute(database));
             long endTime = System.nanoTime();
-            Log.i(TAG, String.format("Test complete: %s ran in %.2f seconds", getName(), (endTime - startTime)/1000000000.0d));
+            Log.i(TAG, String.format("Test complete: %s ran in %.2f seconds using library version %s", getName(), (endTime - startTime)/1000000000.0d, SQLiteDatabase.SQLCIPHER_ANDROID_VERSION));
             internalTearDown();
         } catch (Exception e) {
             Log.v(ZeteticApplication.TAG, e.toString());
