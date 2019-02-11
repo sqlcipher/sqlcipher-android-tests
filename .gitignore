@@ -7,3 +7,5 @@ build
 .gradle
 .idea
 local.properties
+./idea/**
+*.iml
