@@ -5,7 +5,7 @@ android {
   buildToolsVersion '28.0.3'
   defaultConfig {
     applicationId "net.zetetic.sqlcipher.test"
-    minSdkVersion 26
+    minSdkVersion 21
     targetSdkVersion 26
     versionCode 1
     versionName "1.0"
@@ -25,7 +25,7 @@ dependencies {
   //implementation files('libs/sqlcipher.jar')
 
   // For testing local AAR packages:
-  implementation (name: 'android-database-sqlcipher-4.0.1-debug', ext: 'aar')
+  implementation (name: 'android-database-sqlcipher-4.1.1', ext: 'aar')
 
   // For testing on remote AAR references:
   //implementation 'net.zetetic:android-database-sqlcipher:4.0.1@aar'
