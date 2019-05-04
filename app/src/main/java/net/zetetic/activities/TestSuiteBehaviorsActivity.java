@@ -15,6 +15,7 @@ import net.zetetic.ZeteticApplication;
 import net.zetetic.tests.ResultNotifier;
 import net.zetetic.tests.TestResult;
 import net.zetetic.tests.TestSuiteRunner;
+import net.zetetic.tests.support.SupportSuiteRunner;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifier {
-
+    static final String EXTRA_IS_SUPPORT = "isSupport";
     private String TAG = this.getClass().getSimpleName();
     ListView resultsView;
     List<TestResult> results;
@@ -50,7 +51,13 @@ public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifi
         findViewById(R.id.executeSuite).setEnabled(false);
         resultsView = (ListView) findViewById(R.id.test_suite_results);
         ZeteticApplication.getInstance().setCurrentActivity(this);
-        new TestSuiteRunner(this).execute(this);
+
+        if (getIntent().getBooleanExtra(EXTRA_IS_SUPPORT, false)) {
+            new SupportSuiteRunner(this).execute(this);
+        }
+        else {
+            new TestSuiteRunner(this).execute(this);
+        }
     }
 
     @Override
