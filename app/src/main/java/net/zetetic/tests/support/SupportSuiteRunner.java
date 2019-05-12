@@ -178,8 +178,8 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new CopyStringToBufferTestStringSmallBuffer());
     tests.add(new CopyStringToBufferTestStringLargeBuffer());
     tests.add(new CopyStringToBufferNullTest());
-/*    tests.add(new OpenSQLCipher3DatabaseTest());
-    tests.add(new MUTF8ToUTF8WithNullMigrationTest());
+// TODO rewrite          tests.add(new OpenSQLCipher3DatabaseTest());
+// TODO rewrite          tests.add(new MUTF8ToUTF8WithNullMigrationTest());
     tests.add(new RawQuerySyntaxErrorMessageTest());
     tests.add(new RawQueryNonsenseStatementErrorMessageTest());
     tests.add(new RawQueryNoSuchFunctionErrorMessageTest());
@@ -194,8 +194,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new BindFloatRawQueryTest());
     tests.add(new BindByteArrayRawQueryTest());
     tests.add(new NullRawQueryTest());
-    tests.add(new ReadWriteDatabaseToExternalStorageTest());
-*/
+// TODO rewrite          tests.add(new ReadWriteDatabaseToExternalStorageTest());
 
     return tests;
   }
