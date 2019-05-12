@@ -93,9 +93,21 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 // TODO rewrite   tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
     tests.add(new SQLiteOpenHelperGetNameTest());
 // TODO rewrite   tests.add(new SQLiteOpenHelperOnDowngradeTest());
-// TODO rewrite   tests.add(new SQLiteOpenHelperConfigureTest());
+// TODO rewrite  tests.add(new SQLiteOpenHelperConfigureTest());
     tests.add(new CheckIsDatabaseIntegrityOkTest());
     tests.add(new GetAttachedDatabasesTest());
+    tests.add(new EnableForeignKeyConstraintsTest());
+    tests.add(new ForeignKeyConstraintsEnabledWithTransactionTest());
+    tests.add(new EnableWriteAheadLoggingTest());
+    tests.add(new DisableWriteAheadLoggingTest());
+    tests.add(new CheckIsWriteAheadLoggingEnabledTest());
+    tests.add(new WriteAheadLoggingWithTransactionTest());
+// TODO rewrite      tests.add(new WriteAheadLoggingWithInMemoryDatabaseTest());
+    tests.add(new WriteAheadLoggingWithAttachedDatabaseTest());
+    tests.add(new TransactionNonExclusiveTest());
+    tests.add(new TransactionWithListenerTest());
+    tests.add(new LargeDatabaseCursorAccessTest());
+
 /*
 
 ////    tests.add(new TimeLargeByteArrayQueryTest());
