@@ -1,6 +1,8 @@
 package net.zetetic.tests.support;
 
 import android.app.Activity;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
@@ -46,6 +48,9 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     if (this.activity != null) {
       this.activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
+
+    ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+    toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200);
   }
 
   private void runSuite() {
@@ -79,31 +84,20 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new JavaClientLibraryVersionTest());
     tests.add(new ReadWriteUserVersionTest());
     tests.add(new QueryDataSizeTest());
-/*
     tests.add(new FixedCursorWindowAllocationTest());
     tests.add(new GrowingCursorWindowAllocationTest());
     tests.add(new ReadWriteWriteAheadLoggingTest());
     tests.add(new CreateOpenDatabaseWithByteArrayTest());
     tests.add(new SQLiteOpenHelperWithByteArrayKeyTest());
-    tests.add(new SQLiteOpenHelperEnableWriteAheadLogBeforeGetDatabaseTest());
-    tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
+// TODO rewrite    tests.add(new SQLiteOpenHelperEnableWriteAheadLogBeforeGetDatabaseTest());
+// TODO rewrite   tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
     tests.add(new SQLiteOpenHelperGetNameTest());
-    tests.add(new SQLiteOpenHelperOnDowngradeTest());
-    tests.add(new SQLiteOpenHelperConfigureTest());
+// TODO rewrite   tests.add(new SQLiteOpenHelperOnDowngradeTest());
+// TODO rewrite   tests.add(new SQLiteOpenHelperConfigureTest());
     tests.add(new CheckIsDatabaseIntegrityOkTest());
     tests.add(new GetAttachedDatabasesTest());
-    tests.add(new EnableForeignKeyConstraintsTest());
-    tests.add(new ForeignKeyConstraintsEnabledWithTransactionTest());
-    tests.add(new EnableWriteAheadLoggingTest());
-    tests.add(new DisableWriteAheadLoggingTest());
-    tests.add(new CheckIsWriteAheadLoggingEnabledTest());
-    tests.add(new WriteAheadLoggingWithTransactionTest());
-    tests.add(new WriteAheadLoggingWithInMemoryDatabaseTest());
-    tests.add(new WriteAheadLoggingWithAttachedDatabaseTest());
-    tests.add(new TransactionNonExclusiveTest());
-    tests.add(new TransactionWithListenerTest());
-    tests.add(new LargeDatabaseCursorAccessTest());
-    
+/*
+
 ////    tests.add(new TimeLargeByteArrayQueryTest());
 
     tests.add(new QueryLimitTest());
