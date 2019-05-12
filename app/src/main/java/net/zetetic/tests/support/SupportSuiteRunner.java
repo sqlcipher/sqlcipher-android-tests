@@ -111,10 +111,11 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 /*
 
 ////    tests.add(new TimeLargeByteArrayQueryTest());
+*/
 
     tests.add(new QueryLimitTest());
     tests.add(new RTreeTest());
-    tests.add(new ReadWriteDatabaseToExternalStorageTest());
+// TODO rewrite      tests.add(new ReadWriteDatabaseToExternalStorageTest());
     tests.add(new BeginTransactionTest());
     tests.add(new QueryTenThousandDataTest());
     tests.add(new CompileBeginTest());
@@ -122,10 +123,10 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new UnicodeTest());
     tests.add(new QueryIntegerToStringTest());
     tests.add(new QueryFloatToStringTest());
-    tests.add(new ClosedDatabaseTest());
-    tests.add(new AttachDatabaseTest());
-    tests.add(new CipherMigrateTest());
-    tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
+// TODO rewrite      tests.add(new ClosedDatabaseTest());
+// TODO rewrite      tests.add(new AttachDatabaseTest());
+// TODO rewrite      tests.add(new CipherMigrateTest());
+/*    tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
     tests.add(new InvalidPasswordTest());
     tests.add(new NullQueryResultTest());
     tests.add(new CrossProcessCursorQueryTest());
