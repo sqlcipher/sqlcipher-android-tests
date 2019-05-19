@@ -17,10 +17,9 @@ import java.util.List;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-public abstract class SupportTest {
+public abstract class SupportTest implements ISupportTest {
 
     public abstract boolean execute(SQLiteDatabase database);
-    public abstract String getName();
     public String TAG = getClass().getSimpleName();
     SecureRandom random = new SecureRandom();
     private TestResult result;
@@ -36,6 +35,7 @@ public abstract class SupportTest {
         setUp();
     }
 
+    @Override
     public TestResult run() {
 
         result = new TestResult(getName(), false);

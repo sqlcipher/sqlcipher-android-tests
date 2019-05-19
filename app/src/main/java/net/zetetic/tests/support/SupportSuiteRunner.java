@@ -57,7 +57,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 
     SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
     CursorWindowAllocation defaultAllocation = CursorWindow.getCursorWindowAllocation();
-    for (SupportTest test : getTestsToRun()) {
+    for (ISupportTest test : getTestsToRun()) {
       try {
         CursorWindow.setCursorWindowAllocation(defaultAllocation);
         Log.i(ZeteticApplication.TAG, "Running test:" + test.getName());
@@ -74,8 +74,8 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     }
   }
 
-  private List<SupportTest> getTestsToRun() {
-    List<SupportTest> tests = new ArrayList<>();
+  private List<ISupportTest> getTestsToRun() {
+    List<ISupportTest> tests = new ArrayList<>();
     tests.add(new LoopingInsertTest());
     tests.add(new FIPSTest());
     tests.add(new PragmaCipherVersionTest());
@@ -89,11 +89,11 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new ReadWriteWriteAheadLoggingTest());
     tests.add(new CreateOpenDatabaseWithByteArrayTest());
     tests.add(new SQLiteOpenHelperWithByteArrayKeyTest());
-// TODO rewrite    tests.add(new SQLiteOpenHelperEnableWriteAheadLogBeforeGetDatabaseTest());
-// TODO rewrite   tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
+    tests.add(new SQLiteOpenHelperEnableWriteAheadLogBeforeGetDatabaseTest());
+    tests.add(new SQLiteOpenHelperEnableWriteAheadLogAfterGetDatabaseTest());
     tests.add(new SQLiteOpenHelperGetNameTest());
-// TODO rewrite   tests.add(new SQLiteOpenHelperOnDowngradeTest());
-// TODO rewrite  tests.add(new SQLiteOpenHelperConfigureTest());
+    tests.add(new SQLiteOpenHelperOnDowngradeTest());
+    tests.add(new SQLiteOpenHelperConfigureTest());
     tests.add(new CheckIsDatabaseIntegrityOkTest());
     tests.add(new GetAttachedDatabasesTest());
     tests.add(new EnableForeignKeyConstraintsTest());
@@ -102,7 +102,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new DisableWriteAheadLoggingTest());
     tests.add(new CheckIsWriteAheadLoggingEnabledTest());
     tests.add(new WriteAheadLoggingWithTransactionTest());
-// TODO rewrite      tests.add(new WriteAheadLoggingWithInMemoryDatabaseTest());
+    tests.add(new WriteAheadLoggingWithInMemoryDatabaseTest());
     tests.add(new WriteAheadLoggingWithAttachedDatabaseTest());
     tests.add(new TransactionNonExclusiveTest());
     tests.add(new TransactionWithListenerTest());
@@ -115,7 +115,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 
     tests.add(new QueryLimitTest());
     tests.add(new RTreeTest());
-// TODO rewrite      tests.add(new ReadWriteDatabaseToExternalStorageTest());
+    tests.add(new ReadWriteDatabaseToExternalStorageTest());
     tests.add(new BeginTransactionTest());
     tests.add(new QueryTenThousandDataTest());
     tests.add(new CompileBeginTest());
@@ -123,24 +123,22 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new UnicodeTest());
     tests.add(new QueryIntegerToStringTest());
     tests.add(new QueryFloatToStringTest());
-// TODO rewrite      tests.add(new ClosedDatabaseTest());
-// TODO rewrite      tests.add(new AttachDatabaseTest());
+    tests.add(new ClosedDatabaseTest());
+    tests.add(new AttachDatabaseTest());
 // TODO rewrite      tests.add(new CipherMigrateTest());
     tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
-// TODO rewrite      tests.add(new InvalidPasswordTest());
+    tests.add(new InvalidPasswordTest());
     tests.add(new NullQueryResultTest());
-// TODO rewrite          tests.add(new CrossProcessCursorQueryTest());
-// TODO rewrite          tests.add(new InterprocessBlobQueryTest());
     tests.add(new LoopingQueryTest());
     tests.add(new LoopingCountQueryTest());
-// TODO rewrite          tests.add(new AttachNewDatabaseTest());
+    tests.add(new AttachNewDatabaseTest());
 // TODO rewrite          tests.add(new AttachExistingDatabaseTest());
     tests.add(new CanThrowSQLiteExceptionTest());
     tests.add(new RawExecSQLTest());
     tests.add(new RawExecSQLExceptionTest());
     tests.add(new CompiledSQLUpdateTest());
-// TODO rewrite          tests.add(new AES128CipherTest());
-// TODO rewrite          tests.add(new MigrateDatabaseFrom1xFormatToCurrentFormat());
+    tests.add(new AES128CipherTest());
+    tests.add(new MigrateDatabaseFrom1xFormatToCurrentFormat());
     tests.add(new StatusMemoryUsedTest());
 // TODO rewrite          tests.add(new ImportUnencryptedDatabaseTest());
     tests.add(new FullTextSearchTest());
