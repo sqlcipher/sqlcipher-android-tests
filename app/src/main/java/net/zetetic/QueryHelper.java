@@ -1,13 +1,13 @@
 package net.zetetic;
 
 import android.database.Cursor;
-import net.sqlcipher.database.SQLiteDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
 public class QueryHelper {
 
-    public static String singleValueFromQuery(SQLiteDatabase database, String query){
-        Cursor cursor = database.rawQuery(query, new String[]{});
+    public static String singleValueFromQuery(SupportSQLiteDatabase database, String query){
+        Cursor cursor = database.query(query, new String[]{});
         String value = "";
         if(cursor != null){
             cursor.moveToFirst();
@@ -17,8 +17,8 @@ public class QueryHelper {
         return value;
     }
 
-    public static int singleIntegerValueFromQuery(SQLiteDatabase database, String query){
-        Cursor cursor = database.rawQuery(query, new String[]{});
+    public static int singleIntegerValueFromQuery(SupportSQLiteDatabase database, String query){
+        Cursor cursor = database.query(query, new String[]{});
         int value = 0;
         if(cursor != null){
             cursor.moveToFirst();
