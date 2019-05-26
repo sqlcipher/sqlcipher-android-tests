@@ -125,7 +125,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new QueryFloatToStringTest());
     tests.add(new ClosedDatabaseTest());
     tests.add(new AttachDatabaseTest());
-// TODO rewrite      tests.add(new CipherMigrateTest());
+    tests.add(new CipherMigrateTest());
     tests.add(new GetTypeFromCrossProcessCursorWrapperTest());
     tests.add(new InvalidPasswordTest());
     tests.add(new NullQueryResultTest());
@@ -140,7 +140,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new AES128CipherTest());
     tests.add(new MigrateDatabaseFrom1xFormatToCurrentFormat());
     tests.add(new StatusMemoryUsedTest());
-// TODO update    tests.add(new ImportUnencryptedDatabaseTest());
+    tests.add(new ImportUnencryptedDatabaseTest());
     tests.add(new FullTextSearchTest());
     tests.add(new ReadableDatabaseTest());
     tests.add(new AutoVacuumOverReadTest());
@@ -148,8 +148,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new CursorAccessTest());
     tests.add(new VerifyOnUpgradeIsCalledTest());
     tests.add(new MigrationUserVersion());
-// TODO update    tests.add(new ExportToUnencryptedDatabase());
-// TODO rewrite          tests.add(new QueryNonEncryptedDatabaseTest());
+    tests.add(new ExportToUnencryptedDatabase());
     tests.add(new EnableForeignKeySupportTest());
     tests.add(new NestedTransactionsTest());
     tests.add(new ComputeKDFTest());
@@ -161,8 +160,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new TextAsIntegerTest());
     tests.add(new TextAsDoubleTest());
     tests.add(new TextAsLongTest());
-// TODO rewrite          tests.add(new CreateNonEncryptedDatabaseTest());
-// TODO rewrite          tests.add(new ReadableWritableInvalidPasswordTest());
+    tests.add(new ReadableWritableInvalidPasswordTest());
     tests.add(new CopyStringToBufferTestFloatSmallBuffer());
     tests.add(new CopyStringToBufferTestFloatLargeBuffer());
     tests.add(new CopyStringToBufferTestIntegerSmallBuffer());

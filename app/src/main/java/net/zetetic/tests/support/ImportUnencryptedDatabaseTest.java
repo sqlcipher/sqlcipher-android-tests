@@ -21,8 +21,8 @@ public class ImportUnencryptedDatabaseTest implements ISupportTest {
 
         try {
             ZeteticApplication.getInstance().extractAssetToDatabaseDirectory("unencrypted.db");
-
-            SupportFactory factory = new SupportFactory(null);
+            byte[] passphrase = new byte[0];
+            SupportFactory factory = new SupportFactory(passphrase);
             SupportSQLiteOpenHelper.Configuration cfg =
               SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
                 .name(unencryptedDatabase.getAbsolutePath())
@@ -44,11 +44,12 @@ public class ImportUnencryptedDatabaseTest implements ISupportTest {
 
             database.execSQL(String.format("ATTACH DATABASE '%s' AS encrypted KEY '%s'",
                                 encryptedDatabase.getAbsolutePath(), ZeteticApplication.DATABASE_PASSWORD));
-            database.execSQL("select sqlcipher_export('encrypted')");
+            // database.execSQL("select sqlcipher_export('encrypted')");
+          ((SQLiteDatabase)database).rawExecSQL("select sqlcipher_export('encrypted')");
             database.execSQL("DETACH DATABASE encrypted");
             helper.close();
 
-            byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
+            passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
 
             factory = new SupportFactory(passphrase);
             cfg =

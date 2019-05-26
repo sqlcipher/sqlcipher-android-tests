@@ -48,11 +48,11 @@ public class ExportToUnencryptedDatabase implements ISupportTest {
         ZeteticApplication.getInstance().deleteDatabase("plaintext.db");
         database.execSQL(String.format("ATTACH DATABASE '%s' as plaintext KEY '';",
                 unencryptedFile.getAbsolutePath()));
-        database.query("SELECT sqlcipher_export('plaintext');");
+        ((SQLiteDatabase)database).rawExecSQL("SELECT sqlcipher_export('plaintext');");
         database.execSQL("DETACH DATABASE plaintext;");
         helper.close();
 
-        passphrase = SQLiteDatabase.getBytes("".toCharArray());
+        passphrase = new byte[0];
         factory = new SupportFactory(passphrase);
         cfg =
           SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
