@@ -4,7 +4,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 public class JavaClientLibraryVersionTest extends SQLCipherTest {
 
-  String expectedClientLibraryVersion = "4.1.3";
+  String expectedClientLibraryVersion = "4.2.0";
 
   @Override
   public boolean execute(SQLiteDatabase database) {
