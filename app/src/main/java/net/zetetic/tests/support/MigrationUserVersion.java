@@ -21,7 +21,18 @@ public class MigrationUserVersion implements ISupportTest {
 
             File sourceDatabase = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_USER_VERSION_DATABASE);
             byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
-            SupportFactory factory = new SupportFactory(passphrase, "PRAGMA cipher_migrate;");
+            SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+                @Override
+                public void preKey(SQLiteDatabase sqLiteDatabase) {
+
+                }
+
+                @Override
+                public void postKey(SQLiteDatabase sqLiteDatabase) {
+                    sqLiteDatabase.rawExecSQL("PRAGMA cipher_migrate;");
+                }
+            };
+            SupportFactory factory = new SupportFactory(passphrase, hook);
             SupportSQLiteOpenHelper.Configuration cfg =
               SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
                 .name(sourceDatabase.getAbsolutePath())

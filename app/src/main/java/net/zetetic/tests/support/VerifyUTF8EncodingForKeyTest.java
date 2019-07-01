@@ -57,7 +57,18 @@ public class VerifyUTF8EncodingForKeyTest implements ISupportTest {
             } catch (SQLiteException ex){}
 
             passphrase = SQLiteDatabase.getBytes(password.toCharArray());
-            factory = new SupportFactory(passphrase, "PRAGMA cipher_migrate;");
+            SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+                @Override
+                public void preKey(SQLiteDatabase sqLiteDatabase) {
+
+                }
+
+                @Override
+                public void postKey(SQLiteDatabase sqLiteDatabase) {
+                    sqLiteDatabase.rawExecSQL("PRAGMA cipher_migrate;");
+                }
+            };
+            factory = new SupportFactory(passphrase, hook);
             cfg =
               SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
                 .name(sourceDatabaseFile.getAbsolutePath())

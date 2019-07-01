@@ -2,6 +2,7 @@ package net.zetetic.tests.support;
 
 import android.database.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.sqlcipher.database.SupportFactory;
 import net.zetetic.ZeteticApplication;
 import net.zetetic.tests.TestResult;
@@ -14,10 +15,21 @@ public class MigrateDatabaseFrom1xFormatToCurrentFormat implements ISupportTest 
         TestResult result = new TestResult(getName(), false);
 
         try {
-            File sourceDatabase = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_DATABASE);
+            final File sourceDatabase = ZeteticApplication.getInstance().getDatabasePath(ZeteticApplication.ONE_X_DATABASE);
             byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
             ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(ZeteticApplication.ONE_X_DATABASE);
-            SupportFactory factory = new SupportFactory(passphrase, "PRAGMA cipher_migrate;");
+            SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+                @Override
+                public void preKey(SQLiteDatabase sqLiteDatabase) {
+
+                }
+
+                @Override
+                public void postKey(SQLiteDatabase sqLiteDatabase) {
+                    sqLiteDatabase.rawExecSQL("PRAGMA cipher_migrate;");
+                }
+            };
+            SupportFactory factory = new SupportFactory(passphrase, hook);
             SupportSQLiteOpenHelper.Configuration cfg =
               SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
                 .name(sourceDatabase.getAbsolutePath())

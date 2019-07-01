@@ -2,6 +2,7 @@ package net.zetetic.tests.support;
 
 import android.database.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.sqlcipher.database.SupportFactory;
 import net.zetetic.ZeteticApplication;
 import net.zetetic.tests.TestResult;
@@ -13,7 +14,18 @@ public class AES128CipherTest implements ISupportTest {
         TestResult result = new TestResult(getName(), false);
 
         byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
-        SupportFactory factory = new SupportFactory(passphrase, "PRAGMA cipher = 'aes-128-cbc'");
+        SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
+            @Override
+            public void preKey(SQLiteDatabase sqLiteDatabase) {
+
+            }
+
+            @Override
+            public void postKey(SQLiteDatabase sqLiteDatabase) {
+                sqLiteDatabase.rawExecSQL("PRAGMA cipher = 'aes-128-cbc'");
+            }
+        };
+        SupportFactory factory = new SupportFactory(passphrase, hook);
         SupportSQLiteOpenHelper.Configuration cfg =
           SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
             .name(ZeteticApplication.DATABASE_NAME)
