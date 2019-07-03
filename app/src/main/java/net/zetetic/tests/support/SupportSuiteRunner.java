@@ -107,12 +107,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new TransactionNonExclusiveTest());
     tests.add(new TransactionWithListenerTest());
     tests.add(new LargeDatabaseCursorAccessTest());
-
-/*
-
-////    tests.add(new TimeLargeByteArrayQueryTest());
-*/
-
     tests.add(new QueryLimitTest());
     tests.add(new RTreeTest());
     tests.add(new ReadWriteDatabaseToExternalStorageTest());
@@ -132,7 +126,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new LoopingQueryTest());
     tests.add(new LoopingCountQueryTest());
     tests.add(new AttachNewDatabaseTest());
-// TODO rewrite          tests.add(new AttachExistingDatabaseTest());
     tests.add(new CanThrowSQLiteExceptionTest());
     tests.add(new RawExecSQLTest());
     tests.add(new RawExecSQLExceptionTest());
@@ -155,7 +148,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new SoundexTest());
     tests.add(new RawQueryTest());
     tests.add(new RawRekeyTest());
-// TODO rewrite          tests.add(new MultiThreadReadWriteTest());
     tests.add(new VerifyUTF8EncodingForKeyTest());
     tests.add(new TextAsIntegerTest());
     tests.add(new TextAsDoubleTest());
@@ -168,8 +160,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new CopyStringToBufferTestStringSmallBuffer());
     tests.add(new CopyStringToBufferTestStringLargeBuffer());
     tests.add(new CopyStringToBufferNullTest());
-// TODO rewrite          tests.add(new OpenSQLCipher3DatabaseTest());
-// TODO rewrite          tests.add(new MUTF8ToUTF8WithNullMigrationTest());
     tests.add(new RawQuerySyntaxErrorMessageTest());
     tests.add(new RawQueryNonsenseStatementErrorMessageTest());
     tests.add(new RawQueryNoSuchFunctionErrorMessageTest());
@@ -184,7 +174,7 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new BindFloatRawQueryTest());
     tests.add(new BindByteArrayRawQueryTest());
     tests.add(new NullRawQueryTest());
-// TODO rewrite          tests.add(new ReadWriteDatabaseToExternalStorageTest());
+    tests.add(new RoomTest(activity));
 
     return tests;
   }
