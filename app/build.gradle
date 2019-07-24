@@ -26,7 +26,7 @@ dependencies {
 
   // For testing local AAR packages:
   // implementation (name: 'android-database-sqlcipher-4.0.1', ext: 'aar')
-  implementation files('libs/android-database-sqlcipher-4.0.1-debug.aar')
+  implementation files('libs/android-database-sqlcipher-4.2.0.aar')
   implementation "androidx.sqlite:sqlite:2.0.1"
   implementation "androidx.room:room-runtime:2.1.0"
   annotationProcessor "androidx.room:room-compiler:2.1.0"
