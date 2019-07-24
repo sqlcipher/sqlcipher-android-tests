@@ -13,4 +13,9 @@
         android:text="Run Reverse Scroll Cursor Suite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Button
+      android:id="@+id/run_support_test_suite"
+      android:text="Run Support Test Suite"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
 </LinearLayout>
