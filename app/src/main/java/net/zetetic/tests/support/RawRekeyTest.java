@@ -19,7 +19,7 @@ public class RawRekeyTest implements ISupportTest {
     public TestResult run() {
         TestResult result = new TestResult(getName(), false);
         byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
-        SupportFactory factory = new SupportFactory(passphrase);
+        SupportFactory factory = new SupportFactory(passphrase, ZeteticApplication.getInstance().wrapHook(null));
         SupportSQLiteOpenHelper.Configuration cfg =
           SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
             .name(ZeteticApplication.DATABASE_NAME)
@@ -41,11 +41,11 @@ public class RawRekeyTest implements ISupportTest {
 
         database.execSQL("create table t1(a,b);");
         database.execSQL("insert into t1(a,b) values(?,?)", new Object[]{"one for the money", "two for the show"});
-        database.execSQL(rekeyCommand);
+        database.query(rekeyCommand);
         helper.close();
 
         passphrase = SQLiteDatabase.getBytes(password.toCharArray());
-        factory = new SupportFactory(passphrase);
+        factory = new SupportFactory(passphrase, ZeteticApplication.getInstance().wrapHook(null));
         cfg =
           SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
             .name(ZeteticApplication.DATABASE_NAME)

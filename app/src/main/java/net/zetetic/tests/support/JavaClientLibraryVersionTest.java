@@ -5,7 +5,7 @@ import net.zetetic.tests.SQLCipherTest;
 
 public class JavaClientLibraryVersionTest extends SupportTest {
 
-  String expectedClientLibraryVersion = "4.2.0";
+  String expectedClientLibraryVersion = "4.3.0";
 
   @Override
   public boolean execute(SQLiteDatabase database) {

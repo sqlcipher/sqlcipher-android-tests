@@ -76,6 +76,8 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 
   private List<ISupportTest> getTestsToRun() {
     List<ISupportTest> tests = new ArrayList<>();
+//    tests.add(new EncryptedRoomTest(activity));
+//    tests.add(new DecryptedRoomTest(activity));
     tests.add(new LoopingInsertTest());
     tests.add(new FIPSTest());
     tests.add(new PragmaCipherVersionTest());
@@ -175,7 +177,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
     tests.add(new BindByteArrayRawQueryTest());
     tests.add(new NullRawQueryTest());
     tests.add(new RoomTest(activity));
-
     return tests;
   }
 }

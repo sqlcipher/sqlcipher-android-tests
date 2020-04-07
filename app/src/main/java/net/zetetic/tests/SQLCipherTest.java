@@ -115,6 +115,7 @@ public abstract class SQLCipherTest {
         String insert = String.format(insertTemplate, insertBuilder.toString());
         database.execSQL("DROP TABLE IF EXISTS t1;");
         database.execSQL(create);
+        database.execSQL("BEGIN;");
         String[] names = columnNames.toArray(new String[0]);
         for (int row = 0; row < rows; row++) {
             Object[] insertArgs = new Object[columns];
@@ -123,6 +124,7 @@ public abstract class SQLCipherTest {
             }
             database.execSQL(insert, insertArgs);
         }
+        database.execSQL("COMMIT;");
         Log.i(TAG, String.format("Database built with %d columns, %d rows", columns, rows));
     }
 

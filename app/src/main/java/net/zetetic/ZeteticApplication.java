@@ -92,7 +92,7 @@ public class ZeteticApplication extends Application {
     }
   }
 
-  private SQLiteDatabaseHook wrapHook(final SQLiteDatabaseHook hook) {
+  public SQLiteDatabaseHook wrapHook(final SQLiteDatabaseHook hook) {
     if (hook == null)
     {
       return keyHook;

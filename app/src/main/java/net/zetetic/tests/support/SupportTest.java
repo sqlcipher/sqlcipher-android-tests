@@ -69,7 +69,7 @@ public abstract class SupportTest implements ISupportTest {
     
     protected SQLiteDatabase createDatabase() {
         byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
-        SupportFactory factory = new SupportFactory(passphrase);
+        SupportFactory factory = new SupportFactory(passphrase, ZeteticApplication.getInstance().wrapHook(null));
         SupportSQLiteOpenHelper.Configuration cfg =
           SupportSQLiteOpenHelper.Configuration.builder(ZeteticApplication.getInstance())
             .name(ZeteticApplication.DATABASE_NAME)
