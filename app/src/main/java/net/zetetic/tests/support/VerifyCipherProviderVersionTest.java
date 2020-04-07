@@ -12,7 +12,7 @@ public class VerifyCipherProviderVersionTest extends SupportTest {
                 "PRAGMA cipher_provider_version;");
         setMessage(String.format("Reported:%s", provider));
         return provider.contains("OpenSSL 1.1.1") ||
-            provider.contains("OpenSSL 1.0.2p-fips");
+            provider.contains("OpenSSL 1.0.2t-fips");
     }
 
     @Override

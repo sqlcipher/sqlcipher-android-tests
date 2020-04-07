@@ -11,7 +11,7 @@ public class VerifyCipherProviderVersionTest extends SQLCipherTest {
                 "PRAGMA cipher_provider_version;");
         setMessage(String.format("Reported:%s", provider));
         return provider.contains("OpenSSL 1.1.1") ||
-            provider.contains("OpenSSL 1.0.2r-fips");
+            provider.contains("OpenSSL 1.0.2t-fips");
     }
 
     @Override
