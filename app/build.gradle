@@ -22,14 +22,14 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
   // For testing zip-based distributions:
-  //implementation files('libs/sqlcipher.jar')
+  // implementation files('libs/sqlcipher.jar')
 
   // For testing local AAR packages:
-  //implementation (name: 'android-database-sqlcipher-4.3.0-release', ext: 'aar')
+  // implementation (name: 'android-database-sqlcipher-4.4.0-release', ext: 'aar')
 
 
   // For testing on remote AAR references:
-  implementation 'net.zetetic:android-database-sqlcipher:4.3.0@aar'
+  implementation 'net.zetetic:android-database-sqlcipher:4.4.0@aar'
   implementation "androidx.sqlite:sqlite:2.0.1"
   implementation "androidx.room:room-runtime:2.1.0"
   annotationProcessor "androidx.room:room-compiler:2.1.0"
