@@ -1,6 +1,8 @@
-To run, clone this repo and make sure you have the Android Studio installed:
-- SQLCipher for Android defines [compatibility support](https://github.com/sqlcipher/android-database-sqlcipher#compatibility), simply run on either an emulator or device.
-- More information can be found at [SQLCipher for Android](https://zetetic.net/sqlcipher/sqlcipher-for-android/).
+To run: clone this repo and open with a recent version of Android Studio, or [build from the command line](https://developer.android.com/studio/build/building-cmdline).
+
+It is possible to run on an emulator or device, as documented in the [SQLCipher for Android compatibility section](https://github.com/sqlcipher/android-database-sqlcipher#compatibility).
+
+More information can be found in [SQLCipher for Android](https://zetetic.net/sqlcipher/sqlcipher-for-android/).
 
 ### Creating A New Test
 
