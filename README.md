@@ -9,33 +9,33 @@ More information can be found in [SQLCipher for Android](https://zetetic.net/sql
 1. Open this repository within Android Studio
 2. Add a new class within `net.zetetic.tests` package that extends `SQLCipherTest`:
 
-```
+```Java
 package net.zetetic.tests;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
-public class DemoTest extends SQLCipherTest {
+public class AwesomeTest extends SQLCipherTest {
 
   @Override
   public boolean execute(SQLiteDatabase database) {
     try {
       // Add your scenario here
       return true;
-    }catch (Exception e){
+    } catch (Exception e) {
       return false;
     }
   }
 
   @Override
   public String getName() {
-    return "Demo Test";
+    return "Awesome Test";
   }
 }
 ```
 
-3. Add `DemoTest` to the [`TestSuiteRunner`](https://github.com/sqlcipher/sqlcipher-android-tests/blob/master/src/main/java/net/zetetic/tests/TestSuiteRunner.java):
+3. Add `AwesomeTest` to the [`TestSuiteRunner`](https://github.com/sqlcipher/sqlcipher-android-tests/blob/master/src/main/java/net/zetetic/tests/TestSuiteRunner.java):
 
+```Java
+tests.add(new AwesomeTest());
 ```
-tests.add(new DemoTest());
-```
-4. Build and run the application on an Android device/emulator
+4. Build and run the application on an Android device or emulator
