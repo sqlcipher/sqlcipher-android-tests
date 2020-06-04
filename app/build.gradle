@@ -19,16 +19,19 @@ android {
 }
 
 dependencies {
-  // For testing zip-based distributions:
-  //implementation files('libs/sqlcipher.jar')
+  // For testing JAR-based distribution:
+  // implementation files('libs/sqlcipher.jar')
 
-  // For testing local AAR packages:
-  //implementation (name: 'android-database-sqlcipher-4.3.0-release', ext: 'aar')
+  // For testing local AAR package:
+  // implementation (name: 'android-database-sqlcipher-4.3.0-release', ext: 'aar')
 
-
-  // For testing on remote AAR references:
+  // For testing on remote AAR reference:
   implementation 'net.zetetic:android-database-sqlcipher:4.3.0@aar'
+
+  // Mandatory dependency:
   implementation "androidx.sqlite:sqlite:2.0.1"
+
+  // For Room tests:
   implementation "androidx.room:room-runtime:2.1.0"
   annotationProcessor "androidx.room:room-compiler:2.1.0"
 }
