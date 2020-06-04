@@ -19,8 +19,6 @@ android {
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-
   // For testing zip-based distributions:
   //implementation files('libs/sqlcipher.jar')
 
