@@ -9,3 +9,5 @@ build
 local.properties
 .idea/**
 *.iml
+*.aar
+*.jar
