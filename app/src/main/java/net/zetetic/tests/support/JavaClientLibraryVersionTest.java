@@ -5,12 +5,12 @@ import net.zetetic.tests.SQLCipherTest;
 
 public class JavaClientLibraryVersionTest extends SupportTest {
 
-  String expectedClientLibraryVersion = "4.3.0";
+  private final String EXPECTED_SQLCIPHER_ANDROID_VERSION = "4.4.0";
 
   @Override
   public boolean execute(SQLiteDatabase database) {
     setMessage(String.format("Report:%s", SQLiteDatabase.SQLCIPHER_ANDROID_VERSION));
-    return SQLiteDatabase.SQLCIPHER_ANDROID_VERSION.equals(expectedClientLibraryVersion);
+    return SQLiteDatabase.SQLCIPHER_ANDROID_VERSION.equals(EXPECTED_SQLCIPHER_ANDROID_VERSION);
   }
 
   @Override
