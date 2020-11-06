@@ -28,6 +28,12 @@ public class ZeteticApplication extends Application {
     return instance;
   }
 
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    NativeInitializer.initialize();
+  }
+
   public void setCurrentActivity(Activity activity) {
     this.activity = activity;
   }

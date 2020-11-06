@@ -54,8 +54,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
   }
 
   private void runSuite() {
-
-    SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
     CursorWindowAllocation defaultAllocation = CursorWindow.getCursorWindowAllocation();
     for (ISupportTest test : getTestsToRun()) {
       try {
@@ -76,8 +74,11 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 
   private List<ISupportTest> getTestsToRun() {
     List<ISupportTest> tests = new ArrayList<>();
-//    tests.add(new EncryptedRoomTest(activity));
-//    tests.add(new DecryptedRoomTest(activity));
+//    tests.add(new SQLiteCompiledSqlExceptionTest(activity));
+    tests.add(new EncryptBytesTest(activity));
+    tests.add(new EncryptedRoomTest(activity));
+    tests.add(new DecryptedRoomTest(activity));
+
     tests.add(new LoopingInsertTest());
     tests.add(new FIPSTest());
     tests.add(new PragmaCipherVersionTest());

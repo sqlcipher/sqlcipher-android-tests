@@ -2,9 +2,10 @@ package net.zetetic.tests;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
-public class JavaClientLibraryVersionTest extends SQLCipherTest {
+public class
+JavaClientLibraryVersionTest extends SQLCipherTest {
 
-  private final String EXPECTED_SQLCIPHER_ANDROID_VERSION = "4.4.0";
+  private final String EXPECTED_SQLCIPHER_ANDROID_VERSION = "4.4.1";
 
   @Override
   public boolean execute(SQLiteDatabase database) {

@@ -49,8 +49,6 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
   }
 
   private void runSuite() {
-
-    SQLiteDatabase.loadLibs(ZeteticApplication.getInstance());
     CursorWindowAllocation defaultAllocation = CursorWindow.getCursorWindowAllocation();
     for (SQLCipherTest test : getTestsToRun()) {
       try {
@@ -71,10 +69,11 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
+    tests.add(new JsonCastTest());
     tests.add(new SimpleQueryTest());
-    //tests.add(new DefaultCursorWindowAllocationTest());
+    tests.add(new DefaultCursorWindowAllocationTest());
 
-    //tests.add(new DeleteTableWithNullWhereArgsTest());
+    tests.add(new DeleteTableWithNullWhereArgsTest());
     tests.add(new LoopingInsertTest());
     tests.add(new FIPSTest());
     tests.add(new PragmaCipherVersionTest());
@@ -106,7 +105,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new TransactionNonExclusiveTest());
     tests.add(new TransactionWithListenerTest());
     tests.add(new LargeDatabaseCursorAccessTest());
-    
+
 ////    tests.add(new TimeLargeByteArrayQueryTest());
 
     tests.add(new QueryLimitTest());

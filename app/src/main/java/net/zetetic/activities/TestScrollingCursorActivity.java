@@ -93,7 +93,6 @@ public class TestScrollingCursorActivity extends Activity {
 
   void initializeEnvironment(){
     try{
-      SQLiteDatabase.loadLibs(this);
       File databasePath = getDatabasePath(databaseFilename);
       ZeteticApplication.getInstance().extractAssetToDatabaseDirectory(databaseFilename);
       database = SQLiteDatabase.openDatabase(databasePath.getAbsolutePath(),
