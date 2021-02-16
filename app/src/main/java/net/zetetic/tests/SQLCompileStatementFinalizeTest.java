@@ -6,7 +6,7 @@ import net.sqlcipher.database.SQLiteStatement;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class SQLComileStatementFinalizeTest extends SQLCipherTest {
+public class SQLCompileStatementFinalizeTest extends SQLCipherTest {
 
     private final int count = 2;
 
@@ -29,6 +29,7 @@ public class SQLComileStatementFinalizeTest extends SQLCipherTest {
                 }
 
                 latchSQLRelease.countDown();
+
                 try {
                     latchTransaction.await();
                 } catch (InterruptedException e) {

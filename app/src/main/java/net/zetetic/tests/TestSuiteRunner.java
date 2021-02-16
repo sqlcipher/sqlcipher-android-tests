@@ -8,7 +8,6 @@ import android.view.WindowManager;
 
 import net.sqlcipher.CursorWindow;
 import net.sqlcipher.CursorWindowAllocation;
-import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
 
-    tests.add(new SQLComileStatementFinalizeTest());
+    tests.add(new SQLCompileStatementFinalizeTest());
     tests.add(new SummingStepTest());
 
     tests.add(new JsonCastTest());
