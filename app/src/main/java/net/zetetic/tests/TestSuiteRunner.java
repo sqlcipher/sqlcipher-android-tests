@@ -70,6 +70,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
 
+    tests.add(new SQLComileStatementFinalizeTest());
     tests.add(new SummingStepTest());
 
     tests.add(new JsonCastTest());
