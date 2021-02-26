@@ -25,8 +25,7 @@
               android:layout_width="fill_parent"
               android:gravity="left"
               android:textSize="14sp"
-              android:singleLine="true"
-              android:ellipsize="end"
+              android:singleLine="false"
               android:layout_below="@+id/test_name"
               android:layout_toLeftOf="@+id/test_status"/>
 </RelativeLayout>
