@@ -23,10 +23,10 @@ dependencies {
   // implementation files('libs/sqlcipher.jar')
 
   // For testing local AAR packages:
-  //implementation (name: 'android-database-sqlcipher-4.4.2-release', ext: 'aar')
+  //implementation (name: 'android-database-sqlcipher-4.4.3-release', ext: 'aar')
 
   // For testing on remote AAR references:
-  implementation 'net.zetetic:android-database-sqlcipher:4.4.2@aar'
+  implementation 'net.zetetic:android-database-sqlcipher:4.4.3@aar'
 
   implementation "androidx.sqlite:sqlite:2.0.1"
 
