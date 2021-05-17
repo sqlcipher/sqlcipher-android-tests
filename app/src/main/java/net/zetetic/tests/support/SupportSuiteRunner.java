@@ -24,9 +24,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
 
   public SupportSuiteRunner(Activity activity) {
     this.activity = activity;
-    if (this.activity != null) {
-      this.activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-    }
   }
 
   @Override
@@ -45,12 +42,6 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
   @Override
   protected void onPostExecute(Void aVoid) {
     notifier.complete();
-    if (this.activity != null) {
-      this.activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-    }
-
-    ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
-    toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200);
   }
 
   private void runSuite() {

@@ -109,7 +109,7 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new TransactionWithListenerTest());
     tests.add(new LargeDatabaseCursorAccessTest());
 
-////    tests.add(new TimeLargeByteArrayQueryTest());
+    tests.add(new TimeLargeByteArrayQueryTest());
 
     tests.add(new QueryLimitTest());
     tests.add(new RTreeTest());

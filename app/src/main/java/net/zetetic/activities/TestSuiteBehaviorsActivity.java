@@ -1,9 +1,12 @@
 package net.zetetic.activities;
 
 import android.app.Activity;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
@@ -21,6 +24,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifier {
     static final String EXTRA_IS_SUPPORT = "isSupport";
@@ -49,9 +53,9 @@ public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifi
         results.clear();
         hideStats();
         findViewById(R.id.executeSuite).setEnabled(false);
-        resultsView = (ListView) findViewById(R.id.test_suite_results);
+        resultsView = findViewById(R.id.test_suite_results);
         ZeteticApplication.getInstance().setCurrentActivity(this);
-
+        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (getIntent().getBooleanExtra(EXTRA_IS_SUPPORT, false)) {
             new SupportSuiteRunner(this).execute(this);
         }
@@ -80,7 +84,7 @@ public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifi
     @Override
     public void complete() {
 
-        TextView stats = (TextView) statsView.findViewById(R.id.stats);
+        TextView stats = statsView.findViewById(R.id.stats);
         int successCount = 0;
         List<String> failedTests = new ArrayList<String>();
         for(TestResult result : results){
@@ -90,15 +94,14 @@ public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifi
                 failedTests.add(result.getName());
             }
         }
-        String message = String.format("Passed: %d  Failed: %d", successCount, results.size() - successCount);
+        String message = String.format(Locale.getDefault(),
+            "Passed: %d  Failed: %d", successCount, results.size() - successCount);
         deleteTestResultsLog();
         try {
             FileOutputStream resultStream = new FileOutputStream(testResults);
             resultStream.write(String.format("%s\n", message).getBytes());
-            if(failedTests != null){
-                for(String test : failedTests){
-                    resultStream.write(test.getBytes());
-                }
+            for(String test : failedTests){
+                resultStream.write(test.getBytes());
             }
             resultStream.flush();
             resultStream.close();
@@ -109,6 +112,9 @@ public class TestSuiteBehaviorsActivity extends Activity implements ResultNotifi
         stats.setText(message);
         stats.setVisibility(View.VISIBLE);
         findViewById(R.id.executeSuite).setEnabled(true);
+        ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+        toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200);
+        this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     private void deleteTestResultsLog(){
