@@ -1,25 +1,36 @@
 package net.zetetic.tests;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteStatement;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 public class SQLCompileStatementFinalizeTest extends SQLCipherTest {
 
     private final int count = 2;
+    private final boolean isLocking;
+
+    public SQLCompileStatementFinalizeTest(Boolean useLocking) {
+        isLocking = useLocking;
+    }
 
     @Override
     public boolean execute(final SQLiteDatabase database) {
-
+        database.setLockingEnabled(isLocking);
         final CountDownLatch latchMain = new CountDownLatch(1);
         final CountDownLatch latchTransaction = new CountDownLatch(1);
         final CountDownLatch latchSQLRelease = new CountDownLatch(1);
 
         database.execSQL("CREATE TABLE TestTable(text_value TEXT);");
 
-        new Thread(new Runnable() {
+        Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
 
@@ -36,9 +47,9 @@ public class SQLCompileStatementFinalizeTest extends SQLCipherTest {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
 
-        new Thread(new Runnable() {
+        Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -62,8 +73,10 @@ public class SQLCompileStatementFinalizeTest extends SQLCipherTest {
 
                 latchMain.countDown();
             }
-        }).start();
+        });
 
+        thread1.start();
+        thread2.start();
 
         try {
             latchMain.await();
@@ -77,8 +90,7 @@ public class SQLCompileStatementFinalizeTest extends SQLCipherTest {
 
     @Override
     public String getName() {
-        return "Finalize SQLComileStatement causes crash on API 24-25";
+        return "SQLCompileStatement crash, locking=" + isLocking;
     }
-
 
 }
