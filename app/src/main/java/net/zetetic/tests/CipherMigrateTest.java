@@ -22,11 +22,13 @@ public class CipherMigrateTest extends SQLCipherTest {
                 public void preKey(SQLiteDatabase database) {}
                 public void postKey(SQLiteDatabase database) {
                     String value = QueryHelper.singleValueFromQuery(database, "PRAGMA cipher_migrate");
+                    setMessage(String.format("cipher_migrate result:%s", value));
                     status[0] = Integer.valueOf(value) == 0;
                 }
             };
-            database = SQLiteDatabase.openOrCreateDatabase(olderFormatDatabase,
-                    ZeteticApplication.DATABASE_PASSWORD, null, hook);
+            database = SQLiteDatabase.openDatabase(olderFormatDatabase.getPath(),
+                    ZeteticApplication.DATABASE_PASSWORD, null,
+              SQLiteDatabase.OPEN_READWRITE | SQLiteDatabase.CREATE_IF_NECESSARY, hook);
             if(database != null){
                 database.close();
             }

@@ -7,7 +7,7 @@ import net.zetetic.tests.SQLCipherTest;
 
 public class PragmaCipherVersionTest extends SupportTest {
 
-    private final String CURRENT_CIPHER_VERSION = "4.4.3";
+    private final String CURRENT_CIPHER_VERSION = "4.5.0";
 
     @Override
     public boolean execute(SQLiteDatabase database) {

@@ -4,6 +4,7 @@ import android.database.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
 import net.sqlcipher.database.SQLiteException;
+import net.sqlcipher.database.SQLiteStatement;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;
@@ -27,17 +28,26 @@ public class VerifyUTF8EncodingForKeyTest extends SQLCipherTest {
                     setMessage(String.format("Database should not open with password:%s", invalidPassword));
                     return false;
                 }
-            } catch (SQLiteException ex){}
+            } catch (SQLiteException ex){
+                log(String.format("Error opening database:%s", ex.getMessage()));
+            }
             SQLiteDatabaseHook hook = new SQLiteDatabaseHook() {
-                public void preKey(SQLiteDatabase database) {}
-                public void postKey(SQLiteDatabase database) {
-                    database.rawExecSQL("PRAGMA cipher_migrate;");
+                public void preKey(SQLiteDatabase db) {}
+                public void postKey(SQLiteDatabase db) {
+                    SQLiteStatement statement = db.compileStatement("PRAGMA cipher_migrate;");
+                    long result = statement.simpleQueryForLong();
+                    statement.close();
+                    String message = String.format("cipher_migrate result:%d", result);
+                    setMessage(message);
+                    log(message);
                 }
             };
-            sourceDatabase = SQLiteDatabase.openDatabase(sourceDatabaseFile.getPath(),
-                    password, null, SQLiteDatabase.OPEN_READWRITE, hook);
+            sourceDatabase = SQLiteDatabase.openDatabase(sourceDatabaseFile.getAbsolutePath(),
+                    password, null,
+              SQLiteDatabase.OPEN_READWRITE | SQLiteDatabase.CREATE_IF_NECESSARY, hook);
             return queryContent(sourceDatabase);
         } catch (Exception e) {
+            log(String.format("Error attempting to open database:%s", e.getMessage()));
             return false;
         }
     }
