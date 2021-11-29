@@ -10,6 +10,8 @@ import net.sqlcipher.CursorWindow;
 import net.sqlcipher.CursorWindowAllocation;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
+import net.zetetic.tests.support.TransactionNestedWithListenerTest;
+import net.zetetic.tests.support.TransactionNestedWithListenerTest2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +74,11 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
     tests.add(new SummingStepTest());
 
+    tests.add(new TransactionNonExclusiveTest());
+    tests.add(new TransactionWithListenerTest());
+    tests.add(new TransactionNestedWithListenerTest());
+    tests.add(new TransactionNestedWithListenerTest2());
+
     tests.add(new JsonCastTest());
     tests.add(new SimpleQueryTest());
     tests.add(new DefaultCursorWindowAllocationTest());
@@ -105,8 +112,6 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new WriteAheadLoggingWithTransactionTest());
     tests.add(new WriteAheadLoggingWithInMemoryDatabaseTest());
     tests.add(new WriteAheadLoggingWithAttachedDatabaseTest());
-    tests.add(new TransactionNonExclusiveTest());
-    tests.add(new TransactionWithListenerTest());
     tests.add(new LargeDatabaseCursorAccessTest());
 
     tests.add(new TimeLargeByteArrayQueryTest());
