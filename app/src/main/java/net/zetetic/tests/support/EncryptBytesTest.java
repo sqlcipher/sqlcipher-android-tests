@@ -17,6 +17,7 @@ import net.sqlcipher.database.SupportFactory;
 import net.zetetic.ZeteticApplication;
 import net.zetetic.tests.TestResult;
 
+import java.io.File;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
@@ -103,7 +104,11 @@ public class EncryptBytesTest implements ISupportTest {
     TestResult result = new TestResult(getName(), false);
     byte[] passphrase = SQLiteDatabase.getBytes(ZeteticApplication.DATABASE_PASSWORD.toCharArray());
     SupportFactory factory = new SupportFactory(passphrase, ZeteticApplication.getInstance().wrapHook(null));
-    BlobDatabase room = Room.databaseBuilder(activity, BlobDatabase.class, "test.db")
+    File databaseFile = ZeteticApplication.getInstance().getDatabasePath("test.db");
+    if(databaseFile.exists()) {
+      databaseFile.delete();
+    }
+    BlobDatabase room = Room.databaseBuilder(activity, BlobDatabase.class, databaseFile.getAbsolutePath())
         .openHelperFactory(factory)
         .build();
 

@@ -69,13 +69,10 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
-
     tests.add(new SummingStepTest());
-
     tests.add(new JsonCastTest());
     tests.add(new SimpleQueryTest());
     tests.add(new DefaultCursorWindowAllocationTest());
-
     tests.add(new DeleteTableWithNullWhereArgsTest());
     tests.add(new LoopingInsertTest());
     tests.add(new FIPSTest());
@@ -193,7 +190,6 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
     tests.add(new BindByteArrayRawQueryTest());
     tests.add(new NullRawQueryTest());
     tests.add(new ReadWriteDatabaseToExternalStorageTest());
-
     return tests;
   }
 }

@@ -5,7 +5,7 @@ import net.zetetic.tests.SQLCipherTest;
 
 public class JavaClientLibraryVersionTest extends SupportTest {
 
-  private final String EXPECTED_SQLCIPHER_ANDROID_VERSION = "4.5.0";
+  private final String EXPECTED_SQLCIPHER_ANDROID_VERSION = "4.5.1";
 
   @Override
   public boolean execute(SQLiteDatabase database) {
