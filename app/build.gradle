@@ -32,5 +32,5 @@ dependencies {
 
   // For Room tests:
   implementation "androidx.room:room-runtime:2.4.3"
-  annotationProcessor "androidx.room:room-compiler:2.1.0"
+  annotationProcessor "androidx.room:room-compiler:2.4.3"
 }
