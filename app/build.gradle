@@ -31,6 +31,6 @@ dependencies {
   implementation "androidx.sqlite:sqlite:2.0.1"
 
   // For Room tests:
-  implementation "androidx.room:room-runtime:2.1.0"
+  implementation "androidx.room:room-runtime:2.4.3"
   annotationProcessor "androidx.room:room-compiler:2.1.0"
 }
