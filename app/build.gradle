@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 30
+  compileSdkVersion 33
 
   defaultConfig {
     applicationId "net.zetetic.sqlcipher.test"
     minSdkVersion 16
-    targetSdkVersion 30
+    targetSdkVersion 33
     versionCode 1
     versionName "1.0"
   }
@@ -23,10 +23,10 @@ dependencies {
   // implementation files('libs/sqlcipher.jar')
 
   // For testing local AAR packages:
-  //implementation (name: 'android-database-sqlcipher-4.5.1-release', ext: 'aar')
+  implementation (name: 'android-database-sqlcipher-4.5.3-release', ext: 'aar')
 
   // For testing on remote AAR references:
-  implementation 'net.zetetic:android-database-sqlcipher:4.5.1@aar'
+  //implementation 'net.zetetic:android-database-sqlcipher:4.5.3@aar'
 
   implementation "androidx.sqlite:sqlite:2.0.1"
 
