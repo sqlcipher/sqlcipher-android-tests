@@ -1,15 +1,12 @@
 package net.zetetic.tests.support;
 
 import android.app.Activity;
-import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
-import android.view.WindowManager;
+
 import net.sqlcipher.CursorWindow;
 import net.sqlcipher.CursorWindowAllocation;
-import net.sqlcipher.database.SQLiteDatabase;
 import net.zetetic.ZeteticApplication;
 import net.zetetic.tests.ResultNotifier;
 import net.zetetic.tests.TestResult;
@@ -66,10 +63,11 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
   private List<ISupportTest> getTestsToRun() {
     List<ISupportTest> tests = new ArrayList<>();
 //    tests.add(new SQLiteCompiledSqlExceptionTest(activity));
-    tests.add(new EncryptBytesTest(activity));
+    if(ZeteticApplication.getInstance().includesLicenseCode()){
+      tests.add(new EncryptBytesTest(activity));
+    }
     tests.add(new EncryptedRoomTest(activity));
     tests.add(new DecryptedRoomTest(activity));
-
     tests.add(new LoopingInsertTest());
     tests.add(new FIPSTest());
     tests.add(new PragmaCipherVersionTest());

@@ -7,6 +7,8 @@ import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
 
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
+
 import java.io.*;
 
 public class ZeteticApplication extends Application {
@@ -19,6 +21,7 @@ public class ZeteticApplication extends Application {
   public static final String ONE_X_DATABASE = "1x.db";
   public static final String ONE_X_USER_VERSION_DATABASE = "1x-user-version.db";
   public static final String UNENCRYPTED_DATABASE = "unencrypted.db";
+  public static final String licenseCode = "";
 
   public ZeteticApplication() {
     instance = this;
@@ -55,6 +58,20 @@ public class ZeteticApplication extends Application {
     }
 //        databaseFile.mkdirs();
 //        databaseFile.delete();
+  }
+
+  public boolean includesLicenseCode(){
+    return licenseCode != null && licenseCode.length() > 0;
+  }
+
+  public boolean supportsMinLibraryVersionRequired(String requiredVersionString) {
+    try {
+      DefaultArtifactVersion requiredVersion = new DefaultArtifactVersion(requiredVersionString);
+      DefaultArtifactVersion actualVersion = new DefaultArtifactVersion(SQLiteDatabase.SQLCIPHER_ANDROID_VERSION);
+      return actualVersion.compareTo(requiredVersion) >= 0;
+    } catch (Exception ex){
+      return false;
+    }
   }
 
   public SQLiteDatabase createDatabase(File databaseFile) {
@@ -121,7 +138,7 @@ public class ZeteticApplication extends Application {
   SQLiteDatabaseHook keyHook = new SQLiteDatabaseHook() {
     @Override
     public void preKey(SQLiteDatabase database) {
-      database.rawExecSQL("PRAGMA cipher_license = '';");
+      database.rawExecSQL(String.format("PRAGMA cipher_license = '%s';", licenseCode));
     }
     public void postKey(SQLiteDatabase database) {
     }

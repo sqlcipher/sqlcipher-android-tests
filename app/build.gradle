@@ -33,4 +33,7 @@ dependencies {
   // For Room tests:
   implementation "androidx.room:room-runtime:2.1.0"
   annotationProcessor "androidx.room:room-compiler:2.1.0"
+
+  // For version comparison
+  implementation "org.apache.maven:maven-artifact:3.8.7"
 }
