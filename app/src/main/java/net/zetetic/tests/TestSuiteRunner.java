@@ -68,6 +68,9 @@ public class TestSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Void>
 
   private List<SQLCipherTest> getTestsToRun() {
     List<SQLCipherTest> tests = new ArrayList<>();
+    if(ZeteticApplication.getInstance().supportsMinLibraryVersionRequired("4.5.4")) {
+      tests.add(new ResetQueryCacheFinalizesSqlStatementAndReleasesReferenceTest());
+    }
     if(ZeteticApplication.getInstance().supportsMinLibraryVersionRequired("4.5.4")){
       tests.add(new PreventUpdateWithNullWhereArgsFromThrowingExceptionTest());
     }
