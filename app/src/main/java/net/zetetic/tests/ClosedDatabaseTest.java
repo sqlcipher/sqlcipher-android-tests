@@ -3,7 +3,7 @@ package net.zetetic.tests;
 import android.util.Log;
 import net.sqlcipher.DatabaseErrorHandler;
 import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteException;
+import android.database.sqlite.SQLiteException;
 import net.zetetic.ZeteticApplication;
 
 import java.io.File;

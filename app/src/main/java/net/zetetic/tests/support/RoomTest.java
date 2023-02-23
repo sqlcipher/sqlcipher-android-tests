@@ -26,7 +26,6 @@ import androidx.room.Update;
 
 public class RoomTest implements ISupportTest {
     private static final String DB_NAME = "room.db";
-
     private final Activity activity;
 
     @Entity()

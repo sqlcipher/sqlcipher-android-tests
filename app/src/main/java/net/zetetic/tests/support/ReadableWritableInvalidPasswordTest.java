@@ -2,7 +2,7 @@ package net.zetetic.tests.support;
 
 import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteException;
+import android.database.sqlite.SQLiteException;
 import net.sqlcipher.database.SQLiteOpenHelper;
 import net.sqlcipher.database.SupportFactory;
 import net.zetetic.ZeteticApplication;

@@ -5,7 +5,7 @@ import android.util.Log;
 import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteDatabaseHook;
-import net.sqlcipher.database.SQLiteException;
+import android.database.sqlite.SQLiteException;
 
 import net.zetetic.ZeteticApplication;
 

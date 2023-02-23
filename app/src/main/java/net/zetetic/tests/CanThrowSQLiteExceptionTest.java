@@ -1,7 +1,7 @@
 package net.zetetic.tests;
 
 import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteException;
+import android.database.sqlite.SQLiteException;
 
 public class CanThrowSQLiteExceptionTest extends SQLCipherTest {
 

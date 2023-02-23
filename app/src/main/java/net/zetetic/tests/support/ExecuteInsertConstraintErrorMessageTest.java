@@ -1,7 +1,7 @@
 package net.zetetic.tests.support;
 
 import android.util.Log;
-import net.sqlcipher.database.SQLiteConstraintException;
+import android.database.sqlite.SQLiteConstraintException;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteStatement;
 import net.zetetic.ZeteticApplication;
@@ -20,7 +20,7 @@ public class ExecuteInsertConstraintErrorMessageTest extends SupportTest {
             Log.v(ZeteticApplication.TAG, "EXPECTED RESULT: DID throw SQLiteConstraintException", e);
             String message = e.getMessage();
             setMessage(message);
-            if (!message.matches("error code 19: UNIQUE constraint failed: tt\\.a")) {
+            if (!message.matches("error code 19 \\(extended error code 2067\\): UNIQUE constraint failed: tt\\.a")) {
                 Log.e(ZeteticApplication.TAG, "NOT EXPECTED: INCORRECT exception message: " + message);
                 return false;
             }
