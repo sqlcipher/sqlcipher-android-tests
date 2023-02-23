@@ -63,6 +63,9 @@ public class SupportSuiteRunner extends AsyncTask<ResultNotifier, TestResult, Vo
   private List<ISupportTest> getTestsToRun() {
     List<ISupportTest> tests = new ArrayList<>();
 //    tests.add(new SQLiteCompiledSqlExceptionTest(activity));
+    if(ZeteticApplication.getInstance().supportsMinLibraryVersionRequired("4.5.4")) {
+      tests.add(new RoomUpsertTest(activity));
+    }
     if(ZeteticApplication.getInstance().includesLicenseCode()){
       tests.add(new EncryptBytesTest(activity));
     }
