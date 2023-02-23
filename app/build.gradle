@@ -31,8 +31,9 @@ dependencies {
   implementation "androidx.sqlite:sqlite:2.1.0"
 
   // For Room tests:
-  implementation "androidx.room:room-runtime:2.4.3"
-  annotationProcessor "androidx.room:room-compiler:2.4.3"
+  def room_version = "2.5.0"
+  implementation "androidx.room:room-runtime:$room_version"
+  annotationProcessor "androidx.room:room-compiler:$room_version"
 
   // For version comparison
   implementation "org.apache.maven:maven-artifact:3.8.7"
