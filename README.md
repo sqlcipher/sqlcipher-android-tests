@@ -1,3 +1,8 @@
+### Deprecated
+
+This project exists in support of the `android-database-sqlcipher` project which has been [officially deprecated](https://www.zetetic.net/blog/2023/08/31/sqlcipher-4.5.5-release#sqlcipher-android-455). The long-term replacement is [`sqlcipher-android`](https://github.com/sqlcipher/sqlcipher-android). Instructions for migrating from `android-database-sqlcipher` to `sqlcipher-android`may be found [here](https://www.zetetic.net/sqlcipher/sqlcipher-for-android-migration/).
+
+
 To run: clone this repo and open with a recent version of Android Studio, or [build from the command line](https://developer.android.com/studio/build/building-cmdline).
 
 It is possible to run on an emulator or device, as documented in the [SQLCipher for Android compatibility section](https://github.com/sqlcipher/android-database-sqlcipher#compatibility).
